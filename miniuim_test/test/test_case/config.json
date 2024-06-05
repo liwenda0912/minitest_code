@@ -1,0 +1,12 @@
+{
+    "project_path": "C:/Users/10260/Desktop/小程序源代码/dist/dist/build/mp-weixin",
+    "dev_tool_path": "D:/Program Files (x86)/Tencent/微信web开发者工具/cli.bat",
+    "debug_mode": "warn",
+    "test_port": 9420,
+    "platform": "ide",
+    "app": "wx",
+    "assert_capture": false,
+    "request_timeout":60,
+    "remote_connect_timeout": 300,
+    "auto_relaunch": true
+}

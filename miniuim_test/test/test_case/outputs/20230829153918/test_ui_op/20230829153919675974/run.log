@@ -1,0 +1,27 @@
+[I 2023-08-29 15:39:19,675 minium minitest#370 _miniSetUp] =========Current case: test_ui_op=========
+[I 2023-08-29 15:39:19,675 minium minitest#373 _miniSetUp] package info: C:.Users.10260.PycharmProjects.soft-test-main.miniuim_test.test.test_case.test, case info: ComponentTest.test_ui_op
+[I 2023-08-29 15:39:19,675 minium basenative#25 wrapper] call BaseNative.check_connection
+[I 2023-08-29 15:39:19,675 minium basenative#29 wrapper] call BaseNative.check_connection end
+[I 2023-08-29 15:39:19,675 minium basenative#25 wrapper] call BaseNative.back_to_miniprogram
+[I 2023-08-29 15:39:19,675 minium basenative#595 back_to_miniprogram] try back_to_miniprogram 3
+[I 2023-08-29 15:39:19,675 minium basenative#29 wrapper] call BaseNative.back_to_miniprogram end
+[I 2023-08-29 15:39:19,680 minium app#731 relaunch] ReLaunch: /pages/index/index
+[D 2023-08-29 15:39:19,680 minium.Conn6400 connection#417 _safely_send] ASYNC_SEND > {"id":"37db8be7-ab1f-4d95-a990-0f13e7730b4c","method":"App.callWxMethod","params":{"method":"reLaunch","args":[{"url":"/pages/index/index"}]}}
+[D 2023-08-29 15:39:19,724 minium.Conn6400 connection#653 __on_message] RECV < {"id":"37db8be7-ab1f-4d95-a990-0f13e7730b4c","result":{"result":{"errMsg":"reLaunch:ok"}}}
+[I 2023-08-29 15:39:19,724 minium.Conn6400 connection#697 _handle_async_msg] received async msg: 37db8be7-ab1f-4d95-a990-0f13e7730b4c
+[D 2023-08-29 15:39:20,593 minium.Conn6400 connection#653 __on_message] RECV < {"method":"App.bindingCalled","params":{"name":"onAppRouteDone","args":[{"webviewId":11,"path":"pages/index/index","query":{},"openType":"reLaunch","__ts__":1693294760574},1693294760576]}}
+[I 2023-08-29 15:39:20,593 minium app#960 _on_route_changed] Route changed, {'name': 'onAppRouteDone', 'args': [{'webviewId': 11, 'path': 'pages/index/index', 'query': {}, 'openType': 'reLaunch', '__ts__': 1693294760574}, 1693294760576]}
+[I 2023-08-29 15:39:20,593 minium minitest#717 capture] capture setup.png
+[I 2023-08-29 15:39:20,593 minium basenative#25 wrapper] call IdeNative.screen_shot
+[D 2023-08-29 15:39:20,593 minium.Conn6400 connection#417 _safely_send] SEND > {"id":"3d5ac66c-ec44-44ea-b98c-672eaad43632","method":"App.captureScreenshot","params":{}}
+[D 2023-08-29 15:39:20,861 minium.Conn6400 connection#651 __on_message] RECV < {"id":"3d5ac66c-ec44-44ea-b98c-672eaad43632","result":{"data":"iVBORw0KGgoAAAANSUhEUgAAAZAAAAJ2CAIAAAD+KEOZAAAAAXNSR0IArs4c6QAACB5JREFUeJzt1EENACAQwDDAv+fDAj+ypFWw1/bMLICC8zsA4JVhARmGBWQYFpBhWECGYQEZhgVkGBaQYVhAhmEBGYYFZBgWkGFYQIZhARmGBWQYFpBhWECGYQEZhgVkGBaQYVhAhmEBGYYFZBgWkGFYQIZhARmGBWQYFpBhWECGYQEZhgVkGBaQYVhAhmEBGYYFZBgWkGFYQIZhARmGBWQYFpBhWECGYQEZhgVkGBaQYVhAhmEBGYYFZBgWkGFYQIZhARmGBWQYFpBhWECGYQEZhgVkGBaQYVhAhmEBGYYFZBgWkGFYQIZhARmGBWQYFpBhWECGYQEZhgVkGBaQYVhAhmEBGYYFZBgWkGFYQIZhARmGBWQYFpBhWECGYQ...
+[I 2023-08-29 15:39:20,861 minium basenative#29 wrapper] call IdeNative.screen_shot end
+[I 2023-08-29 15:39:20,863 minium minitest#424 _miniSetUp] =========case: test_ui_op start=========
+[D 2023-08-29 15:39:20,863 minium minitest#620 _miniTearDown] =========Current case Down: test_ui_op=========
+[I 2023-08-29 15:39:20,863 minium minitest#717 capture] capture teardown.png
+[I 2023-08-29 15:39:20,863 minium basenative#25 wrapper] call IdeNative.screen_shot
+[D 2023-08-29 15:39:20,863 minium.Conn6400 connection#417 _safely_send] SEND > {"id":"4e0f4fc8-558f-45a0-8229-947c6adf8aae","method":"App.captureScreenshot","params":{}}
+[D 2023-08-29 15:39:20,985 minium.Conn6400 connection#651 __on_message] RECV < {"id":"4e0f4fc8-558f-45a0-8229-947c6adf8aae","result":{"data":"iVBORw0KGgoAAAANSUhEUgAAAZAAAAJ2CAIAAAD+KEOZAAAAAXNSR0IArs4c6QAACB5JREFUeJzt1EENACAQwDDAv+fDAj+ypFWw1/bMLICC8zsA4JVhARmGBWQYFpBhWECGYQEZhgVkGBaQYVhAhmEBGYYFZBgWkGFYQIZhARmGBWQYFpBhWECGYQEZhgVkGBaQYVhAhmEBGYYFZBgWkGFYQIZhARmGBWQYFpBhWECGYQEZhgVkGBaQYVhAhmEBGYYFZBgWkGFYQIZhARmGBWQYFpBhWECGYQEZhgVkGBaQYVhAhmEBGYYFZBgWkGFYQIZhARmGBWQYFpBhWECGYQEZhgVkGBaQYVhAhmEBGYYFZBgWkGFYQIZhARmGBWQYFpBhWECGYQEZhgVkGBaQYVhAhmEBGYYFZBgWkGFYQIZhARmGBWQYFpBhWECGYQ...
+[I 2023-08-29 15:39:20,993 minium basenative#29 wrapper] call IdeNative.screen_shot end
+[I 2023-08-29 15:39:20,993 minium basenative#25 wrapper] call BaseNative.get_start_up
+[I 2023-08-29 15:39:20,993 minium basenative#29 wrapper] call BaseNative.get_start_up end

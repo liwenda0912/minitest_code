@@ -1,0 +1,776 @@
+Index: .idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/vcs.xml b/.idea/vcs.xml
+--- a/.idea/vcs.xml	
++++ b/.idea/vcs.xml	
+@@ -1,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="VcsDirectoryMappings">
++    <mapping directory="$PROJECT_DIR$" vcs="Git" />
++  </component>
++</project>
+\ No newline at end of file
+Index: appnium/mini_Selenium_Program/test_case/Charge_user_login.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/appnium/mini_Selenium_Program/test_case/Charge_user_login.py b/appnium/mini_Selenium_Program/test_case/Charge_user_login.py
+--- a/appnium/mini_Selenium_Program/test_case/Charge_user_login.py	
++++ b/appnium/mini_Selenium_Program/test_case/Charge_user_login.py	
+@@ -6,13 +6,22 @@
+ from appium.webdriver.common.appiumby import AppiumBy
+ 
+ 
+-class Charge_user_login(unittest.TestCase):
+-    def setUp(self) -> None:
++class Charge_user_login(object):
++    # # def setUp(self) -> None:
++    #     Simulator_Start()
++    #     AppiumApp_start()
++    #     self.appnium = Init().Appnium
++    #     self.driver = Driver(self.appnium)
++    #     self.wait = Waiting(self.appnium)
++    #     print("name")
++    #     openMini(self.appnium).test_startMiniApp()
++
++    def __init__(self, appnium):
+         # Simulator_Start()
+         # AppiumApp_start()
+         Simulator_Start()
+         AppiumApp_start()
+-        self.appnium = Init().Appnium
++        self.appnium = appnium
+         self.driver = Driver(self.appnium)
+         self.wait = Waiting(self.appnium)
+         openMini(self.appnium).test_startMiniApp()
+@@ -21,57 +30,64 @@
+         # self.wait = Waiting(self.appnium)
+ 
+     def test_chargeUserLogin(self):
+-
+-        # try:
+-        if cmdProcess(r'K\r\nAppium.exe') == '服务已经启动' and cmdProcess(r'K\r\nMuMuPlayer.exe') == '服务已经启动':
+-            # 遍历上下文，找到小程序上下文
+-            self.appnium.wait_activity("WEBVIEW_com.tencent.mm:appbrand0", 50, 1)
+-            contexts_list = self.appnium.contexts
+-            size = self.appnium.get_window_size()
+-            for context in contexts_list:
+-                if "WEBVIEW_com.tencent.mm:appbrand0" == context:
+-                    # 切换到小程序上下文
+-                    print("即将切换到webview名为" + context + "的界面！")
+-                    self.appnium.switch_to.context(context)
+-                    # 存在两个界面，一个是小程序界面，一个是开发者调试器界面
+-                    # 切换页面为1
+-                    time.sleep(5)
+-                    # 在首页查找登录字段（定点查找）
+-                    login_text = self.appnium.find_elements(AppiumBy.XPATH,
+-                                                            '//*[@class="_span benefits--_span data-v-f7b9a482 benefits--data-v-f7b9a482 login-css benefits--login-css"]')
+-                    if login_text is not None and len(login_text) != 0:
+-                        print(self.appnium.page_source)
+-                        self.wait.WaitElement(2, (AppiumBy.XPATH,
+-                                                  '//*[@class="_span benefits--_span data-v-f7b9a482 benefits--data-v-f7b9a482 login-css benefits--login-css"]'),
+-                                              "元素找不到")
+-                        # 返回app进行屏幕点击确定授权登录二次确定
+-                        self.appnium.switch_to.context(contexts_list[0])
+-                        self.driver.actionPress([541, 1059], [1020, 1227],
+-                                                window_size=[size["width"], size["height"]])
+-                        # 返回小程序界面进行页面操作
+-                        self.appnium.switch_to.context(contexts_list[1])
+-                        # 切换页面为1
+-                        self.driver.Appnium_Switch_Window()
+-                        # 点击授权手机登录
+-                        self.wait.WaitElement(2, (AppiumBy.XPATH,
+-                                                  '//*[@class="default default round round auth auth data-v-7b22143c data-v-7b22143c"]'),
+-                                              "元素不存在！")
+-                        # 切换回登录后的首页界面
+-                        self.driver.Appnium_Switch_Window()
+-                        break
+-                    # else:
+-                    #     self.appnium.switch_to.context(contexts_list[0])
+-                    #     self.driver.actionPress([864, 1815], [1080, 1899], window_size=[size["width"], size["height"]])
+-                    #     self.appnium.switch_to.context(contexts_list[1])
+-                    #     self.driver.Appnium_Switch_Window(win[1])
+-                    #     break
+-                    print("____this part done_____")
+-                    return "____this part done_____"
+-        else:
+-            print("--------------------小程序所需服务未启动,无法驱动小程序！----------------------")
+-
+-    # except Exception as e:
+-    #     print(e)
+-
+-    def tearDown(self) -> None:
+-        self.appnium.quit()
++        try:
++            if cmdProcess(r'K\r\nAppium.exe') == '服务已经启动' and cmdProcess(r'K\r\nMuMuPlayer.exe') == '服务已经启动':
++                # 遍历上下文，找到小程序上下文
++                self.appnium.wait_activity("WEBVIEW_com.tencent.mm:appbrand0", 50, 1)
++                contexts_list = self.appnium.contexts
++                size = self.appnium.get_window_size()
++                for context in contexts_list:
++                    if "WEBVIEW_com.tencent.mm:appbrand0" == context:
++                        # 切换到小程序上下文
++                        print("即将切换到webview名为" + context + "的界面！")
++                        self.appnium.switch_to.context(contexts_list[1])
++                        if "您当前已到达：" in self.appnium.page_source:
++
++                            self.driver.Appnium_click(AppiumBy.XPATH,
++                                                      '//*[@class= "right-span popup--right-span _span popup--_span data-v-839ea2b6 popup--data-v-839ea2b6"]')
++                            self.search(contexts_list, size)
++                        else:
++                            self.search(contexts_list, size)
++            else:
++                print("--------------------小程序所需服务未启动,无法驱动小程序！----------------------")
++        except EOFError:
++            pass
++
++    #
++    # def tearDown(self) -> None:
++    #     self.appnium.quit()
++
++    def search(self, contexts_list, size):
++        # 存在两个界面，一个是小程序界面，一个是开发者调试器界面
++        # 切换页面为1
++        time.sleep(5)
++        # 在首页查找登录字段（定点查找）
++        login_text = self.appnium.find_elements(AppiumBy.XPATH,
++                                                '//*[@class="_span benefits--_span data-v-f7b9a482 benefits--data-v-f7b9a482 login-css benefits--login-css"]')
++        if login_text is not None and len(login_text) != 0:
++            self.wait.WaitElement(2, (AppiumBy.XPATH,
++                                      '//*[@class="_span benefits--_span data-v-f7b9a482 benefits--data-v-f7b9a482 login-css benefits--login-css"]'),
++                                  "元素找不到")
++            # 返回app进行屏幕点击确定授权登录二次确定
++            self.appnium.switch_to.context(contexts_list[0])
++            self.driver.actionPress([541, 1059], [1020, 1227],
++                                    window_size=[size["width"], size["height"]])
++            # 返回小程序界面进行页面操作
++            self.appnium.switch_to.context(contexts_list[1])
++            # 切换页面为1
++            self.driver.Appnium_Switch_Window(1)
++            # 点击授权手机登录
++            self.wait.WaitElement(2, (AppiumBy.XPATH,
++                                      '//*[contains(@class,"default default round round auth auth")]'),
++                                  "元素不存在！")
++            # 切换回登录后的首页界面
++            self.driver.Appnium_Switch_Window(1)
++
++        # else:
++        #     self.appnium.switch_to.context(contexts_list[0])
++        #     self.driver.actionPress([864, 1815], [1080, 1899], window_size=[size["width"], size["height"]])
++        #     self.appnium.switch_to.context(contexts_list[1])
++        #     self.driver.Appnium_Switch_Window(win[1])
++        #     break
++        print("____this part done_____")
++        return "____this part done_____"
+Index: appnium/mini_Selenium_Program/Public/conf/StartAppiumConf.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/appnium/mini_Selenium_Program/Public/conf/StartAppiumConf.py b/appnium/mini_Selenium_Program/Public/conf/StartAppiumConf.py
+--- a/appnium/mini_Selenium_Program/Public/conf/StartAppiumConf.py	
++++ b/appnium/mini_Selenium_Program/Public/conf/StartAppiumConf.py	
+@@ -13,13 +13,16 @@
+         'setCompressedLayoutHierarchy': True,
+         'noReset': True,
+         "enableMultiWindows": True,
+-        "newCommandTimeout": 180,
++        'newCommandTimeout': "10000",
+         'appPackage': 'com.tencent.mm',
+         # 'autoGrantPermissions': True,
+-        'setWebContentsDebuggingEnabled':True,
++        'setWebContentsDebuggingEnabled': True,
+         'appActivity': '.ui.LauncherUI',
+         'recreateChromeDriverSessions': True,
+-        'automationName': "UiAutomator2"
++        'automationName': "UiAutomator2",
++        'unicodeKeyboard': True,
++        'resetKeyboard': True
++
+     }
+     option = UiAutomator2Options().load_capabilities(desired_caps)
+     # option = AppiumOptions()
+Index: appnium/mini_Selenium_Program/test_case/LoginTestCase.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/appnium/mini_Selenium_Program/test_case/LoginTestCase.py b/appnium/mini_Selenium_Program/test_case/LoginTestCase.py
+--- a/appnium/mini_Selenium_Program/test_case/LoginTestCase.py	
++++ b/appnium/mini_Selenium_Program/test_case/LoginTestCase.py	
+@@ -8,30 +8,30 @@
+ # # from appnium.mini_Selenium_Program.Public.Utils.Simulator_Start import AppiumApp_start, Simulator_Start ,ConnectSimulator
+ # # from goto import with_goto
+ # #
+-# # import subprocess
++import subprocess
+ # #
+-# if __name__ == "__main__":
+-#     dominate = [1, 2]
+-#     print(dominate[0])
+-# #     # # 使用tasklist命令获取系统进程信息
+-# #     # cmd = "adb devices"
+-# #     # n = "adb connect 127.0.0.1:7555"
+-# #     # output = subprocess.check_output(cmd, shell=True)
+-# #     #
+-# #     # # 将命令输出转换为字符
+-# #     # output_str = str(output)
+-# #     # lines = output_str.strip().split(" ")
+-# #     # # 分割字符串获取每一行
+-# #     # # 查找指定进程名称的状态
+-# #     # for line in lines:
+-# #     #     if r"127.0.0.1:7555\tdevice" not in line:
+-# #     #         output = subprocess.check_output(n, shell=True)
+-# #     #         print(line)
+-# #     #     # line_name = line.split(r"\r\n")
+-# #     #     # for i in line_name:
+-# #     #     #     if i == r"127.0.0.1:7555\tdevice":
+-# #     #     #         print(i)
+-# #     #     #         break
++if __name__ == "__main__":
++    dominate = [1, 2]
++    print(dominate[0])
++    # 使用tasklist命令获取系统进程信息
++    cmd = "adb devices"
++    n = "adb connect 127.0.0.1:7555"
++    output = subprocess.check_output(cmd, shell=True)
++
++    # 将命令输出转换为字符
++    output_str = str(output)
++    lines = output_str.strip().split(" ")
++    # 分割字符串获取每一行
++    # 查找指定进程名称的状态
++    for line in lines:
++        if r"127.0.0.1:7555\tdevice" not in line:
++            output = subprocess.check_output(n, shell=True)
++            print(line)
++        # line_name = line.split(r"\r\n")
++        # for i in line_name:
++        #     if i == r"127.0.0.1:7555\tdevice":
++        #         print(i)
++        #         break
+ # #     #
+ # #     #         # 进程状态位于行的最后一列
+ # #     #         # subprocess.run(['taskkill', '/IM', 'MuMuPlayer.exe'], check=True)
+@@ -41,6 +41,8 @@
+ # #
+ import unittest
+ from ddt import ddt, data
++
++from appnium.mini_Selenium_Program.Public.Utils.key_code import ke_code
+ from appnium.mini_Selenium_Program.test_case.Charge_user_login import Charge_user_login
+ from appnium.mini_Selenium_Program.test_case.chargeStart import chargeStart
+ 
+@@ -55,47 +57,52 @@
+     {'title': '用户名和密码不能为空', 'expected': {'code': 201, 'msg': '用户名和密码不能为空'}, 'data': ('', '')},
+ ]
+ 
+-
+-# 数据驱动测试用例
+-@ddt
+-class LoginTestCase(unittest.TestCase):
+-    @classmethod
+-    def setUpClass(cls) -> None:
+-        print('开始')
+-
+-    def setUp(self) -> None:
+-        print('开始执行用例')
+-
+-    @data(*cases)
+-    def test_login(self, case):
+-        print(case)
+-        self.assertEqual(case['expected'], self.login(case['data'][0], case['data'][1]))
+-
+-    def login(self, username, password):
+-        print(username,password)
+-        if username == 'kobe' and password == '666':
+-            return {'code': 200, 'msg': '登录成功'}
+-
+-        if username == 'kobe' and username != '' and password != '666' and password != '':
+-            return {'code': 201, 'msg': '用户名或者密码不正确'}
+-
+-        if username == 'kobe' and password == '':
+-            return {'code': 201, 'msg': '密码不能为空'}
+-
+-        if username == '' and password == '666':
+-            return {'code': 201, 'msg': '用户名不能为空'}
+-
+-        if username == '' and password == '':
+-            return {'code': 201, 'msg': '用户名和密码不能为空'}
+-
+-    def tearDown(self) -> None:
+-            print('用例执行完毕')
+-
+-    @classmethod
+-    def tearDownClass(cls) -> None:
+-            print('结束')
++#
++# # 数据驱动测试用例
++# @ddt
++# class LoginTestCase(unittest.TestCase):
++#     @classmethod
++#     def setUpClass(cls) -> None:
++#         print('开始')
++#
++#     def setUp(self) -> None:
++#         print('开始执行用例')
++#
++#     @data(*cases)
++#     def test_login(self, case):
++#         print(case)
++#         self.assertEqual(case['expected'], self.login(case['data'][0], case['data'][1]))
++#
++#     def login(self, username, password):
++#         print(username,password)
++#         if username == 'kobe' and password == '666':
++#             return {'code': 200, 'msg': '登录成功'}
++#
++#         if username == 'kobe' and username != '' and password != '666' and password != '':
++#             return {'code': 201, 'msg': '用户名或者密码不正确'}
++#
++#         if username == 'kobe' and password == '':
++#             return {'code': 201, 'msg': '密码不能为空'}
++#
++#         if username == '' and password == '666':
++#             return {'code': 201, 'msg': '用户名不能为空'}
++#
++#         if username == '' and password == '':
++#             return {'code': 201, 'msg': '用户名和密码不能为空'}
++#
++#     def tearDown(self) -> None:
++#             print('用例执行完毕')
++#
++#     @classmethod
++#     def tearDownClass(cls) -> None:
++#             print('结束')
+ 
+ 
+ if __name__ == '__main__':
+-    Charge_user_login()
+-    chargeStart()
++    # Charge_user_login()
++    # chargeStart()
++    key = ke_code.get_keys()
++    for i in "2.0":
++        d = key.get(i)
++        print(d)
++
+Index: appnium/mini_Selenium_Program/Public/MiniOpen.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/appnium/mini_Selenium_Program/Public/MiniOpen.py b/appnium/mini_Selenium_Program/Public/MiniOpen.py
+--- a/appnium/mini_Selenium_Program/Public/MiniOpen.py	
++++ b/appnium/mini_Selenium_Program/Public/MiniOpen.py	
+@@ -31,7 +31,7 @@
+                     # 1是点击事件，2是点击事件，3是获取text元素
+                     self.wait.WaitElement(2, (AppiumBy.XPATH, '//*[@text="请填写微信密码"]'), "无法找到该元素")
+                     wx_passwd = str(input("请" + wx_username_new + "的输入wx密码："))
+-                    self.driver.Appnium_SendKey((AppiumBy.XPATH, '//*[@text="请填写微信密码"]'), "无法找到该元素", wx_passwd)
++                    self.driver.Appnium_SendKey((AppiumBy.XPATH, '//*[@text="请填写微信密码"]'), "无法找到该元素", "da123456")
+                     time.sleep(2)
+                     self.driver.Appnium_click(AppiumBy.XPATH, '//*[@text="登录"]')
+                     time.sleep(5)
+Index: appnium/mini_Selenium_Program/Public/Utils/uilts.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/appnium/mini_Selenium_Program/Public/Utils/uilts.py b/appnium/mini_Selenium_Program/Public/Utils/uilts.py
+--- a/appnium/mini_Selenium_Program/Public/Utils/uilts.py	
++++ b/appnium/mini_Selenium_Program/Public/Utils/uilts.py	
+@@ -116,9 +116,16 @@
+         self.Appnium.switch_to.frame(loc)
+ 
+     # 切换多个页面
+-    def Appnium_Switch_Window(self):
++    def Appnium_Switch_Window(self, num):
+         wins = self.Appnium.window_handles
+-        self.Appnium.switch_to.window(wins[1])
++        if num == 1:
++            self.Appnium.switch_to.window(wins[1])
++        elif num == 0:
++            self.Appnium.switch_to.window(wins[0])
++        elif num == 2:
++            self.Appnium.switch_to.window(wins[2])
++        else:
++            self.Appnium.switch_to.window(wins[-1])
+ 
+     # 切换到h5的小程序界面
+     def Appnium_Switch_Context(self, loc):
+Index: appnium/mini_Selenium_Program/test_case/chargeStart.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/appnium/mini_Selenium_Program/test_case/chargeStart.py b/appnium/mini_Selenium_Program/test_case/chargeStart.py
+--- a/appnium/mini_Selenium_Program/test_case/chargeStart.py	
++++ b/appnium/mini_Selenium_Program/test_case/chargeStart.py	
+@@ -1,12 +1,18 @@
+ # <---定点进入对应充电站--->
++import pyautogui
++import os
+ import time
+ from ddt import ddt, data
+ import unittest
++
++from selenium.webdriver import ActionChains
++from selenium.webdriver.common.keys import Keys
+ from appnium.mini_Selenium_Program.Public.MiniOpen import openMini
+ from appnium.mini_Selenium_Program.Public.Utils.uilts import Driver, Waiting, Init
+ from appium.webdriver.common.appiumby import AppiumBy
+ from appnium.mini_Selenium_Program.Public.MiniOpen import openMini
+ from appnium.mini_Selenium_Program.test_case.Charge_user_login import Charge_user_login
++from appnium.mini_Selenium_Program.Public.Utils.key_code import ke_code
+ 
+ 
+ class chargeStart(unittest.TestCase):
+@@ -14,29 +20,71 @@
+         self.appnium = Init().Appnium
+         self.driver = Driver(self.appnium)
+         self.wait = Waiting(self.appnium)
++        self.action = ActionChains(self.appnium)
+         self.text = Charge_user_login(self.appnium).test_chargeUserLogin()
++        self.contexts_list = self.appnium.contexts
+ 
+     def test_chargeStation(self):
+-        # while True:
+-        #     if self.text == "____this part done_____":
+-        #         break
+-        login_text = self.appnium.find_elements(AppiumBy.XPATH,
+-                                                '//*[@class="_span benefits--_span data-v-f7b9a482 benefits--data-v-f7b9a482 login-css benefits--login-css"]')
++        searchStation(self.appnium, self.wait, self.action, self.contexts_list, self.driver)
++
++    def tearDown(self) -> None:
++        self.appnium.quit()
++
++
++def searchStation(*loc):
++    appnium = loc[0]
++    wait = loc[1]
++    action = loc[2]
++    contexts_list = loc[3]
++    driver = loc[4]
++    try:
++        login_text = appnium.find_elements(AppiumBy.XPATH,
++                                           '//*[@class="_span benefits--_span data-v-f7b9a482 benefits--data-v-f7b9a482 login-css benefits--login-css"]')
+         if login_text is not None and len(login_text) != 0:
+-            Charge_user_login(self.appnium).test_chargeUserLogin()
++            Charge_user_login(appnium).test_chargeUserLogin()
+         else:
+             print("运行到这里")
+-            self.driver.Appnium_click(AppiumBy.XPATH,
+-                                      '//*[@class="input-content list--input-content data-v-14485e7f list--data-v-14485e7f"]')
+-            win = self.appnium.window_handles
+-            self.appnium.switch_to.window(win[0])
+-            time.sleep(10)
+-            print(self.appnium.page_source)
+-            self.wait.Appnium_wait_ac("uni-input uni-input", 50, 1)
+-            self.appnium.find_element(AppiumBy.XPATH, '//*[@class="uni-input uni-input"]').send_keys(u"2.0")
++
++            wait.WaitElement(2, (AppiumBy.XPATH,
++                                 '//*[contains(@class,"input-placeholder list--input-placeholder")]'),
++                             "该元素不存在页面中")
++            win = appnium.window_handles
++            appnium.switch_to.window(win[0])
++            time.sleep(2)
++            el = appnium.find_element(AppiumBy.XPATH, '//*[@class="uni-input uni-input"]')
++            os.system("adb shell ime list -s")
++            os.system("adb shell settings put secure default_input_method com.sohu.inputmethod.sogou/.SogouIME")
++            action.click(el).perform()
++            os.system("adb shell input text  2.0")
++            # 切回app界面点击回车键
++            appnium.switch_to.context(contexts_list[0])
++            size = appnium.get_window_size()
++            driver.actionPress([1000, 1732], [1062, 1920], window_size=[size["width"], size["height"]])
++            appnium.switch_to.context(contexts_list[1])
++            # 回到小程序页面点击搜索的站点
++            driver.Appnium_Switch_Window(1)
++
++            wait.WaitElement(2, (
++                AppiumBy.XPATH,
++                '//*[contains(@class,"station-name four--station-name")]'),
++                             "元素不存在该页面67")
++            time.sleep(5)
++            driver.Appnium_Switch_Window(0)
++            time.sleep(4)
++            for i in appnium.find_elements(
++                    AppiumBy.XPATH,
++                    '//*[contains(@class,"device-info-detail device-info-detail")]'):
++                print(i.text)
++                pileNum = "240020210730200101"
++                if pileNum in i.text:
++                    start_location = driver.Find_element(AppiumBy.XPATH, '//*[contains(@class,"station-title station-title")]')
++                    driver.Appnium_Scroll(start_location, i)
++                    i.click()
++                    time.sleep(10)
+ 
+-            # self.wait.WaitElement(1, (AppiumBy.TAG_NAME, '//*[@class="uni-input"]'), "找不到该元素", "2.0协议站")
+-            # self.wait.WaitElement(1, (AppiumBy.XPATH, '//*[@class="uni-input uni-input"]'), "找不到该元素", "2.0协议站")
++            print(appnium.page_source)
++            # for i in :
++            #     print(i.text+"5555")
+ 
+-    def tearDown(self) -> None:
++    except EOFError:
+         pass
+Index: appnium/mini_Selenium_Program/Public/Utils/key_code.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/appnium/mini_Selenium_Program/Public/Utils/key_code.py b/appnium/mini_Selenium_Program/Public/Utils/key_code.py
+--- a/appnium/mini_Selenium_Program/Public/Utils/key_code.py	
++++ b/appnium/mini_Selenium_Program/Public/Utils/key_code.py	
+@@ -1,0 +1,245 @@
++# 使用driver.press_keycode(number)
++#
++# 其中number为数字，代表不同按键，具体如下：
++#
++# keycode
++# 4：返回键(Back
++# key)
++#
++# keycode
++# 5：电话键(Call
++# key)
++#
++# keycode
++# 6：结束通话键(End
++# Call
++# key)
++#
++# keycode
++# 7 - 16：依次为数字0 - 9
++#
++# keycode
++# 17： *
++#
++# keycode
++# 18：  #
++#
++# keycode
++# 19 - 23：上、下、左、右、中间
++#
++# keycode
++# 24 - 25：音量上、下
++#
++# keycode
++# 26：电源键(Power
++# key)
++#
++# keycode
++# 27：相机键(Camera
++# key)
++#
++# keycode
++# 28：清除键(Clear
++# key)
++#
++# keycode
++# 29 - 54：字母A - Z
++#
++# keycode
++# 55：,
++#
++# keycode
++# 56：.
++#
++# keycode
++# 61：Tab键(Tab
++# key)
++#
++# keycode
++# 62：空格键(Space
++# key)
++#
++# keycode
++# 66：回车键(Enter
++# key)
++#
++# keycode
++# 67：退格键(Backspace
++# key)
++#
++# keycode
++# 68：`
++#
++# keycode
++# 69：-
++#
++# keycode
++# 70：=
++#
++# keycode
++# 71：[
++#
++# keycode 72：]
++#
++# keycode
++# 73： \
++#  \
++#     keycode
++# 74：;
++#
++# keycode
++# 75：'
++#
++# keycode
++# 76： /
++#
++# keycode
++# 77：
++#
++# @
++#
++#
++# keycode
++# 81：+
++#
++# keycode
++# 82：菜单键(Menu
++# key)
++#
++# keycode
++# 84：搜索键(Search
++# key)
++#
++# keycode
++# 164：静音键(Volume
++# Mute
++# key)
++#
++#
++#
++# keycode
++# 7 - 16：依次为数字0 - 9，所以使用时可以自定义一个字典，譬如这里需要输入的是手机号, 定义一个num字典，其中key为数字，value为对应的按键
++
++class ke_code:
++    @staticmethod
++    def get_keys():
++        key = {'0': 7, '1': 8, '2': 9, '3': 10, '4': 11, '5': 12, '6': 13, '7': 14, '8': 15, '9': 16,
++               'A': 29, 'B': 30, 'C': 31, 'D': 32, 'E': 33, 'F': 34, 'G': 35, 'H': 36, 'I': 37, 'J': 38,
++               'K': 39, 'L': 40, 'M': 41, 'N': 42, 'O': 43, 'P': 44, 'Q': 45, 'R': 46, 'S': 47, 'T': 48,
++               'U': 49, 'V': 50, 'W': 51, 'X': 52, 'Y': 53, 'Z': 54,
++               'a': 29, 'b': 30, 'c': 31, 'd': 32, 'e': 33, 'f': 34, 'g': 35, 'h': 36, 'i': 37, 'j': 38,
++               'k': 39, 'l': 40, 'm': 41, 'n': 42, 'o': 43, 'p': 44, 'q': 45, 'r': 46, 's': 47, 't': 48,
++               'u': 49, 'v': 50, 'w': 51, 'x': 52, 'y': 53, 'z': 54,
++               'META_ALT_LEFT_ON': 16,
++               'META_ALT_MASK': 50,
++               'META_ALT_ON': 2,
++               'META_ALT_RIGHT_ON': 32,
++               'META_CAPS_LOCK_ON': 1048576,
++               'META_CTRL_LEFT_ON': 8192,
++               'META_CTRL_MASK': 28672,
++               'META_CTRL_ON': 4096,
++               'META_CTRL_RIGHT_ON': 16384,
++               'META_FUNCTION_ON': 8,
++               'META_META_LEFT_ON': 131072,
++               'META_META_MASK': 458752,
++               'META_META_ON': 65536,
++               'META_META_RIGHT_ON': 262144,
++               'META_NUM_LOCK_ON': 2097152,
++               'META_SCROLL_LOCK_ON': 4194304,
++               'META_SHIFT_LEFT_ON': 64,
++               'META_SHIFT_MASK': 193,
++               'META_SHIFT_ON': 1,
++               'META_SHIFT_RIGHT_ON': 128,
++               'META_SYM_ON': 4,
++               'KEYCODE_APOSTROPHE': 75,
++               'KEYCODE_AT': 77,
++               'KEYCODE_BACKSLASH': 73,
++               'KEYCODE_COMMA': 55,
++               'KEYCODE_EQUALS': 70,
++               'KEYCODE_GRAVE': 68,
++               'KEYCODE_LEFT_BRACKET': 71,
++               'KEYCODE_MINUS': 69,
++               'KEYCODE_PERIOD': 56,
++               'KEYCODE_PLUS': 81,
++               'KEYCODE_POUND': 18,
++               'KEYCODE_RIGHT_BRACKET': 72,
++               'KEYCODE_SEMICOLON': 74,
++               'KEYCODE_SLASH': 76,
++               'KEYCODE_STAR': 17,
++               'KEYCODE_SPACE': 62,
++               'KEYCODE_TAB': 61,
++               'KEYCODE_ENTER': 66,
++               'KEYCODE_ESCAPE': 111,
++               'KEYCODE_CAPS_LOCK': 115,
++               'KEYCODE_CLEAR': 28,
++               'KEYCODE_PAGE_DOWN': 93,
++               'KEYCODE_PAGE_UP': 92,
++               'KEYCODE_SCROLL_LOCK': 116,
++               'KEYCODE_MOVE_END': 123,
++               'KEYCODE_MOVE_HOME': 122,
++               'KEYCODE_INSERT': 124,
++               'KEYCODE_SHIFT_LEFT': 59,
++               'KEYCODE_SHIFT_RIGHT': 60,
++               'KEYCODE_F1': 131,
++               'KEYCODE_F2': 132,
++               'KEYCODE_F3': 133,
++               'KEYCODE_F4': 134,
++               'KEYCODE_F5': 135,
++               'KEYCODE_F6': 136,
++               'KEYCODE_F7': 137,
++               'KEYCODE_F8': 138,
++               'KEYCODE_F9': 139,
++               'KEYCODE_F10': 140,
++               'KEYCODE_F11': 141,
++               'KEYCODE_F12': 142,
++               'KEYCODE_BACK': 4,
++               'KEYCODE_CALL': 5,
++               'KEYCODE_ENDCALL': 6,
++               'KEYCODE_CAMERA': 27,
++               'KEYCODE_FOCUS': 80,
++               'KEYCODE_VOLUME_UP': 24,
++               'KEYCODE_VOLUME_DOWN': 25,
++               'KEYCODE_VOLUME_MUTE': 164,
++               'KEYCODE_MENU': 82,
++               'KEYCODE_HOME': 3,
++               'KEYCODE_POWER': 26,
++               'KEYCODE_SEARCH': 84,
++               'KEYCODE_NOTIFICATION': 83,
++               'KEYCODE_NUM': 78,
++               'KEYCODE_SYM': 63,
++               'KEYCODE_SETTINGS': 176,
++               'KEYCODE_DEL': 67,
++               'KEYCODE_FORWARD_DEL': 112,
++               'KEYCODE_NUMPAD_0': 144,
++               'KEYCODE_NUMPAD_1': 145,
++               'KEYCODE_NUMPAD_2': 146,
++               'KEYCODE_NUMPAD_3': 147,
++               'KEYCODE_NUMPAD_4': 148,
++               'KEYCODE_NUMPAD_5': 149,
++               'KEYCODE_NUMPAD_6': 150,
++               'KEYCODE_NUMPAD_7': 151,
++               'KEYCODE_NUMPAD_8': 152,
++               'KEYCODE_NUMPAD_9': 153,
++               'KEYCODE_NUMPAD_ADD': 157,
++               'KEYCODE_NUMPAD_COMMA': 159,
++               'KEYCODE_NUMPAD_DIVIDE': 154,
++               'KEYCODE_NUMPAD_DOT': 158,
++               'KEYCODE_NUMPAD_EQUALS': 161,
++               'KEYCODE_NUMPAD_LEFT_PAREN': 162,
++               'KEYCODE_NUMPAD_MULTIPLY': 155,
++               'KEYCODE_NUMPAD_RIGHT_PAREN': 163,
++               'KEYCODE_NUMPAD_SUBTRACT': 156,
++               'KEYCODE_NUMPAD_ENTER': 160,
++               'KEYCODE_NUM_LOCK': 143,
++               'KEYCODE_MEDIA_FAST_FORWARD': 90,
++               'KEYCODE_MEDIA_NEXT': 87,
++               'KEYCODE_MEDIA_PAUSE': 127,
++               'KEYCODE_MEDIA_PLAY': 126,
++               'KEYCODE_MEDIA_PLAY_PAUSE': 85,
++               'KEYCODE_MEDIA_PREVIOUS': 88,
++               'KEYCODE_MEDIA_RECORD': 130,
++               'KEYCODE_MEDIA_REWIND': 89,
++               'KEYCODE_MEDIA_STOP': 86,
++               '.': 56
++               }
++        return key

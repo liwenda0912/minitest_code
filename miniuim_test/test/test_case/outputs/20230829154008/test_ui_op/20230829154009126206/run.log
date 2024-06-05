@@ -1,0 +1,57 @@
+[I 2023-08-29 15:40:09,126 minium minitest#370 _miniSetUp] =========Current case: test_ui_op=========
+[I 2023-08-29 15:40:09,126 minium minitest#373 _miniSetUp] package info: C:.Users.10260.PycharmProjects.soft-test-main.miniuim_test.test.test_case.test, case info: ComponentTest.test_ui_op
+[I 2023-08-29 15:40:09,126 minium basenative#25 wrapper] call BaseNative.check_connection
+[I 2023-08-29 15:40:09,126 minium basenative#29 wrapper] call BaseNative.check_connection end
+[I 2023-08-29 15:40:09,126 minium basenative#25 wrapper] call BaseNative.back_to_miniprogram
+[I 2023-08-29 15:40:09,126 minium basenative#595 back_to_miniprogram] try back_to_miniprogram 3
+[I 2023-08-29 15:40:09,126 minium basenative#29 wrapper] call BaseNative.back_to_miniprogram end
+[I 2023-08-29 15:40:09,135 minium app#731 relaunch] ReLaunch: /pages/index/index
+[D 2023-08-29 15:40:09,135 minium.Conn1488 connection#417 _safely_send] ASYNC_SEND > {"id":"3e492263-3b93-4268-938b-b0882beeca40","method":"App.callWxMethod","params":{"method":"reLaunch","args":[{"url":"/pages/index/index"}]}}
+[D 2023-08-29 15:40:09,173 minium.Conn1488 connection#653 __on_message] RECV < {"id":"3e492263-3b93-4268-938b-b0882beeca40","result":{"result":{"errMsg":"reLaunch:ok"}}}
+[I 2023-08-29 15:40:09,173 minium.Conn1488 connection#697 _handle_async_msg] received async msg: 3e492263-3b93-4268-938b-b0882beeca40
+[D 2023-08-29 15:40:10,003 minium.Conn1488 connection#653 __on_message] RECV < {"method":"App.bindingCalled","params":{"name":"onAppRouteDone","args":[{"webviewId":5,"path":"pages/index/index","query":{},"openType":"reLaunch","__ts__":1693294809973},1693294809974]}}
+[I 2023-08-29 15:40:10,003 minium app#960 _on_route_changed] Route changed, {'name': 'onAppRouteDone', 'args': [{'webviewId': 5, 'path': 'pages/index/index', 'query': {}, 'openType': 'reLaunch', '__ts__': 1693294809973}, 1693294809974]}
+[I 2023-08-29 15:40:10,003 minium minitest#717 capture] capture setup.png
+[I 2023-08-29 15:40:10,003 minium basenative#25 wrapper] call IdeNative.screen_shot
+[D 2023-08-29 15:40:10,003 minium.Conn1488 connection#417 _safely_send] SEND > {"id":"a2b59904-abea-46e8-9ff9-44e1343a8c77","method":"App.captureScreenshot","params":{}}
+[D 2023-08-29 15:40:10,154 minium.Conn1488 connection#651 __on_message] RECV < {"id":"a2b59904-abea-46e8-9ff9-44e1343a8c77","result":{"data":"iVBORw0KGgoAAAANSUhEUgAAAZAAAAJ2CAIAAAD+KEOZAAAAAXNSR0IArs4c6QAACB5JREFUeJzt1EENACAQwDDAv+fDAj+ypFWw1/bMLICC8zsA4JVhARmGBWQYFpBhWECGYQEZhgVkGBaQYVhAhmEBGYYFZBgWkGFYQIZhARmGBWQYFpBhWECGYQEZhgVkGBaQYVhAhmEBGYYFZBgWkGFYQIZhARmGBWQYFpBhWECGYQEZhgVkGBaQYVhAhmEBGYYFZBgWkGFYQIZhARmGBWQYFpBhWECGYQEZhgVkGBaQYVhAhmEBGYYFZBgWkGFYQIZhARmGBWQYFpBhWECGYQEZhgVkGBaQYVhAhmEBGYYFZBgWkGFYQIZhARmGBWQYFpBhWECGYQEZhgVkGBaQYVhAhmEBGYYFZBgWkGFYQIZhARmGBWQYFpBhWECGYQ...
+[I 2023-08-29 15:40:10,154 minium basenative#29 wrapper] call IdeNative.screen_shot end
+[I 2023-08-29 15:40:10,154 minium minitest#424 _miniSetUp] =========case: test_ui_op start=========
+[I 2023-08-29 15:40:10,154 minium page#557 _get_elements_by_css] try to get elements: view
+[D 2023-08-29 15:40:10,154 minium.Conn1488 connection#417 _safely_send] SEND > {"id":"6e65ce08-6336-43ae-b1fb-512675af42da","method":"Page.getElements","params":{"selector":"view","pageId":5}}
+[D 2023-08-29 15:40:10,166 minium.Conn1488 connection#653 __on_message] RECV < {"id":"6e65ce08-6336-43ae-b1fb-512675af42da","result":{"elements":[{"elementId":"c95a96f8-e21d-44d8-97a3-09da9b9a85c8","tagName":"view"}]}}
+[I 2023-08-29 15:40:10,166 minium page#564 _get_elements_by_css] find elements success: [<minium.miniprogram.base_driver.element.BaseElement object at 0x000002168A26FA30>]
+[D 2023-08-29 15:40:10,166 minium.Conn1488 connection#417 _safely_send] SEND > {"id":"0fc1e6cd-57d2-4c57-8145-8e8c2e6596cc","method":"Element.getDOMProperties","params":{"names":["innerText"],"elementId":"c95a96f8-e21d-44d8-97a3-09da9b9a85c8","pageId":5}}
+[D 2023-08-29 15:40:10,174 minium.Conn1488 connection#653 __on_message] RECV < {"id":"0fc1e6cd-57d2-4c57-8145-8e8c2e6596cc","result":{"properties":[""]}}
+[D 2023-08-29 15:40:10,174 minium minitest#620 _miniTearDown] =========Current case Down: test_ui_op=========
+[I 2023-08-29 15:40:10,174 minium minitest#717 capture] capture teardown.png
+[I 2023-08-29 15:40:10,174 minium basenative#25 wrapper] call IdeNative.screen_shot
+[D 2023-08-29 15:40:10,174 minium.Conn1488 connection#417 _safely_send] SEND > {"id":"2388c62c-d4db-42ff-a186-883e79e58d47","method":"App.captureScreenshot","params":{}}
+[D 2023-08-29 15:40:10,342 minium.Conn1488 connection#651 __on_message] RECV < {"id":"2388c62c-d4db-42ff-a186-883e79e58d47","result":{"data":"iVBORw0KGgoAAAANSUhEUgAAAZAAAAJ2CAIAAAD+KEOZAAAAAXNSR0IArs4c6QAACB5JREFUeJzt1EENACAQwDDAv+fDAj+ypFWw1/bMLICC8zsA4JVhARmGBWQYFpBhWECGYQEZhgVkGBaQYVhAhmEBGYYFZBgWkGFYQIZhARmGBWQYFpBhWECGYQEZhgVkGBaQYVhAhmEBGYYFZBgWkGFYQIZhARmGBWQYFpBhWECGYQEZhgVkGBaQYVhAhmEBGYYFZBgWkGFYQIZhARmGBWQYFpBhWECGYQEZhgVkGBaQYVhAhmEBGYYFZBgWkGFYQIZhARmGBWQYFpBhWECGYQEZhgVkGBaQYVhAhmEBGYYFZBgWkGFYQIZhARmGBWQYFpBhWECGYQEZhgVkGBaQYVhAhmEBGYYFZBgWkGFYQIZhARmGBWQYFpBhWECGYQ...
+[I 2023-08-29 15:40:10,345 minium basenative#29 wrapper] call IdeNative.screen_shot end
+[D 2023-08-29 15:40:10,345 minium.Conn1488 connection#417 _safely_send] SEND > {"id":"2bdce83e-2ed4-4063-a65a-6e853758f61f","method":"Page.getElementByXpath","params":{"selector":"/*","pageId":5}}
+[D 2023-08-29 15:40:10,354 minium.Conn1488 connection#653 __on_message] RECV < {"id":"2bdce83e-2ed4-4063-a65a-6e853758f61f","result":{"elementId":"c95a96f8-e21d-44d8-97a3-09da9b9a85c8","tagName":"view"}}
+[D 2023-08-29 15:40:10,354 minium.Conn1488 connection#417 _safely_send] SEND > {"id":"5a8bbb74-34e7-4dc9-87f8-dc1e682e0f6f","method":"Element.getWXML","params":{"type":"outer","elementId":"c95a96f8-e21d-44d8-97a3-09da9b9a85c8","pageId":5}}
+[D 2023-08-29 15:40:10,361 minium.Conn1488 connection#653 __on_message] RECV < {"id":"5a8bbb74-34e7-4dc9-87f8-dc1e682e0f6f","result":{"wxml":"<view><web-view data-event-opts=\"message,reciveMessage,$event\" src=\"https://m.operation.evking.com.cn/login\" style=\"width: 320px; height: 504px;\"></web-view></view>"}}
+[I 2023-08-29 15:40:10,363 minium basenative#25 wrapper] call BaseNative.get_start_up
+[I 2023-08-29 15:40:10,363 minium basenative#29 wrapper] call BaseNative.get_start_up end
+[E 2023-08-29 15:40:10,378 minium assertbase#349 _get_stack_info] <bound method ComponentTest.test_ui_op of <test.ComponentTest testMethod=test_ui_op>>
+Traceback (most recent call last):
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\site-packages\minium\framework\libs\unittest\case.py", line 265, in testPartExecutor
+    yield
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\site-packages\minium\framework\libs\unittest\case.py", line 350, in run
+    self._callTestMethod(testMethod)
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\unittest\case.py", line 633, in _callTestMethod
+    method()
+  File "C:\Users\10260\PycharmProjects\soft-test-main\miniuim_test\test\test_case\test.py", line 15, in test_ui_op
+    self.page.get_element("view", inner_text="视图容器").click()
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\site-packages\minium\miniprogram\base_driver\app.py", line 216, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\site-packages\minium\miniprogram\base_driver\minium_log.py", line 172, in wrapper
+    result = func(*args, **kwargs)
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\site-packages\minium\miniprogram\base_driver\page.py", line 286, in get_element
+    raise MiniElementNotFoundError("element[%s] not found" % selector)
+minium.framework.exception.MiniElementNotFoundError: element[view] not found
+[W 2023-08-29 15:40:10,378 minium assertbase#331 _log_info_when_error] config: {'debug': False, 'base_dir': 'C:\\Users\\10260\\PycharmProjects\\soft-test-main\\miniuim_test\\test\\test_case', 'platform': 'ide', 'app': 'wx', 'debug_mode': 'debug', 'close_ide': False, 'auto_capture': 'auto', 'check_mp_foreground': True, 'auto_relaunch': True, 'device_desire': {}, 'account_info': {}, 'report_usage': True, 'remote_connect_timeout': 180, 'request_timeout': 60, 'use_push': True, 'full_reset': False, 'outputs': 'C:\\Users\\10260\\PycharmProjects\\soft-test-main\\miniuim_test\\test\\test_case\\outputs', 'enable_app_log': False, 'enable_network_panel': False, 'project_path': None, 'dev_tool_path': None, 'test_port': 9420, 'mock_native_modal': {}, 'mock_request': [], 'auto_authorize': False, 'audits': None, 'teardown_snapshot': False, 'mock_images_dir': '', 'mock_images': {}, 'need_perf': False, 'appid': None, 'framework_capture': True, 'error_capture': False, 'assert_capture': True, 'create_time': '20230829154008', 'case_output': 'C:\\Users\\10260\\PycharmProjects\\soft-test-main\\miniuim_test\\test\\test_case\\outputs\\20230829154008\\test_ui_op\\20230829154009126206'}
+[W 2023-08-29 15:40:10,378 minium assertbase#332 _log_info_when_error] build info: {'version': '1.4.6', 'revision': 'b389ff4b1d94cc73bb5363fc602f5823512df292', 'branch': 'master', 'update_at': '2023-08-28 17:46:51'}
+[W 2023-08-29 15:40:10,378 minium minitest#828 _log_info_when_error] native: <minium.native.wx_native.idenative.IdeNative object at 0x000002168A2470D0>

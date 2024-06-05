@@ -1,0 +1,6 @@
+[E 2024-04-09 13:53:20,160 minium.Conn8480 connection#632 _on_error] [WinError 10054] 远程主机强迫关闭了一个现有的连接。
+[W 2024-04-09 13:53:20,166 minium.Conn8480 connection#552 reconnect] connection reconnect
+[E 2024-04-09 13:53:24,405 minium.Conn8480 connection#632 _on_error] [WinError 10061] 由于目标计算机积极拒绝，无法连接。
+[W 2024-04-09 13:53:24,406 minium.Conn8480 connection#568 reconnect] connect refused, please check svr
+[E 2024-04-09 13:53:33,604 minium.Conn8480 connection#632 _on_error] [WinError 10061] 由于目标计算机积极拒绝，无法连接。
+[W 2024-04-09 13:53:33,604 minium.Conn8480 connection#568 reconnect] connect refused, please check svr

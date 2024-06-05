@@ -1,0 +1,721 @@
+[E 2024-04-10 13:55:50,788 minium assertbase#349 _get_stack_info] <bound method Component.test_ui_op of <test.Component testMethod=test_ui_op>>
+Traceback (most recent call last):
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\site-packages\minium\framework\libs\unittest\case.py", line 265, in testPartExecutor
+    yield
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\site-packages\minium\framework\libs\unittest\case.py", line 350, in run
+    self._callTestMethod(testMethod)
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\unittest\case.py", line 633, in _callTestMethod
+    method()
+  File "C:\Users\10260\PycharmProjects\soft-test-main\miniuim_test\test\test_case\test.py", line 20, in test_ui_op
+    ret = self.app.wait_for_page()
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\site-packages\minium\miniprogram\base_driver\minium_log.py", line 172, in wrapper
+    result = func(*args, **kwargs)
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\site-packages\minium\miniprogram\base_driver\app.py", line 869, in wait_for_page
+    if not self._current_page or self._current_page != page_path:
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\site-packages\minium\miniprogram\base_driver\page.py", line 115, in __ne__
+    return not (self == page)
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\site-packages\minium\miniprogram\base_driver\page.py", line 111, in __eq__
+    _page = Page(None, page, None, None)
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\site-packages\minium\miniprogram\base_driver\page.py", line 67, in __init__
+    match = re.search(Page.PLUGIN_PATH_REG, path)
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\re.py", line 201, in search
+    return _compile(pattern, flags).search(string)
+TypeError: expected string or bytes-like object
+[W 2024-04-10 13:55:50,788 minium assertbase#331 _log_info_when_error] config: {'debug': False, 'base_dir': 'C:\\Users\\10260\\PycharmProjects\\soft-test-main\\miniuim_test\\test\\test_case', 'platform': 'ide', 'app': 'wx', 'debug_mode': 'warn', 'close_ide': False, 'auto_capture': 'auto', 'check_mp_foreground': True, 'auto_relaunch': True, 'device_desire': {}, 'account_info': {}, 'report_usage': True, 'remote_connect_timeout': 300, 'request_timeout': 60, 'use_push': True, 'full_reset': False, 'outputs': 'C:\\Users\\10260\\PycharmProjects\\soft-test-main\\miniuim_test\\test\\test_case\\outputs', 'enable_app_log': False, 'enable_network_panel': False, 'project_path': 'C:/Users/10260/Desktop/小程序源代码/dist/dist/build/mp-weixin', 'dev_tool_path': 'D:/Program Files (x86)/Tencent/微信web开发者工具/cli.bat', 'test_port': 9420, 'mock_native_modal': {}, 'mock_request': [], 'auto_authorize': False, 'audits': None, 'teardown_snapshot': False, 'mock_images_dir': '', 'mock_images': {}, 'need_perf': False, 'appid': None, 'assert_capture': False, 'framework_capture': True, 'error_capture': False, 'create_time': '20240410135511', 'case_output': 'C:\\Users\\10260\\PycharmProjects\\soft-test-main\\miniuim_test\\test\\test_case\\outputs\\20240410135511\\test_ui_op\\20240410135550114701'}
+[W 2024-04-10 13:55:50,788 minium assertbase#332 _log_info_when_error] build info: {'version': '1.4.6', 'revision': 'b389ff4b1d94cc73bb5363fc602f5823512df292', 'branch': 'master', 'update_at': '2023-08-28 17:46:51'}
+[W 2024-04-10 13:55:50,788 minium minitest#828 _log_info_when_error] native: <minium.native.wx_native.idenative.IdeNative object at 0x000001791A9EC0D0>
+[W 2024-04-10 13:57:44,811 minium app#497 screen_shot] 截图指令响应失败, 可能因为开发者工具不在前台导致
+[W 2024-04-10 13:57:44,811 minium minitest#728 capture] C:\Users\10260\PycharmProjects\soft-test-main\miniuim_test\test\test_case\outputs\20240410135642\test_ui_op\20240410135644769700\images\setup.png not exists
+[W 2024-04-10 13:57:49,287 minium app#497 screen_shot] 截图指令响应失败, 可能因为开发者工具不在前台导致
+[W 2024-04-10 13:57:49,287 minium minitest#728 capture] C:\Users\10260\PycharmProjects\soft-test-main\miniuim_test\test\test_case\outputs\20240410135642\test_ui_op\20240410135644769700\images\teardown.png not exists
+[E 2024-04-10 13:57:49,321 minium assertbase#349 _get_stack_info] <bound method Component.test_ui_op of <test.Component testMethod=test_ui_op>>
+Traceback (most recent call last):
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\site-packages\minium\framework\libs\unittest\case.py", line 265, in testPartExecutor
+    yield
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\site-packages\minium\framework\libs\unittest\case.py", line 350, in run
+    self._callTestMethod(testMethod)
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\unittest\case.py", line 633, in _callTestMethod
+    method()
+  File "C:\Users\10260\PycharmProjects\soft-test-main\miniuim_test\test\test_case\test.py", line 39, in test_ui_op
+    self.page.get_element("text", inner_text="换一批").click()
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\site-packages\minium\miniprogram\base_driver\app.py", line 216, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\site-packages\minium\miniprogram\base_driver\minium_log.py", line 172, in wrapper
+    result = func(*args, **kwargs)
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\site-packages\minium\miniprogram\base_driver\page.py", line 286, in get_element
+    raise MiniElementNotFoundError("element[%s] not found" % selector)
+minium.framework.exception.MiniElementNotFoundError: element[text] not found
+[W 2024-04-10 13:57:49,321 minium assertbase#331 _log_info_when_error] config: {'debug': False, 'base_dir': 'C:\\Users\\10260\\PycharmProjects\\soft-test-main\\miniuim_test\\test\\test_case', 'platform': 'ide', 'app': 'wx', 'debug_mode': 'warn', 'close_ide': False, 'auto_capture': 'auto', 'check_mp_foreground': True, 'auto_relaunch': True, 'device_desire': {}, 'account_info': {}, 'report_usage': True, 'remote_connect_timeout': 300, 'request_timeout': 60, 'use_push': True, 'full_reset': False, 'outputs': 'C:\\Users\\10260\\PycharmProjects\\soft-test-main\\miniuim_test\\test\\test_case\\outputs', 'enable_app_log': False, 'enable_network_panel': False, 'project_path': 'C:/Users/10260/Desktop/小程序源代码/dist/dist/build/mp-weixin', 'dev_tool_path': 'D:/Program Files (x86)/Tencent/微信web开发者工具/cli.bat', 'test_port': 9420, 'mock_native_modal': {}, 'mock_request': [], 'auto_authorize': False, 'audits': None, 'teardown_snapshot': False, 'mock_images_dir': '', 'mock_images': {}, 'need_perf': False, 'appid': None, 'assert_capture': False, 'framework_capture': True, 'error_capture': False, 'create_time': '20240410135642', 'case_output': 'C:\\Users\\10260\\PycharmProjects\\soft-test-main\\miniuim_test\\test\\test_case\\outputs\\20240410135642\\test_ui_op\\20240410135644769700'}
+[W 2024-04-10 13:57:49,321 minium assertbase#332 _log_info_when_error] build info: {'version': '1.4.6', 'revision': 'b389ff4b1d94cc73bb5363fc602f5823512df292', 'branch': 'master', 'update_at': '2023-08-28 17:46:51'}
+[W 2024-04-10 13:57:49,321 minium minitest#828 _log_info_when_error] native: <minium.native.wx_native.idenative.IdeNative object at 0x000001D2F27CB0A0>
+[W 2024-04-10 14:14:22,995 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:14:23,258 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:14:23,522 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:14:23,789 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:14:24,052 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:14:24,317 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:14:24,582 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:14:24,842 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:14:25,097 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:14:25,354 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:14:25,612 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:14:25,875 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:14:26,137 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:14:26,395 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:14:26,654 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:14:26,918 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:14:27,183 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:14:27,445 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:14:27,704 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:14:27,970 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:14:28,231 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:14:28,492 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:14:28,752 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:14:29,014 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:14:29,276 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:14:29,544 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:14:29,807 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:14:30,075 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:14:30,334 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:14:30,602 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:14:30,865 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:14:31,127 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:14:31,383 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:14:31,646 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:14:31,905 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:14:32,169 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:14:32,430 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:14:32,690 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:14:32,960 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[E 2024-04-10 14:14:33,479 minium assertbase#349 _get_stack_info] <bound method Component.test_ui_op of <test.Component testMethod=test_ui_op>>
+Traceback (most recent call last):
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\site-packages\minium\framework\libs\unittest\case.py", line 265, in testPartExecutor
+    yield
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\site-packages\minium\framework\libs\unittest\case.py", line 350, in run
+    self._callTestMethod(testMethod)
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\unittest\case.py", line 633, in _callTestMethod
+    method()
+  File "C:\Users\10260\PycharmProjects\soft-test-main\miniuim_test\test\test_case\test.py", line 41, in test_ui_op
+    self.assertTrue(ret, "wait success")
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\site-packages\minium\framework\assertbase.py", line 57, in hook_assert
+    return src(self, *args, **kwargs)
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\unittest\case.py", line 765, in assertTrue
+    raise self.failureException(msg)
+AssertionError: False is not true : wait success
+[W 2024-04-10 14:14:33,479 minium assertbase#331 _log_info_when_error] config: {'debug': False, 'base_dir': 'C:\\Users\\10260\\PycharmProjects\\soft-test-main\\miniuim_test\\test\\test_case', 'platform': 'ide', 'app': 'wx', 'debug_mode': 'warn', 'close_ide': False, 'auto_capture': 'auto', 'check_mp_foreground': True, 'auto_relaunch': True, 'device_desire': {}, 'account_info': {}, 'report_usage': True, 'remote_connect_timeout': 300, 'request_timeout': 60, 'use_push': True, 'full_reset': False, 'outputs': 'C:\\Users\\10260\\PycharmProjects\\soft-test-main\\miniuim_test\\test\\test_case\\outputs', 'enable_app_log': False, 'enable_network_panel': False, 'project_path': 'C:/Users/10260/Desktop/小程序源代码/dist/dist/build/mp-weixin', 'dev_tool_path': 'D:/Program Files (x86)/Tencent/微信web开发者工具/cli.bat', 'test_port': 9420, 'mock_native_modal': {}, 'mock_request': [], 'auto_authorize': False, 'audits': None, 'teardown_snapshot': False, 'mock_images_dir': '', 'mock_images': {}, 'need_perf': False, 'appid': None, 'assert_capture': False, 'framework_capture': True, 'error_capture': False, 'create_time': '20240410141347', 'case_output': 'C:\\Users\\10260\\PycharmProjects\\soft-test-main\\miniuim_test\\test\\test_case\\outputs\\20240410141347\\test_ui_op\\20240410141349910040'}
+[W 2024-04-10 14:14:33,479 minium assertbase#332 _log_info_when_error] build info: {'version': '1.4.6', 'revision': 'b389ff4b1d94cc73bb5363fc602f5823512df292', 'branch': 'master', 'update_at': '2023-08-28 17:46:51'}
+[W 2024-04-10 14:14:33,479 minium minitest#828 _log_info_when_error] native: <minium.native.wx_native.idenative.IdeNative object at 0x0000014F56F590A0>
+[W 2024-04-10 14:16:32,651 minium app#497 screen_shot] 截图指令响应失败, 可能因为开发者工具不在前台导致
+[W 2024-04-10 14:16:32,651 minium minitest#728 capture] C:\Users\10260\PycharmProjects\soft-test-main\miniuim_test\test\test_case\outputs\20240410141530\test_ui_op\20240410141532612468\images\setup.png not exists
+[W 2024-04-10 14:16:34,894 minium page#562 _get_elements_by_css] Could not found any element '.refresh-group' you need
+[W 2024-04-10 14:16:36,150 minium page#562 _get_elements_by_css] Could not found any element '.refresh-group' you need
+[W 2024-04-10 14:16:37,404 minium page#562 _get_elements_by_css] Could not found any element '.refresh-group' you need
+[W 2024-04-10 14:16:38,661 minium page#562 _get_elements_by_css] Could not found any element '.refresh-group' you need
+[W 2024-04-10 14:16:39,918 minium page#562 _get_elements_by_css] Could not found any element '.refresh-group' you need
+[W 2024-04-10 14:16:41,179 minium page#562 _get_elements_by_css] Could not found any element '.refresh-group' you need
+[W 2024-04-10 14:16:42,434 minium page#562 _get_elements_by_css] Could not found any element '.refresh-group' you need
+[W 2024-04-10 14:16:43,689 minium page#562 _get_elements_by_css] Could not found any element '.refresh-group' you need
+[W 2024-04-10 14:16:46,026 minium app#497 screen_shot] 截图指令响应失败, 可能因为开发者工具不在前台导致
+[W 2024-04-10 14:16:46,026 minium minitest#728 capture] C:\Users\10260\PycharmProjects\soft-test-main\miniuim_test\test\test_case\outputs\20240410141530\test_ui_op\20240410141532612468\images\teardown.png not exists
+[E 2024-04-10 14:16:46,057 minium assertbase#349 _get_stack_info] <bound method Component.test_ui_op of <test.Component testMethod=test_ui_op>>
+Traceback (most recent call last):
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\site-packages\minium\framework\libs\unittest\case.py", line 265, in testPartExecutor
+    yield
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\site-packages\minium\framework\libs\unittest\case.py", line 350, in run
+    self._callTestMethod(testMethod)
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\unittest\case.py", line 633, in _callTestMethod
+    method()
+  File "C:\Users\10260\PycharmProjects\soft-test-main\miniuim_test\test\test_case\test.py", line 41, in test_ui_op
+    self.assertTrue(ret, "wait success")
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\site-packages\minium\framework\assertbase.py", line 57, in hook_assert
+    return src(self, *args, **kwargs)
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\unittest\case.py", line 765, in assertTrue
+    raise self.failureException(msg)
+AssertionError: False is not true : wait success
+[W 2024-04-10 14:16:46,057 minium assertbase#331 _log_info_when_error] config: {'debug': False, 'base_dir': 'C:\\Users\\10260\\PycharmProjects\\soft-test-main\\miniuim_test\\test\\test_case', 'platform': 'ide', 'app': 'wx', 'debug_mode': 'warn', 'close_ide': False, 'auto_capture': 'auto', 'check_mp_foreground': True, 'auto_relaunch': True, 'device_desire': {}, 'account_info': {}, 'report_usage': True, 'remote_connect_timeout': 300, 'request_timeout': 60, 'use_push': True, 'full_reset': False, 'outputs': 'C:\\Users\\10260\\PycharmProjects\\soft-test-main\\miniuim_test\\test\\test_case\\outputs', 'enable_app_log': False, 'enable_network_panel': False, 'project_path': 'C:/Users/10260/Desktop/小程序源代码/dist/dist/build/mp-weixin', 'dev_tool_path': 'D:/Program Files (x86)/Tencent/微信web开发者工具/cli.bat', 'test_port': 9420, 'mock_native_modal': {}, 'mock_request': [], 'auto_authorize': False, 'audits': None, 'teardown_snapshot': False, 'mock_images_dir': '', 'mock_images': {}, 'need_perf': False, 'appid': None, 'assert_capture': False, 'framework_capture': True, 'error_capture': False, 'create_time': '20240410141530', 'case_output': 'C:\\Users\\10260\\PycharmProjects\\soft-test-main\\miniuim_test\\test\\test_case\\outputs\\20240410141530\\test_ui_op\\20240410141532612468'}
+[W 2024-04-10 14:16:46,057 minium assertbase#332 _log_info_when_error] build info: {'version': '1.4.6', 'revision': 'b389ff4b1d94cc73bb5363fc602f5823512df292', 'branch': 'master', 'update_at': '2023-08-28 17:46:51'}
+[W 2024-04-10 14:16:46,057 minium minitest#828 _log_info_when_error] native: <minium.native.wx_native.idenative.IdeNative object at 0x000001EBD3A2C0A0>
+[W 2024-04-10 14:27:24,072 minium page#562 _get_elements_by_css] Could not found any element 'refresh-group' you need
+[W 2024-04-10 14:27:24,333 minium page#562 _get_elements_by_css] Could not found any element 'refresh-group' you need
+[W 2024-04-10 14:27:24,592 minium page#562 _get_elements_by_css] Could not found any element 'refresh-group' you need
+[W 2024-04-10 14:27:24,857 minium page#562 _get_elements_by_css] Could not found any element 'refresh-group' you need
+[W 2024-04-10 14:27:26,109 minium page#562 _get_elements_by_css] Could not found any element 'refresh-group' you need
+[W 2024-04-10 14:27:26,366 minium page#562 _get_elements_by_css] Could not found any element 'refresh-group' you need
+[W 2024-04-10 14:27:26,651 minium page#562 _get_elements_by_css] Could not found any element 'refresh-group' you need
+[W 2024-04-10 14:27:26,908 minium page#562 _get_elements_by_css] Could not found any element 'refresh-group' you need
+[W 2024-04-10 14:27:27,163 minium page#562 _get_elements_by_css] Could not found any element 'refresh-group' you need
+[W 2024-04-10 14:27:27,422 minium page#562 _get_elements_by_css] Could not found any element 'refresh-group' you need
+[W 2024-04-10 14:27:27,694 minium page#562 _get_elements_by_css] Could not found any element 'refresh-group' you need
+[W 2024-04-10 14:27:27,957 minium page#562 _get_elements_by_css] Could not found any element 'refresh-group' you need
+[W 2024-04-10 14:27:28,222 minium page#562 _get_elements_by_css] Could not found any element 'refresh-group' you need
+[W 2024-04-10 14:27:28,492 minium page#562 _get_elements_by_css] Could not found any element 'refresh-group' you need
+[W 2024-04-10 14:27:28,756 minium page#562 _get_elements_by_css] Could not found any element 'refresh-group' you need
+[W 2024-04-10 14:27:29,016 minium page#562 _get_elements_by_css] Could not found any element 'refresh-group' you need
+[W 2024-04-10 14:27:29,274 minium page#562 _get_elements_by_css] Could not found any element 'refresh-group' you need
+[W 2024-04-10 14:27:29,527 minium page#562 _get_elements_by_css] Could not found any element 'refresh-group' you need
+[W 2024-04-10 14:27:30,782 minium page#562 _get_elements_by_css] Could not found any element 'refresh-group' you need
+[W 2024-04-10 14:27:32,033 minium page#562 _get_elements_by_css] Could not found any element 'refresh-group' you need
+[W 2024-04-10 14:27:32,297 minium page#562 _get_elements_by_css] Could not found any element 'refresh-group' you need
+[W 2024-04-10 14:27:32,563 minium page#562 _get_elements_by_css] Could not found any element 'refresh-group' you need
+[W 2024-04-10 14:27:32,822 minium page#562 _get_elements_by_css] Could not found any element 'refresh-group' you need
+[W 2024-04-10 14:27:34,084 minium page#562 _get_elements_by_css] Could not found any element 'refresh-group' you need
+[E 2024-04-10 14:27:34,532 minium assertbase#349 _get_stack_info] <bound method Component.test_ui_op of <test.Component testMethod=test_ui_op>>
+Traceback (most recent call last):
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\site-packages\minium\framework\libs\unittest\case.py", line 265, in testPartExecutor
+    yield
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\site-packages\minium\framework\libs\unittest\case.py", line 350, in run
+    self._callTestMethod(testMethod)
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\unittest\case.py", line 633, in _callTestMethod
+    method()
+  File "C:\Users\10260\PycharmProjects\soft-test-main\miniuim_test\test\test_case\test.py", line 41, in test_ui_op
+    self.assertTrue(ret, "wait success")
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\site-packages\minium\framework\assertbase.py", line 57, in hook_assert
+    return src(self, *args, **kwargs)
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\unittest\case.py", line 765, in assertTrue
+    raise self.failureException(msg)
+AssertionError: False is not true : wait success
+[W 2024-04-10 14:27:34,536 minium assertbase#331 _log_info_when_error] config: {'debug': False, 'base_dir': 'C:\\Users\\10260\\PycharmProjects\\soft-test-main\\miniuim_test\\test\\test_case', 'platform': 'ide', 'app': 'wx', 'debug_mode': 'warn', 'close_ide': False, 'auto_capture': 'auto', 'check_mp_foreground': True, 'auto_relaunch': True, 'device_desire': {}, 'account_info': {}, 'report_usage': True, 'remote_connect_timeout': 300, 'request_timeout': 60, 'use_push': True, 'full_reset': False, 'outputs': 'C:\\Users\\10260\\PycharmProjects\\soft-test-main\\miniuim_test\\test\\test_case\\outputs', 'enable_app_log': False, 'enable_network_panel': False, 'project_path': 'C:/Users/10260/Desktop/小程序源代码/dist/dist/build/mp-weixin', 'dev_tool_path': 'D:/Program Files (x86)/Tencent/微信web开发者工具/cli.bat', 'test_port': 9420, 'mock_native_modal': {}, 'mock_request': [], 'auto_authorize': False, 'audits': None, 'teardown_snapshot': False, 'mock_images_dir': '', 'mock_images': {}, 'need_perf': False, 'appid': None, 'assert_capture': False, 'framework_capture': True, 'error_capture': False, 'create_time': '20240410142716', 'case_output': 'C:\\Users\\10260\\PycharmProjects\\soft-test-main\\miniuim_test\\test\\test_case\\outputs\\20240410142716\\test_ui_op\\20240410142718972040'}
+[W 2024-04-10 14:27:34,536 minium assertbase#332 _log_info_when_error] build info: {'version': '1.4.6', 'revision': 'b389ff4b1d94cc73bb5363fc602f5823512df292', 'branch': 'master', 'update_at': '2023-08-28 17:46:51'}
+[W 2024-04-10 14:27:34,536 minium minitest#828 _log_info_when_error] native: <minium.native.wx_native.idenative.IdeNative object at 0x000001DA6833C0A0>
+[W 2024-04-10 14:29:59,963 minium app#497 screen_shot] 截图指令响应失败, 可能因为开发者工具不在前台导致
+[W 2024-04-10 14:29:59,965 minium minitest#728 capture] C:\Users\10260\PycharmProjects\soft-test-main\miniuim_test\test\test_case\outputs\20240410142857\test_ui_op\20240410142859933241\images\setup.png not exists
+[W 2024-04-10 14:30:03,312 minium app#497 screen_shot] 截图指令响应失败, 可能因为开发者工具不在前台导致
+[W 2024-04-10 14:30:03,313 minium minitest#728 capture] C:\Users\10260\PycharmProjects\soft-test-main\miniuim_test\test\test_case\outputs\20240410142857\test_ui_op\20240410142859933241\images\teardown.png not exists
+[E 2024-04-10 14:30:03,349 minium assertbase#349 _get_stack_info] <bound method Component.test_ui_op of <test.Component testMethod=test_ui_op>>
+Traceback (most recent call last):
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\site-packages\minium\framework\libs\unittest\case.py", line 265, in testPartExecutor
+    yield
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\site-packages\minium\framework\libs\unittest\case.py", line 350, in run
+    self._callTestMethod(testMethod)
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\unittest\case.py", line 633, in _callTestMethod
+    method()
+  File "C:\Users\10260\PycharmProjects\soft-test-main\miniuim_test\test\test_case\test.py", line 40, in test_ui_op
+    ret = self.page.wait_for(self.page.get_element("text",inner_text="换一批"))
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\site-packages\minium\miniprogram\base_driver\app.py", line 216, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\site-packages\minium\miniprogram\base_driver\minium_log.py", line 172, in wrapper
+    result = func(*args, **kwargs)
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\site-packages\minium\miniprogram\base_driver\page.py", line 286, in get_element
+    raise MiniElementNotFoundError("element[%s] not found" % selector)
+minium.framework.exception.MiniElementNotFoundError: element[text] not found
+[W 2024-04-10 14:30:03,349 minium assertbase#331 _log_info_when_error] config: {'debug': False, 'base_dir': 'C:\\Users\\10260\\PycharmProjects\\soft-test-main\\miniuim_test\\test\\test_case', 'platform': 'ide', 'app': 'wx', 'debug_mode': 'warn', 'close_ide': False, 'auto_capture': 'auto', 'check_mp_foreground': True, 'auto_relaunch': True, 'device_desire': {}, 'account_info': {}, 'report_usage': True, 'remote_connect_timeout': 300, 'request_timeout': 60, 'use_push': True, 'full_reset': False, 'outputs': 'C:\\Users\\10260\\PycharmProjects\\soft-test-main\\miniuim_test\\test\\test_case\\outputs', 'enable_app_log': False, 'enable_network_panel': False, 'project_path': 'C:/Users/10260/Desktop/小程序源代码/dist/dist/build/mp-weixin', 'dev_tool_path': 'D:/Program Files (x86)/Tencent/微信web开发者工具/cli.bat', 'test_port': 9420, 'mock_native_modal': {}, 'mock_request': [], 'auto_authorize': False, 'audits': None, 'teardown_snapshot': False, 'mock_images_dir': '', 'mock_images': {}, 'need_perf': False, 'appid': None, 'assert_capture': False, 'framework_capture': True, 'error_capture': False, 'create_time': '20240410142857', 'case_output': 'C:\\Users\\10260\\PycharmProjects\\soft-test-main\\miniuim_test\\test\\test_case\\outputs\\20240410142857\\test_ui_op\\20240410142859933241'}
+[W 2024-04-10 14:30:03,349 minium assertbase#332 _log_info_when_error] build info: {'version': '1.4.6', 'revision': 'b389ff4b1d94cc73bb5363fc602f5823512df292', 'branch': 'master', 'update_at': '2023-08-28 17:46:51'}
+[W 2024-04-10 14:30:03,349 minium minitest#828 _log_info_when_error] native: <minium.native.wx_native.idenative.IdeNative object at 0x000001983EF1E0D0>
+[W 2024-04-10 14:36:53,051 minium app#497 screen_shot] 截图指令响应失败, 可能因为开发者工具不在前台导致
+[W 2024-04-10 14:36:53,052 minium minitest#728 capture] C:\Users\10260\PycharmProjects\soft-test-main\miniuim_test\test\test_case\outputs\20240410143548\test_ui_op\20240410143552970667\images\setup.png not exists
+[W 2024-04-10 14:36:57,865 minium app#497 screen_shot] 截图指令响应失败, 可能因为开发者工具不在前台导致
+[W 2024-04-10 14:36:57,865 minium minitest#728 capture] C:\Users\10260\PycharmProjects\soft-test-main\miniuim_test\test\test_case\outputs\20240410143548\test_ui_op\20240410143552970667\images\teardown.png not exists
+[E 2024-04-10 14:36:57,965 minium assertbase#349 _get_stack_info] <bound method Component.test_ui_op of <test.Component testMethod=test_ui_op>>
+Traceback (most recent call last):
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\site-packages\minium\framework\libs\unittest\case.py", line 265, in testPartExecutor
+    yield
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\site-packages\minium\framework\libs\unittest\case.py", line 350, in run
+    self._callTestMethod(testMethod)
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\unittest\case.py", line 633, in _callTestMethod
+    method()
+  File "C:\Users\10260\PycharmProjects\soft-test-main\miniuim_test\test\test_case\test.py", line 42, in test_ui_op
+    self.page.get_element("text", inner_text="换一批").click()
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\site-packages\minium\miniprogram\base_driver\app.py", line 216, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\site-packages\minium\miniprogram\base_driver\minium_log.py", line 172, in wrapper
+    result = func(*args, **kwargs)
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\site-packages\minium\miniprogram\base_driver\page.py", line 286, in get_element
+    raise MiniElementNotFoundError("element[%s] not found" % selector)
+minium.framework.exception.MiniElementNotFoundError: element[text] not found
+[W 2024-04-10 14:36:57,965 minium assertbase#331 _log_info_when_error] config: {'debug': False, 'base_dir': 'C:\\Users\\10260\\PycharmProjects\\soft-test-main\\miniuim_test\\test\\test_case', 'platform': 'ide', 'app': 'wx', 'debug_mode': 'warn', 'close_ide': False, 'auto_capture': 'auto', 'check_mp_foreground': True, 'auto_relaunch': True, 'device_desire': {}, 'account_info': {}, 'report_usage': True, 'remote_connect_timeout': 300, 'request_timeout': 60, 'use_push': True, 'full_reset': False, 'outputs': 'C:\\Users\\10260\\PycharmProjects\\soft-test-main\\miniuim_test\\test\\test_case\\outputs', 'enable_app_log': False, 'enable_network_panel': False, 'project_path': 'C:/Users/10260/Desktop/小程序源代码/dist/dist/build/mp-weixin', 'dev_tool_path': 'D:/Program Files (x86)/Tencent/微信web开发者工具/cli.bat', 'test_port': 9420, 'mock_native_modal': {}, 'mock_request': [], 'auto_authorize': False, 'audits': None, 'teardown_snapshot': False, 'mock_images_dir': '', 'mock_images': {}, 'need_perf': False, 'appid': None, 'assert_capture': False, 'framework_capture': True, 'error_capture': False, 'create_time': '20240410143548', 'case_output': 'C:\\Users\\10260\\PycharmProjects\\soft-test-main\\miniuim_test\\test\\test_case\\outputs\\20240410143548\\test_ui_op\\20240410143552970667'}
+[W 2024-04-10 14:36:57,965 minium assertbase#332 _log_info_when_error] build info: {'version': '1.4.6', 'revision': 'b389ff4b1d94cc73bb5363fc602f5823512df292', 'branch': 'master', 'update_at': '2023-08-28 17:46:51'}
+[W 2024-04-10 14:36:57,965 minium minitest#828 _log_info_when_error] native: <minium.native.wx_native.idenative.IdeNative object at 0x000002184D663DF0>
+[W 2024-04-10 14:38:35,020 minium app#497 screen_shot] 截图指令响应失败, 可能因为开发者工具不在前台导致
+[W 2024-04-10 14:38:35,020 minium minitest#728 capture] C:\Users\10260\PycharmProjects\soft-test-main\miniuim_test\test\test_case\outputs\20240410143731\test_ui_op\20240410143734955271\images\setup.png not exists
+[W 2024-04-10 14:38:40,150 minium app#497 screen_shot] 截图指令响应失败, 可能因为开发者工具不在前台导致
+[W 2024-04-10 14:38:40,150 minium minitest#728 capture] C:\Users\10260\PycharmProjects\soft-test-main\miniuim_test\test\test_case\outputs\20240410143731\test_ui_op\20240410143734955271\images\teardown.png not exists
+[E 2024-04-10 14:38:40,260 minium assertbase#349 _get_stack_info] <bound method Component.test_ui_op of <test.Component testMethod=test_ui_op>>
+Traceback (most recent call last):
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\site-packages\minium\framework\libs\unittest\case.py", line 265, in testPartExecutor
+    yield
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\site-packages\minium\framework\libs\unittest\case.py", line 350, in run
+    self._callTestMethod(testMethod)
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\unittest\case.py", line 633, in _callTestMethod
+    method()
+  File "C:\Users\10260\PycharmProjects\soft-test-main\miniuim_test\test\test_case\test.py", line 42, in test_ui_op
+    self.page.get_element("text", inner_text="换一批").click()
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\site-packages\minium\miniprogram\base_driver\app.py", line 216, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\site-packages\minium\miniprogram\base_driver\minium_log.py", line 172, in wrapper
+    result = func(*args, **kwargs)
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\site-packages\minium\miniprogram\base_driver\page.py", line 286, in get_element
+    raise MiniElementNotFoundError("element[%s] not found" % selector)
+minium.framework.exception.MiniElementNotFoundError: element[text] not found
+[W 2024-04-10 14:38:40,260 minium assertbase#331 _log_info_when_error] config: {'debug': False, 'base_dir': 'C:\\Users\\10260\\PycharmProjects\\soft-test-main\\miniuim_test\\test\\test_case', 'platform': 'ide', 'app': 'wx', 'debug_mode': 'warn', 'close_ide': False, 'auto_capture': 'auto', 'check_mp_foreground': True, 'auto_relaunch': True, 'device_desire': {}, 'account_info': {}, 'report_usage': True, 'remote_connect_timeout': 300, 'request_timeout': 60, 'use_push': True, 'full_reset': False, 'outputs': 'C:\\Users\\10260\\PycharmProjects\\soft-test-main\\miniuim_test\\test\\test_case\\outputs', 'enable_app_log': False, 'enable_network_panel': False, 'project_path': 'C:/Users/10260/Desktop/小程序源代码/dist/dist/build/mp-weixin', 'dev_tool_path': 'D:/Program Files (x86)/Tencent/微信web开发者工具/cli.bat', 'test_port': 9420, 'mock_native_modal': {}, 'mock_request': [], 'auto_authorize': False, 'audits': None, 'teardown_snapshot': False, 'mock_images_dir': '', 'mock_images': {}, 'need_perf': False, 'appid': None, 'assert_capture': False, 'framework_capture': True, 'error_capture': False, 'create_time': '20240410143731', 'case_output': 'C:\\Users\\10260\\PycharmProjects\\soft-test-main\\miniuim_test\\test\\test_case\\outputs\\20240410143731\\test_ui_op\\20240410143734955271'}
+[W 2024-04-10 14:38:40,260 minium assertbase#332 _log_info_when_error] build info: {'version': '1.4.6', 'revision': 'b389ff4b1d94cc73bb5363fc602f5823512df292', 'branch': 'master', 'update_at': '2023-08-28 17:46:51'}
+[W 2024-04-10 14:38:40,260 minium minitest#828 _log_info_when_error] native: <minium.native.wx_native.idenative.IdeNative object at 0x000002827D35D0A0>
+[E 2024-04-10 14:40:06,240 minium assertbase#349 _get_stack_info] <bound method Component.test_ui_op of <test.Component testMethod=test_ui_op>>
+Traceback (most recent call last):
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\site-packages\minium\framework\libs\unittest\case.py", line 265, in testPartExecutor
+    yield
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\site-packages\minium\framework\libs\unittest\case.py", line 350, in run
+    self._callTestMethod(testMethod)
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\unittest\case.py", line 633, in _callTestMethod
+    method()
+  File "C:\Users\10260\PycharmProjects\soft-test-main\miniuim_test\test\test_case\test.py", line 42, in test_ui_op
+    self.page.get_element("text", inner_text="换一批").click()
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\site-packages\minium\miniprogram\base_driver\app.py", line 216, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\site-packages\minium\miniprogram\base_driver\minium_log.py", line 172, in wrapper
+    result = func(*args, **kwargs)
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\site-packages\minium\miniprogram\base_driver\page.py", line 286, in get_element
+    raise MiniElementNotFoundError("element[%s] not found" % selector)
+minium.framework.exception.MiniElementNotFoundError: element[text] not found
+[W 2024-04-10 14:40:06,240 minium assertbase#331 _log_info_when_error] config: {'debug': False, 'base_dir': 'C:\\Users\\10260\\PycharmProjects\\soft-test-main\\miniuim_test\\test\\test_case', 'platform': 'ide', 'app': 'wx', 'debug_mode': 'warn', 'close_ide': False, 'auto_capture': 'auto', 'check_mp_foreground': True, 'auto_relaunch': True, 'device_desire': {}, 'account_info': {}, 'report_usage': True, 'remote_connect_timeout': 300, 'request_timeout': 60, 'use_push': True, 'full_reset': False, 'outputs': 'C:\\Users\\10260\\PycharmProjects\\soft-test-main\\miniuim_test\\test\\test_case\\outputs', 'enable_app_log': False, 'enable_network_panel': False, 'project_path': 'C:/Users/10260/Desktop/小程序源代码/dist/dist/build/mp-weixin', 'dev_tool_path': 'D:/Program Files (x86)/Tencent/微信web开发者工具/cli.bat', 'test_port': 9420, 'mock_native_modal': {}, 'mock_request': [], 'auto_authorize': False, 'audits': None, 'teardown_snapshot': False, 'mock_images_dir': '', 'mock_images': {}, 'need_perf': False, 'appid': None, 'assert_capture': False, 'framework_capture': True, 'error_capture': False, 'create_time': '20240410143930', 'case_output': 'C:\\Users\\10260\\PycharmProjects\\soft-test-main\\miniuim_test\\test\\test_case\\outputs\\20240410143930\\test_ui_op\\20240410144001243628'}
+[W 2024-04-10 14:40:06,240 minium assertbase#332 _log_info_when_error] build info: {'version': '1.4.6', 'revision': 'b389ff4b1d94cc73bb5363fc602f5823512df292', 'branch': 'master', 'update_at': '2023-08-28 17:46:51'}
+[W 2024-04-10 14:40:06,240 minium minitest#828 _log_info_when_error] native: <minium.native.wx_native.idenative.IdeNative object at 0x000002239FA7B0A0>
+[E 2024-04-10 14:40:23,871 minium assertbase#349 _get_stack_info] <bound method Component.test_ui_op of <test.Component testMethod=test_ui_op>>
+Traceback (most recent call last):
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\site-packages\minium\framework\libs\unittest\case.py", line 265, in testPartExecutor
+    yield
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\site-packages\minium\framework\libs\unittest\case.py", line 350, in run
+    self._callTestMethod(testMethod)
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\unittest\case.py", line 633, in _callTestMethod
+    method()
+  File "C:\Users\10260\PycharmProjects\soft-test-main\miniuim_test\test\test_case\test.py", line 43, in test_ui_op
+    self.page.get_element("input").send_message("2.0协议站")
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\site-packages\minium\miniprogram\base_driver\element.py", line 92, in __getattribute__
+    return super(BaseElement, self).__getattribute__(item)
+AttributeError: 'FormElement' object has no attribute 'send_message'
+[W 2024-04-10 14:40:23,871 minium assertbase#331 _log_info_when_error] config: {'debug': False, 'base_dir': 'C:\\Users\\10260\\PycharmProjects\\soft-test-main\\miniuim_test\\test\\test_case', 'platform': 'ide', 'app': 'wx', 'debug_mode': 'warn', 'close_ide': False, 'auto_capture': 'auto', 'check_mp_foreground': True, 'auto_relaunch': True, 'device_desire': {}, 'account_info': {}, 'report_usage': True, 'remote_connect_timeout': 300, 'request_timeout': 60, 'use_push': True, 'full_reset': False, 'outputs': 'C:\\Users\\10260\\PycharmProjects\\soft-test-main\\miniuim_test\\test\\test_case\\outputs', 'enable_app_log': False, 'enable_network_panel': False, 'project_path': 'C:/Users/10260/Desktop/小程序源代码/dist/dist/build/mp-weixin', 'dev_tool_path': 'D:/Program Files (x86)/Tencent/微信web开发者工具/cli.bat', 'test_port': 9420, 'mock_native_modal': {}, 'mock_request': [], 'auto_authorize': False, 'audits': None, 'teardown_snapshot': False, 'mock_images_dir': '', 'mock_images': {}, 'need_perf': False, 'appid': None, 'assert_capture': False, 'framework_capture': True, 'error_capture': False, 'create_time': '20240410144017', 'case_output': 'C:\\Users\\10260\\PycharmProjects\\soft-test-main\\miniuim_test\\test\\test_case\\outputs\\20240410144017\\test_ui_op\\20240410144019734205'}
+[W 2024-04-10 14:40:23,871 minium assertbase#332 _log_info_when_error] build info: {'version': '1.4.6', 'revision': 'b389ff4b1d94cc73bb5363fc602f5823512df292', 'branch': 'master', 'update_at': '2023-08-28 17:46:51'}
+[W 2024-04-10 14:40:23,871 minium minitest#828 _log_info_when_error] native: <minium.native.wx_native.idenative.IdeNative object at 0x0000018FF40F9130>
+[W 2024-04-10 14:47:02,019 minium app#497 screen_shot] 截图指令响应失败, 可能因为开发者工具不在前台导致
+[W 2024-04-10 14:47:02,022 minium minitest#728 capture] C:\Users\10260\PycharmProjects\soft-test-main\miniuim_test\test\test_case\outputs\20240410144558\test_ui_op\20240410144601937525\images\setup.png not exists
+[E 2024-04-10 14:47:05,362 minium assertbase#349 _get_stack_info] <bound method Component.test_ui_op of <test.Component testMethod=test_ui_op>>
+Traceback (most recent call last):
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\site-packages\minium\framework\libs\unittest\case.py", line 265, in testPartExecutor
+    yield
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\site-packages\minium\framework\libs\unittest\case.py", line 350, in run
+    self._callTestMethod(testMethod)
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\unittest\case.py", line 633, in _callTestMethod
+    method()
+  File "C:\Users\10260\PycharmProjects\soft-test-main\miniuim_test\test\test_case\test.py", line 42, in test_ui_op
+    self.page.get_element("text", inner_text="换一批").click()
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\site-packages\minium\miniprogram\base_driver\app.py", line 216, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\site-packages\minium\miniprogram\base_driver\minium_log.py", line 172, in wrapper
+    result = func(*args, **kwargs)
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\site-packages\minium\miniprogram\base_driver\page.py", line 286, in get_element
+    raise MiniElementNotFoundError("element[%s] not found" % selector)
+minium.framework.exception.MiniElementNotFoundError: element[text] not found
+[W 2024-04-10 14:47:05,362 minium assertbase#331 _log_info_when_error] config: {'debug': False, 'base_dir': 'C:\\Users\\10260\\PycharmProjects\\soft-test-main\\miniuim_test\\test\\test_case', 'platform': 'ide', 'app': 'wx', 'debug_mode': 'warn', 'close_ide': False, 'auto_capture': 'auto', 'check_mp_foreground': True, 'auto_relaunch': True, 'device_desire': {}, 'account_info': {}, 'report_usage': True, 'remote_connect_timeout': 300, 'request_timeout': 60, 'use_push': True, 'full_reset': False, 'outputs': 'C:\\Users\\10260\\PycharmProjects\\soft-test-main\\miniuim_test\\test\\test_case\\outputs', 'enable_app_log': False, 'enable_network_panel': False, 'project_path': 'C:/Users/10260/Desktop/小程序源代码/dist/dist/build/mp-weixin', 'dev_tool_path': 'D:/Program Files (x86)/Tencent/微信web开发者工具/cli.bat', 'test_port': 9420, 'mock_native_modal': {}, 'mock_request': [], 'auto_authorize': False, 'audits': None, 'teardown_snapshot': False, 'mock_images_dir': '', 'mock_images': {}, 'need_perf': False, 'appid': None, 'assert_capture': False, 'framework_capture': True, 'error_capture': False, 'create_time': '20240410144558', 'case_output': 'C:\\Users\\10260\\PycharmProjects\\soft-test-main\\miniuim_test\\test\\test_case\\outputs\\20240410144558\\test_ui_op\\20240410144601937525'}
+[W 2024-04-10 14:47:05,362 minium assertbase#332 _log_info_when_error] build info: {'version': '1.4.6', 'revision': 'b389ff4b1d94cc73bb5363fc602f5823512df292', 'branch': 'master', 'update_at': '2023-08-28 17:46:51'}
+[W 2024-04-10 14:47:05,362 minium minitest#828 _log_info_when_error] native: <minium.native.wx_native.idenative.IdeNative object at 0x00000131302FD100>
+[W 2024-04-10 14:48:26,208 minium app#497 screen_shot] 截图指令响应失败, 可能因为开发者工具不在前台导致
+[W 2024-04-10 14:48:26,208 minium minitest#728 capture] C:\Users\10260\PycharmProjects\soft-test-main\miniuim_test\test\test_case\outputs\20240410144723\test_ui_op\20240410144726150732\images\setup.png not exists
+[E 2024-04-10 14:48:29,921 minium assertbase#349 _get_stack_info] <bound method Component.test_ui_op of <test.Component testMethod=test_ui_op>>
+Traceback (most recent call last):
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\site-packages\minium\framework\libs\unittest\case.py", line 265, in testPartExecutor
+    yield
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\site-packages\minium\framework\libs\unittest\case.py", line 350, in run
+    self._callTestMethod(testMethod)
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\unittest\case.py", line 633, in _callTestMethod
+    method()
+  File "C:\Users\10260\PycharmProjects\soft-test-main\miniuim_test\test\test_case\test.py", line 42, in test_ui_op
+    self.page.get_element("text", inner_text="换一批").click()
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\site-packages\minium\miniprogram\base_driver\app.py", line 216, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\site-packages\minium\miniprogram\base_driver\minium_log.py", line 172, in wrapper
+    result = func(*args, **kwargs)
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\site-packages\minium\miniprogram\base_driver\page.py", line 286, in get_element
+    raise MiniElementNotFoundError("element[%s] not found" % selector)
+minium.framework.exception.MiniElementNotFoundError: element[text] not found
+[W 2024-04-10 14:48:29,921 minium assertbase#331 _log_info_when_error] config: {'debug': False, 'base_dir': 'C:\\Users\\10260\\PycharmProjects\\soft-test-main\\miniuim_test\\test\\test_case', 'platform': 'ide', 'app': 'wx', 'debug_mode': 'warn', 'close_ide': False, 'auto_capture': 'auto', 'check_mp_foreground': True, 'auto_relaunch': True, 'device_desire': {}, 'account_info': {}, 'report_usage': True, 'remote_connect_timeout': 300, 'request_timeout': 60, 'use_push': True, 'full_reset': False, 'outputs': 'C:\\Users\\10260\\PycharmProjects\\soft-test-main\\miniuim_test\\test\\test_case\\outputs', 'enable_app_log': False, 'enable_network_panel': False, 'project_path': 'C:/Users/10260/Desktop/小程序源代码/dist/dist/build/mp-weixin', 'dev_tool_path': 'D:/Program Files (x86)/Tencent/微信web开发者工具/cli.bat', 'test_port': 9420, 'mock_native_modal': {}, 'mock_request': [], 'auto_authorize': False, 'audits': None, 'teardown_snapshot': False, 'mock_images_dir': '', 'mock_images': {}, 'need_perf': False, 'appid': None, 'assert_capture': False, 'framework_capture': True, 'error_capture': False, 'create_time': '20240410144723', 'case_output': 'C:\\Users\\10260\\PycharmProjects\\soft-test-main\\miniuim_test\\test\\test_case\\outputs\\20240410144723\\test_ui_op\\20240410144726150732'}
+[W 2024-04-10 14:48:29,921 minium assertbase#332 _log_info_when_error] build info: {'version': '1.4.6', 'revision': 'b389ff4b1d94cc73bb5363fc602f5823512df292', 'branch': 'master', 'update_at': '2023-08-28 17:46:51'}
+[W 2024-04-10 14:48:29,921 minium minitest#828 _log_info_when_error] native: <minium.native.wx_native.idenative.IdeNative object at 0x00000244FFE1C0D0>
+[W 2024-04-10 14:50:56,603 minium page#562 _get_elements_by_css] Could not found any element 'pages>sys-theme>view>view>input' you need
+[E 2024-04-10 14:50:56,815 minium assertbase#349 _get_stack_info] <bound method Component.test_ui_op of <test.Component testMethod=test_ui_op>>
+Traceback (most recent call last):
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\site-packages\minium\framework\libs\unittest\case.py", line 265, in testPartExecutor
+    yield
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\site-packages\minium\framework\libs\unittest\case.py", line 350, in run
+    self._callTestMethod(testMethod)
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\unittest\case.py", line 633, in _callTestMethod
+    method()
+  File "C:\Users\10260\PycharmProjects\soft-test-main\miniuim_test\test\test_case\test.py", line 43, in test_ui_op
+    self.page.get_element("pages>sys-theme>view>view>input").send_message("2.0协议站")
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\site-packages\minium\miniprogram\base_driver\app.py", line 216, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\site-packages\minium\miniprogram\base_driver\minium_log.py", line 172, in wrapper
+    result = func(*args, **kwargs)
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\site-packages\minium\miniprogram\base_driver\page.py", line 286, in get_element
+    raise MiniElementNotFoundError("element[%s] not found" % selector)
+minium.framework.exception.MiniElementNotFoundError: element[pages>sys-theme>view>view>input] not found
+[W 2024-04-10 14:50:56,815 minium assertbase#331 _log_info_when_error] config: {'debug': False, 'base_dir': 'C:\\Users\\10260\\PycharmProjects\\soft-test-main\\miniuim_test\\test\\test_case', 'platform': 'ide', 'app': 'wx', 'debug_mode': 'warn', 'close_ide': False, 'auto_capture': 'auto', 'check_mp_foreground': True, 'auto_relaunch': True, 'device_desire': {}, 'account_info': {}, 'report_usage': True, 'remote_connect_timeout': 300, 'request_timeout': 60, 'use_push': True, 'full_reset': False, 'outputs': 'C:\\Users\\10260\\PycharmProjects\\soft-test-main\\miniuim_test\\test\\test_case\\outputs', 'enable_app_log': False, 'enable_network_panel': False, 'project_path': 'C:/Users/10260/Desktop/小程序源代码/dist/dist/build/mp-weixin', 'dev_tool_path': 'D:/Program Files (x86)/Tencent/微信web开发者工具/cli.bat', 'test_port': 9420, 'mock_native_modal': {}, 'mock_request': [], 'auto_authorize': False, 'audits': None, 'teardown_snapshot': False, 'mock_images_dir': '', 'mock_images': {}, 'need_perf': False, 'appid': None, 'assert_capture': False, 'framework_capture': True, 'error_capture': False, 'create_time': '20240410145029', 'case_output': 'C:\\Users\\10260\\PycharmProjects\\soft-test-main\\miniuim_test\\test\\test_case\\outputs\\20240410145029\\test_ui_op\\20240410145050744025'}
+[W 2024-04-10 14:50:56,815 minium assertbase#332 _log_info_when_error] build info: {'version': '1.4.6', 'revision': 'b389ff4b1d94cc73bb5363fc602f5823512df292', 'branch': 'master', 'update_at': '2023-08-28 17:46:51'}
+[W 2024-04-10 14:50:56,821 minium minitest#828 _log_info_when_error] native: <minium.native.wx_native.idenative.IdeNative object at 0x000002A7FFDDD100>
+[E 2024-04-10 14:52:31,097 minium.Conn9872 connection#632 _on_error] [WinError 10054] 远程主机强迫关闭了一个现有的连接。
+[W 2024-04-10 14:52:31,102 minium.Conn9872 connection#552 reconnect] connection reconnect
+[E 2024-04-10 14:52:35,338 minium.Conn9872 connection#632 _on_error] [WinError 10061] 由于目标计算机积极拒绝，无法连接。
+[W 2024-04-10 14:52:35,370 minium.Conn9872 connection#568 reconnect] connect refused, please check svr
+[E 2024-04-10 14:52:44,530 minium.Conn9872 connection#632 _on_error] [WinError 10061] 由于目标计算机积极拒绝，无法连接。
+[W 2024-04-10 14:52:44,546 minium.Conn9872 connection#568 reconnect] connect refused, please check svr
+[W 2024-04-10 14:52:44,817 minium utils#88 wrapper] 第 1 次重新运行relaunch
+[W 2024-04-10 14:52:44,817 minium.Conn9872 connection#533 reconnect] thread[MainThread:33908] reconnecting, wait for reconnection
+[E 2024-04-10 14:53:20,038 minium assertbase#349 _get_stack_info] <bound method Component.test_ui_op of <test.Component testMethod=test_ui_op>>
+Traceback (most recent call last):
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\site-packages\minium\framework\libs\unittest\case.py", line 265, in testPartExecutor
+    yield
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\site-packages\minium\framework\libs\unittest\case.py", line 350, in run
+    self._callTestMethod(testMethod)
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\unittest\case.py", line 633, in _callTestMethod
+    method()
+  File "C:\Users\10260\PycharmProjects\soft-test-main\miniuim_test\test\test_case\test.py", line 42, in test_ui_op
+    self.page.get_element("text", inner_text="换一批").click()
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\site-packages\minium\miniprogram\base_driver\app.py", line 216, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\site-packages\minium\miniprogram\base_driver\minium_log.py", line 172, in wrapper
+    result = func(*args, **kwargs)
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\site-packages\minium\miniprogram\base_driver\page.py", line 286, in get_element
+    raise MiniElementNotFoundError("element[%s] not found" % selector)
+minium.framework.exception.MiniElementNotFoundError: element[text] not found
+[W 2024-04-10 14:53:20,038 minium assertbase#331 _log_info_when_error] config: {'debug': False, 'base_dir': 'C:\\Users\\10260\\PycharmProjects\\soft-test-main\\miniuim_test\\test\\test_case', 'platform': 'ide', 'app': 'wx', 'debug_mode': 'warn', 'close_ide': False, 'auto_capture': 'auto', 'check_mp_foreground': True, 'auto_relaunch': True, 'device_desire': {}, 'account_info': {}, 'report_usage': True, 'remote_connect_timeout': 300, 'request_timeout': 60, 'use_push': True, 'full_reset': False, 'outputs': 'C:\\Users\\10260\\PycharmProjects\\soft-test-main\\miniuim_test\\test\\test_case\\outputs', 'enable_app_log': False, 'enable_network_panel': False, 'project_path': 'C:/Users/10260/Desktop/小程序源代码/dist/dist/build/mp-weixin', 'dev_tool_path': 'D:/Program Files (x86)/Tencent/微信web开发者工具/cli.bat', 'test_port': 9420, 'mock_native_modal': {}, 'mock_request': [], 'auto_authorize': False, 'audits': None, 'teardown_snapshot': False, 'mock_images_dir': '', 'mock_images': {}, 'need_perf': False, 'appid': None, 'assert_capture': False, 'framework_capture': True, 'error_capture': False, 'create_time': '20240410145246', 'case_output': 'C:\\Users\\10260\\PycharmProjects\\soft-test-main\\miniuim_test\\test\\test_case\\outputs\\20240410145246\\test_ui_op\\20240410145315021322'}
+[W 2024-04-10 14:53:20,038 minium assertbase#332 _log_info_when_error] build info: {'version': '1.4.6', 'revision': 'b389ff4b1d94cc73bb5363fc602f5823512df292', 'branch': 'master', 'update_at': '2023-08-28 17:46:51'}
+[W 2024-04-10 14:53:20,038 minium minitest#828 _log_info_when_error] native: <minium.native.wx_native.idenative.IdeNative object at 0x0000018DFA2410D0>
+[W 2024-04-10 14:58:14,846 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:16,681 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:17,521 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:17,783 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:18,051 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:18,346 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:18,611 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:18,876 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:19,147 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:19,421 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:20,686 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:20,952 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:21,221 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:21,488 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:21,746 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:22,009 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:22,279 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:23,545 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:23,804 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:24,071 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:25,336 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:26,592 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:26,847 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:27,116 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:27,372 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:27,642 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:27,905 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:28,171 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:28,433 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:28,686 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:28,940 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:29,216 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:30,486 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:30,741 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:31,002 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:31,275 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:31,598 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:31,862 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:32,138 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:32,615 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:33,173 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:33,639 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:33,899 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:35,166 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:35,430 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:35,700 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:35,968 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:36,228 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:36,483 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:36,750 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:37,018 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:37,281 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:37,536 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:38,812 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:39,070 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:39,331 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:39,599 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:39,855 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:40,112 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:40,368 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:40,696 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:40,963 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:41,228 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:41,482 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:41,747 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:43,023 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:43,284 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:43,539 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:44,802 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:45,204 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:45,725 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:45,978 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:46,256 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:46,516 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:46,773 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:48,034 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:48,303 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:48,568 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:48,899 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:49,173 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:49,425 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:49,681 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:49,949 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:50,210 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:50,461 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:50,730 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:51,015 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:51,273 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:51,536 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:51,793 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:53,068 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:53,333 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:53,594 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:54,864 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:55,127 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:55,390 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:55,656 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:55,919 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:56,185 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:56,457 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:56,722 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:56,985 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:57,253 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:57,641 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:57,918 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:58,184 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:58,455 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:58,722 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:58,974 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:59,235 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:59,501 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:58:59,767 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:59:00,024 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:59:01,293 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:59:01,549 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:59:01,816 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:59:02,076 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:59:02,333 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:59:02,589 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:59:02,852 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:59:03,122 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:59:03,380 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:59:03,647 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:59:03,904 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:59:04,171 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:59:04,426 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:59:04,685 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:59:04,950 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:59:05,208 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:59:05,484 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:59:05,752 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:59:06,019 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:59:06,286 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:59:06,550 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:59:06,819 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:59:07,086 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:59:07,350 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:59:07,607 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:59:07,880 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:59:08,152 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:59:08,422 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:59:08,690 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:59:08,954 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:59:09,209 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:59:09,471 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[W 2024-04-10 14:59:09,738 minium page#562 _get_elements_by_css] Could not found any element '换一批' you need
+[E 2024-04-10 14:59:10,381 minium assertbase#349 _get_stack_info] <bound method Component.test_ui_op of <test.Component testMethod=test_ui_op>>
+Traceback (most recent call last):
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\site-packages\minium\framework\libs\unittest\case.py", line 265, in testPartExecutor
+    yield
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\site-packages\minium\framework\libs\unittest\case.py", line 350, in run
+    self._callTestMethod(testMethod)
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\unittest\case.py", line 633, in _callTestMethod
+    method()
+  File "C:\Users\10260\PycharmProjects\soft-test-main\miniuim_test\test\test_case\test.py", line 41, in test_ui_op
+    self.assertTrue(ret, "wait success")
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\site-packages\minium\framework\assertbase.py", line 57, in hook_assert
+    return src(self, *args, **kwargs)
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\unittest\case.py", line 765, in assertTrue
+    raise self.failureException(msg)
+AssertionError: False is not true : wait success
+[W 2024-04-10 14:59:10,381 minium assertbase#331 _log_info_when_error] config: {'debug': False, 'base_dir': 'C:\\Users\\10260\\PycharmProjects\\soft-test-main\\miniuim_test\\test\\test_case', 'platform': 'ide', 'app': 'wx', 'debug_mode': 'warn', 'close_ide': False, 'auto_capture': 'auto', 'check_mp_foreground': True, 'auto_relaunch': True, 'device_desire': {}, 'account_info': {}, 'report_usage': True, 'remote_connect_timeout': 300, 'request_timeout': 60, 'use_push': True, 'full_reset': False, 'outputs': 'C:\\Users\\10260\\PycharmProjects\\soft-test-main\\miniuim_test\\test\\test_case\\outputs', 'enable_app_log': False, 'enable_network_panel': False, 'project_path': 'C:/Users/10260/Desktop/小程序源代码/dist/dist/build/mp-weixin', 'dev_tool_path': 'D:/Program Files (x86)/Tencent/微信web开发者工具/cli.bat', 'test_port': 9420, 'mock_native_modal': {}, 'mock_request': [], 'auto_authorize': False, 'audits': None, 'teardown_snapshot': False, 'mock_images_dir': '', 'mock_images': {}, 'need_perf': False, 'appid': None, 'assert_capture': False, 'framework_capture': True, 'error_capture': False, 'create_time': '20240410145738', 'case_output': 'C:\\Users\\10260\\PycharmProjects\\soft-test-main\\miniuim_test\\test\\test_case\\outputs\\20240410145738\\test_ui_op\\20240410145807454445'}
+[W 2024-04-10 14:59:10,381 minium assertbase#332 _log_info_when_error] build info: {'version': '1.4.6', 'revision': 'b389ff4b1d94cc73bb5363fc602f5823512df292', 'branch': 'master', 'update_at': '2023-08-28 17:46:51'}
+[W 2024-04-10 14:59:10,381 minium minitest#828 _log_info_when_error] native: <minium.native.wx_native.idenative.IdeNative object at 0x00000159C909C0D0>
+[W 2024-04-10 14:59:46,227 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 14:59:46,493 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 14:59:46,747 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 14:59:47,004 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 14:59:47,260 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 14:59:47,512 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 14:59:47,785 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 14:59:48,052 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 14:59:49,328 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 14:59:49,584 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 14:59:49,845 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 14:59:51,115 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 14:59:51,370 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 14:59:51,626 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 14:59:52,879 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 14:59:53,218 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 14:59:53,483 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 14:59:54,752 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 14:59:55,016 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 14:59:55,286 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 14:59:55,553 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 14:59:55,829 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 14:59:57,101 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 14:59:57,360 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 14:59:57,633 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 14:59:58,906 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:00,185 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:00,443 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:01,709 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:02,965 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:04,218 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:04,478 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:04,751 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:05,017 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:05,280 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:05,546 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:05,859 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:06,118 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:06,384 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:06,646 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:06,912 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:07,182 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:07,443 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:07,715 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:07,982 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:08,249 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:08,513 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:08,783 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:09,036 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:09,294 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:10,547 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:10,804 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:11,064 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:11,335 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:11,608 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:11,878 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:13,137 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:13,398 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:13,653 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:13,928 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:14,195 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:14,457 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:14,726 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:14,983 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:15,245 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:15,506 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:15,776 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:16,043 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:16,315 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:16,583 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:16,853 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:17,129 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:17,397 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:17,664 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:17,923 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:18,183 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:18,435 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:18,713 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:18,983 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:19,244 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:19,496 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:19,756 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:20,026 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:20,295 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:20,569 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:20,835 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:21,094 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:21,356 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:21,625 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:21,894 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:22,163 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:22,429 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:22,695 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:22,953 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:23,215 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:23,473 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:23,740 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:24,007 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:25,279 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:25,548 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:25,809 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:26,075 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:26,331 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:26,593 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:26,861 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:27,127 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:27,395 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:27,654 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:27,927 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:28,201 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:28,466 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:28,732 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:28,996 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:29,260 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:29,514 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:29,794 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:30,060 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:31,341 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:31,600 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:31,864 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:32,128 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:32,394 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:32,661 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:33,930 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:34,188 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:34,446 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:34,717 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:35,979 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:36,233 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:37,506 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:37,792 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:38,064 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:38,319 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:38,582 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:38,842 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:39,111 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:39,383 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:39,650 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:39,908 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:40,175 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:40,436 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:40,711 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:40,977 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:41,232 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:41,498 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:41,767 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:42,044 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:42,316 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:42,579 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:42,837 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:43,101 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:43,358 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:43,642 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:43,908 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:44,163 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:44,425 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:44,684 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:44,960 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[W 2024-04-10 15:00:45,213 minium page#562 _get_elements_by_css] Could not found any element 'view.refresh-group' you need
+[E 2024-04-10 15:00:45,905 minium assertbase#349 _get_stack_info] <bound method Component.test_ui_op of <test.Component testMethod=test_ui_op>>
+Traceback (most recent call last):
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\site-packages\minium\framework\libs\unittest\case.py", line 265, in testPartExecutor
+    yield
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\site-packages\minium\framework\libs\unittest\case.py", line 350, in run
+    self._callTestMethod(testMethod)
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\unittest\case.py", line 633, in _callTestMethod
+    method()
+  File "C:\Users\10260\PycharmProjects\soft-test-main\miniuim_test\test\test_case\test.py", line 41, in test_ui_op
+    self.assertTrue(ret, "wait success")
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\site-packages\minium\framework\assertbase.py", line 57, in hook_assert
+    return src(self, *args, **kwargs)
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\unittest\case.py", line 765, in assertTrue
+    raise self.failureException(msg)
+AssertionError: False is not true : wait success
+[W 2024-04-10 15:00:45,905 minium assertbase#331 _log_info_when_error] config: {'debug': False, 'base_dir': 'C:\\Users\\10260\\PycharmProjects\\soft-test-main\\miniuim_test\\test\\test_case', 'platform': 'ide', 'app': 'wx', 'debug_mode': 'warn', 'close_ide': False, 'auto_capture': 'auto', 'check_mp_foreground': True, 'auto_relaunch': True, 'device_desire': {}, 'account_info': {}, 'report_usage': True, 'remote_connect_timeout': 300, 'request_timeout': 60, 'use_push': True, 'full_reset': False, 'outputs': 'C:\\Users\\10260\\PycharmProjects\\soft-test-main\\miniuim_test\\test\\test_case\\outputs', 'enable_app_log': False, 'enable_network_panel': False, 'project_path': 'C:/Users/10260/Desktop/小程序源代码/dist/dist/build/mp-weixin', 'dev_tool_path': 'D:/Program Files (x86)/Tencent/微信web开发者工具/cli.bat', 'test_port': 9420, 'mock_native_modal': {}, 'mock_request': [], 'auto_authorize': False, 'audits': None, 'teardown_snapshot': False, 'mock_images_dir': '', 'mock_images': {}, 'need_perf': False, 'appid': None, 'assert_capture': False, 'framework_capture': True, 'error_capture': False, 'create_time': '20240410145939', 'case_output': 'C:\\Users\\10260\\PycharmProjects\\soft-test-main\\miniuim_test\\test\\test_case\\outputs\\20240410145939\\test_ui_op\\20240410145942285870'}
+[W 2024-04-10 15:00:45,905 minium assertbase#332 _log_info_when_error] build info: {'version': '1.4.6', 'revision': 'b389ff4b1d94cc73bb5363fc602f5823512df292', 'branch': 'master', 'update_at': '2023-08-28 17:46:51'}
+[W 2024-04-10 15:00:45,905 minium minitest#828 _log_info_when_error] native: <minium.native.wx_native.idenative.IdeNative object at 0x000001D6CBC0B100>

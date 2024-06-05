@@ -1,0 +1,53 @@
+[I 2024-04-09 11:25:21,110 minium minitest#370 _miniSetUp] =========Current case: test_ui_op=========
+[W 2024-04-09 11:25:21,110 minium minitest#372 _miniSetUp] 第1次重试
+[I 2024-04-09 11:25:21,111 minium minitest#373 _miniSetUp] package info: C:.Users.10260.PycharmProjects.soft-test-main.miniuim_test.test.test_case.test, case info: Component.test_ui_op
+[I 2024-04-09 11:25:21,111 minium basenative#25 wrapper] call BaseNative.check_connection
+[I 2024-04-09 11:25:21,111 minium basenative#29 wrapper] call BaseNative.check_connection end
+[I 2024-04-09 11:25:21,111 minium basenative#25 wrapper] call BaseNative.back_to_miniprogram
+[I 2024-04-09 11:25:21,111 minium basenative#595 back_to_miniprogram] try back_to_miniprogram 3
+[I 2024-04-09 11:25:21,112 minium basenative#29 wrapper] call BaseNative.back_to_miniprogram end
+[D 2024-04-09 11:25:21,113 minium.Conn5776 connection#417 _safely_send] ASYNC_SEND > {"id":"3be599dc-c346-443d-80f6-c6e8a0277617","method":"App.callWxMethod","params":{"method":"switchTab","args":[{"url":"/pages/index/index"}]}}
+[D 2024-04-09 11:25:21,113 minium minitest#620 _miniTearDown] =========Current case Down: test_ui_op=========
+[I 2024-04-09 11:25:21,113 minium minitest#717 capture] capture teardown.png
+[I 2024-04-09 11:25:21,113 minium basenative#25 wrapper] call IdeNative.screen_shot
+[D 2024-04-09 11:25:21,113 minium.Conn5776 connection#417 _safely_send] SEND > {"id":"547fad9e-4d92-41c8-93ca-5815ade09f4d","method":"App.captureScreenshot","params":{}}
+[W 2024-04-09 11:25:21,114 minium utils#88 wrapper] 第 1 次重新运行_framework_capture
+[I 2024-04-09 11:25:21,114 minium utils#91 wrapper] 原因: MiniConnectionClosedError('send message[547fad9e-4d92-41c8-93ca-5815ade09f4d] fail because connection is not established',)
+[I 2024-04-09 11:25:21,114 minium minitest#717 capture] capture teardown.png
+[I 2024-04-09 11:25:21,114 minium basenative#25 wrapper] call IdeNative.screen_shot
+[D 2024-04-09 11:25:21,114 minium.Conn5776 connection#417 _safely_send] SEND > {"id":"9047b8ef-dad5-4034-ad38-16da49d8e115","method":"App.captureScreenshot","params":{}}
+[E 2024-04-09 11:25:21,115 minium utils#158 wrapper] catch error: send message[9047b8ef-dad5-4034-ad38-16da49d8e115] fail because connection is not established
+[E 2024-04-09 11:25:21,128 minium assertbase#349 _get_stack_info] <bound method MiniTest._miniSetUp of <test.Component testMethod=test_ui_op>>
+Traceback (most recent call last):
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\site-packages\minium\framework\libs\unittest\case.py", line 265, in testPartExecutor
+    yield
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\site-packages\minium\framework\libs\unittest\case.py", line 341, in run
+    self._miniSetUp()
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\site-packages\minium\framework\minitest.py", line 416, in _miniSetUp
+    self.app.go_home()
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\site-packages\minium\miniprogram\base_driver\minium_log.py", line 172, in wrapper
+    result = func(*args, **kwargs)
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\site-packages\minium\miniprogram\base_driver\app.py", line 837, in go_home
+    page = self.switch_tab(
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\site-packages\minium\miniprogram\base_driver\minium_log.py", line 172, in wrapper
+    result = func(*args, **kwargs)
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\site-packages\minium\utils\utils.py", line 82, in wrapper
+    ret = func(*args, **kwargs)
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\site-packages\minium\miniprogram\base_driver\app.py", line 767, in switch_tab
+    page = self._change_route_async(
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\site-packages\minium\miniprogram\base_driver\app.py", line 929, in _change_route_async
+    cmd.open_id = self.call_wx_method_async(open_type, [{"url": path}])
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\site-packages\minium\miniprogram\base_driver\minium_log.py", line 172, in wrapper
+    result = func(*args, **kwargs)
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\site-packages\minium\miniprogram\base_driver\app.py", line 586, in call_wx_method_async
+    return self._call_wx_method(
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\site-packages\minium\miniprogram\base_driver\minium_object.py", line 158, in _call_wx_method
+    return self.connection.send_async(
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\site-packages\minium\miniprogram\base_driver\connection.py", line 454, in send_async
+    self._safely_send(cmd, sync=False)
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\site-packages\minium\miniprogram\base_driver\connection.py", line 419, in _safely_send
+    raise MiniConnectionClosedError("send message[%s] fail because connection is not established" % cmd.id)
+minium.framework.exception.MiniConnectionClosedError: send message[3be599dc-c346-443d-80f6-c6e8a0277617] fail because connection is not established
+[W 2024-04-09 11:25:21,128 minium assertbase#331 _log_info_when_error] config: {'debug': False, 'base_dir': 'C:\\Users\\10260\\PycharmProjects\\soft-test-main\\miniuim_test\\test\\test_case', 'platform': 'ide', 'app': 'wx', 'debug_mode': 'warn', 'close_ide': False, 'auto_capture': 'auto', 'check_mp_foreground': True, 'auto_relaunch': True, 'device_desire': {}, 'account_info': {}, 'report_usage': True, 'remote_connect_timeout': 300, 'request_timeout': 60, 'use_push': True, 'full_reset': False, 'outputs': 'C:\\Users\\10260\\PycharmProjects\\soft-test-main\\miniuim_test\\test\\test_case\\outputs', 'enable_app_log': False, 'enable_network_panel': False, 'project_path': 'C:/Users/10260/Desktop/小程序源代码/dist/dist/build/mp-weixin', 'dev_tool_path': 'D:/Program Files (x86)/Tencent/微信web开发者工具/cli.bat', 'test_port': 9420, 'mock_native_modal': {}, 'mock_request': [], 'auto_authorize': False, 'audits': None, 'teardown_snapshot': False, 'mock_images_dir': '', 'mock_images': {}, 'need_perf': False, 'appid': None, 'assert_capture': False, 'framework_capture': True, 'error_capture': False, 'create_time': '20240409112445', 'case_output': 'C:\\Users\\10260\\PycharmProjects\\soft-test-main\\miniuim_test\\test\\test_case\\outputs\\20240409112445\\test_ui_op\\20240409112521109077'}
+[W 2024-04-09 11:25:21,139 minium assertbase#332 _log_info_when_error] build info: {'version': '1.4.6', 'revision': 'b389ff4b1d94cc73bb5363fc602f5823512df292', 'branch': 'master', 'update_at': '2023-08-28 17:46:51'}
+[W 2024-04-09 11:25:21,139 minium minitest#828 _log_info_when_error] native: <minium.native.wx_native.idenative.IdeNative object at 0x0000022BFD46EBE0>

@@ -1,0 +1,100 @@
+{
+    "case_name": "test_ui_op",
+    "run_time": "20240409 14:07:18",
+    "test_type": "Component",
+    "case_doc": null,
+    "success": true,
+    "failures": "",
+    "errors": "",
+    "start_timestamp": 1712642840.6535099,
+    "is_failure": false,
+    "is_error": false,
+    "module": "C:.Users.10260.PycharmProjects.soft-test-main.miniuim_test.test.test_case.test",
+    "package": "test",
+    "failed_line_num": -1,
+    "device": {
+        "system_info": {
+            "model": "iPhone 6/7/8 Plus",
+            "pixelRatio": 3,
+            "windowWidth": 414,
+            "windowHeight": 688,
+            "system": "iOS 10.0.1",
+            "language": "zh_CN",
+            "version": "8.0.5",
+            "deviceOrientation": "portrait",
+            "screenWidth": 414,
+            "screenHeight": 736,
+            "SDKVersion": "2.17.0",
+            "brand": "devtools",
+            "fontSizeSetting": 16,
+            "benchmarkLevel": 1,
+            "batteryLevel": 37,
+            "statusBarHeight": 20,
+            "bluetoothEnabled": true,
+            "locationEnabled": true,
+            "wifiEnabled": true,
+            "cameraAuthorized": true,
+            "locationAuthorized": true,
+            "microphoneAuthorized": true,
+            "notificationAuthorized": true,
+            "safeArea": {
+                "top": 20,
+                "left": 0,
+                "right": 414,
+                "bottom": 736,
+                "width": 414,
+                "height": 716
+            },
+            "platform": "devtools",
+            "enableDebug": false,
+            "devicePixelRatio": 3,
+            "host": {
+                "env": "WeChat"
+            }
+        }
+    },
+    "log_filename": "run.log",
+    "error_type": "",
+    "error_value": "",
+    "error_stages": [],
+    "screen_info": [
+        {
+            "name": "setup",
+            "url": "/pages/index/index",
+            "path": "images\\setup.png",
+            "ts": 1712642840,
+            "datetime": "2024-04-09 14:07:20"
+        },
+        {
+            "name": "teardown",
+            "url": "/pages/index/index",
+            "path": "images\\teardown.png",
+            "ts": 1712642841,
+            "datetime": "2024-04-09 14:07:21"
+        }
+    ],
+    "step_info": [],
+    "check_list": [],
+    "assert_list": [],
+    "perf_data": "{\"startup\": 0, \"avg_cpu\": 0, \"max_cpu\": 0, \"cpu_data_list\": [], \"avg_mem\": 0, \"max_mem\": 0, \"mem_data_list\": [], \"avg_fps\": 0, \"min_fps_rt\": 0, \"fps_data_list\": [], \"fps_time_series_list\": [], \"cpu_time_series_list\": [], \"mem_time_series_list\": []}",
+    "weapp_log_path": "weapp.log",
+    "request_log_path": "request.log",
+    "stop_timestamp": 1712642841.0952985,
+    "appId": "",
+    "appName": "",
+    "source": {
+        "code": [
+            "    def test_ui_op(self):\n",
+            "        print(\"\u5f00\u59cb\u6267\u884c\u6d4b\u8bd5\u811a\u672c\")\n",
+            "        print(self.page.get_element(\"view\"))\n",
+            "        # self.page.get_element(\"view\", inner_text=\"\u8bf7\u8f93\u5165\u5145\u7535\u7ad9\u540d\u6216\u5730\u5740\").click()\n",
+            "        # self.page.get_element(\"text\", inner_text=\"\u6362\u4e00\u6279\").click()\n",
+            "        # # self.page.get_element(\".navigator-text\", inner_text=\"swiper\").click()\n",
+            "        # # self.page.get_elements(\"switch\")[0].click()\n",
+            "        # # self.page.get_elements(\"switch\")[1].click()\n",
+            "        # print(\"test_ui_op\u6267\u884c\u6d4b\u8bd5\u5b8c\u6210\")\n"
+        ],
+        "start": 17
+    },
+    "filename": "result.json"
+}

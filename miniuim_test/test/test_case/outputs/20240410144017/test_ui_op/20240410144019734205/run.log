@@ -1,0 +1,16 @@
+[E 2024-04-10 14:40:23,871 minium assertbase#349 _get_stack_info] <bound method Component.test_ui_op of <test.Component testMethod=test_ui_op>>
+Traceback (most recent call last):
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\site-packages\minium\framework\libs\unittest\case.py", line 265, in testPartExecutor
+    yield
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\site-packages\minium\framework\libs\unittest\case.py", line 350, in run
+    self._callTestMethod(testMethod)
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\unittest\case.py", line 633, in _callTestMethod
+    method()
+  File "C:\Users\10260\PycharmProjects\soft-test-main\miniuim_test\test\test_case\test.py", line 43, in test_ui_op
+    self.page.get_element("input").send_message("2.0协议站")
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\site-packages\minium\miniprogram\base_driver\element.py", line 92, in __getattribute__
+    return super(BaseElement, self).__getattribute__(item)
+AttributeError: 'FormElement' object has no attribute 'send_message'
+[W 2024-04-10 14:40:23,871 minium assertbase#331 _log_info_when_error] config: {'debug': False, 'base_dir': 'C:\\Users\\10260\\PycharmProjects\\soft-test-main\\miniuim_test\\test\\test_case', 'platform': 'ide', 'app': 'wx', 'debug_mode': 'warn', 'close_ide': False, 'auto_capture': 'auto', 'check_mp_foreground': True, 'auto_relaunch': True, 'device_desire': {}, 'account_info': {}, 'report_usage': True, 'remote_connect_timeout': 300, 'request_timeout': 60, 'use_push': True, 'full_reset': False, 'outputs': 'C:\\Users\\10260\\PycharmProjects\\soft-test-main\\miniuim_test\\test\\test_case\\outputs', 'enable_app_log': False, 'enable_network_panel': False, 'project_path': 'C:/Users/10260/Desktop/小程序源代码/dist/dist/build/mp-weixin', 'dev_tool_path': 'D:/Program Files (x86)/Tencent/微信web开发者工具/cli.bat', 'test_port': 9420, 'mock_native_modal': {}, 'mock_request': [], 'auto_authorize': False, 'audits': None, 'teardown_snapshot': False, 'mock_images_dir': '', 'mock_images': {}, 'need_perf': False, 'appid': None, 'assert_capture': False, 'framework_capture': True, 'error_capture': False, 'create_time': '20240410144017', 'case_output': 'C:\\Users\\10260\\PycharmProjects\\soft-test-main\\miniuim_test\\test\\test_case\\outputs\\20240410144017\\test_ui_op\\20240410144019734205'}
+[W 2024-04-10 14:40:23,871 minium assertbase#332 _log_info_when_error] build info: {'version': '1.4.6', 'revision': 'b389ff4b1d94cc73bb5363fc602f5823512df292', 'branch': 'master', 'update_at': '2023-08-28 17:46:51'}
+[W 2024-04-10 14:40:23,871 minium minitest#828 _log_info_when_error] native: <minium.native.wx_native.idenative.IdeNative object at 0x0000018FF40F9130>
