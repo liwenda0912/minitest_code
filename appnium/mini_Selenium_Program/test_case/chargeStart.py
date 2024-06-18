@@ -15,22 +15,23 @@ from appnium.mini_Selenium_Program.test_case.Charge_user_login import Charge_use
 
 class chargeStart(unittest.TestCase):
     def setUp(self) -> None:
-        try:
-            self.appnium = Init().Appnium
-            self.driver = Driver(self.appnium)
-            self.wait = Waiting(self.appnium)
-            self.action = ActionChains(self.appnium)
-            self.text = Charge_user_login(self.appnium).test_chargeUserLogin()
+        # try:
+        self.appnium = Init().Appnium
+        self.driver = Driver(self.appnium)
+        self.wait = Waiting(self.appnium)
+        self.action = ActionChains(self.appnium)
+        self.text = Charge_user_login(self.appnium).test_chargeUserLogin()
 
-        except WebDriverException as e:
-            ConnectSimulator()
-            exceptHandle(self.appnium, e)
-        except urllib3.exceptions.ProtocolError as e:
-            exceptHandle(self.appnium, e)
+    # except WebDriverException as e:
+    #     ConnectSimulator()
+    #     exceptHandle(self.appnium, e)
+    # except urllib3.exceptions.ProtocolError as e:
+    #     exceptHandle(self.appnium, e)
 
     def test_chargeStation(self):
         global equal_text
         try:
+            print(self.text)
             if self.text == "____this part done_____":
                 self.contexts_list = self.appnium.contexts
                 searchStation(self.appnium, self.wait, self.action, self.contexts_list, self.driver)
@@ -135,15 +136,15 @@ class chargeStart(unittest.TestCase):
                 print(self.appnium.page_source)
         except EOFError:
             print(EOFError)
-        except RemoteDisconnected as e:
-            exceptHandle(self.appnium, e)
-        except ConnectionAbortedError as e:
-            exceptHandle(self.appnium, e)
-        except WebDriverException as e:
-            ConnectSimulator()
-            exceptHandle(self.appnium, e)
-        except urllib3.exceptions.ProtocolError as e:
-            exceptHandle(self.appnium, e)
+        # except RemoteDisconnected as e:
+        #     exceptHandle(self.appnium, e)
+        # except ConnectionAbortedError as e:
+        #     exceptHandle(self.appnium, e)
+        # except WebDriverException as e:
+        #     ConnectSimulator()
+        #     exceptHandle(self.appnium, e)
+        # except urllib3.exceptions.ProtocolError as e:
+        #     exceptHandle(self.appnium, e)
 
     def tearDown(self) -> None:
         self.appnium.quit()

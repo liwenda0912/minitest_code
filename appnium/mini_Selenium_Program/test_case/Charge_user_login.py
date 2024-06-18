@@ -50,8 +50,10 @@ class Charge_user_login(object):
                             self.driver.Appnium_click(AppiumBy.XPATH,
                                                       '//*[contains(@class,"right-span popup--right-span _span popup--_span")]')
                             self.search(contexts_list, size)
+                            return "____this part done_____"
                         else:
                             self.search(contexts_list, size)
+                            return "____this part done_____"
             else:
                 print("--------------------小程序所需服务未启动,无法驱动小程序！----------------------")
         except EOFError:
@@ -106,4 +108,4 @@ class Charge_user_login(object):
         #     self.driver.Appnium_Switch_Window(win[1])
         #     break
         print("____this part done_____")
-        return "____this part done_____"
+

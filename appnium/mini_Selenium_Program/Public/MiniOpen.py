@@ -69,19 +69,19 @@ class openMini(object):
                             self.wait.WaitElement(2, (AppiumBy.XPATH, '//*[@text="确定"]'))
                 else:
                     self.driver.Appnium_swipe(500)
-                    self.driver.Appnium_click(AppiumBy.XPATH, '//*[@text="驾驶乐"]')
+                    self.wait.WaitElement(2, (AppiumBy.XPATH, '//*[@text="驾驶乐"]'), "小程序不存在该页面")
         except NoSuchElementException:
             time.sleep(5)
             print("---------------------NoSuchElement-------------------------------")
-        except EOFError:
-            print(EOFError)
-        except RemoteDisconnected:
-            self.test_startMiniApp()
-        except ConnectionAbortedError:
-            print("出现了'ConnectionAbortedError: [WinError 10053] 你的主机中的软件中止了一个已建立的连接。")
-            self.test_startMiniApp()
-        except WebDriverException:
-            ConnectSimulator()
-            print("出现了' Could not find a connected Android device.")
-            self.test_startMiniApp()
-            print("重新启动完成")
+        # except EOFError:
+        #     print(EOFError)
+        # except RemoteDisconnected:
+        #     self.test_startMiniApp()
+        # except ConnectionAbortedError:
+        #     print("出现了'ConnectionAbortedError: [WinError 10053] 你的主机中的软件中止了一个已建立的连接。")
+        #     self.test_startMiniApp()
+        # except WebDriverException:
+        #     ConnectSimulator()
+        #     print("出现了' Could not find a connected Android device.")
+        #     self.test_startMiniApp()
+        #     print("重新启动完成")
