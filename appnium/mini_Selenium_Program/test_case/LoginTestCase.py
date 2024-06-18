@@ -11,8 +11,7 @@
 import subprocess
 # #
 if __name__ == "__main__":
-    dominate = [1, 2]
-    print(dominate[0])
+
     # 使用tasklist命令获取系统进程信息
     cmd = "adb devices"
     n = "adb connect 127.0.0.1:7555"
@@ -44,7 +43,7 @@ from ddt import ddt, data
 
 from appnium.mini_Selenium_Program.Public.Utils.key_code import ke_code
 from appnium.mini_Selenium_Program.test_case.Charge_user_login import Charge_user_login
-from appnium.mini_Selenium_Program.test_case.chargeStart import chargeStart
+from appnium.mini_Selenium_Program.test_case.chargeStartStationSearch import chargeStart
 
 
 

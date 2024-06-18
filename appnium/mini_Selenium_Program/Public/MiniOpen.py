@@ -1,12 +1,15 @@
 import os
 
 import time
+from http.client import RemoteDisconnected
+
 from appnium.mini_Selenium_Program.Public.Utils.uilts import Driver, Waiting, Init
 from appium.webdriver.common.appiumby import AppiumBy
 from appnium.mini_Selenium_Program.Public.Utils.Simulator_Start import ConnectSimulator
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common import NoSuchElementException
+from selenium.common.exceptions import WebDriverException
 from appnium.mini_Selenium_Program.Public.Utils.uilts import utils_Option
 
 
@@ -72,3 +75,13 @@ class openMini(object):
             print("---------------------NoSuchElement-------------------------------")
         except EOFError:
             print(EOFError)
+        except RemoteDisconnected:
+            self.test_startMiniApp()
+        except ConnectionAbortedError:
+            print("出现了'ConnectionAbortedError: [WinError 10053] 你的主机中的软件中止了一个已建立的连接。")
+            self.test_startMiniApp()
+        except WebDriverException:
+            ConnectSimulator()
+            print("出现了' Could not find a connected Android device.")
+            self.test_startMiniApp()
+            print("重新启动完成")

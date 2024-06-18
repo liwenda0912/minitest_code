@@ -1,7 +1,11 @@
 import time
 import unittest
+from http.client import RemoteDisconnected
+
+from selenium.common.exceptions import WebDriverException
 from appnium.mini_Selenium_Program.Public.MiniOpen import openMini
-from appnium.mini_Selenium_Program.Public.Utils.Simulator_Start import AppiumApp_start, Simulator_Start, cmdProcess
+from appnium.mini_Selenium_Program.Public.Utils.Simulator_Start import AppiumApp_start, Simulator_Start, cmdProcess, \
+    ConnectSimulator
 from appnium.mini_Selenium_Program.Public.Utils.uilts import Driver, Waiting, Init
 from appium.webdriver.common.appiumby import AppiumBy
 
@@ -44,7 +48,7 @@ class Charge_user_login(object):
                         if "您当前已到达：" in self.appnium.page_source:
 
                             self.driver.Appnium_click(AppiumBy.XPATH,
-                                                      '//*[@class= "right-span popup--right-span _span popup--_span data-v-839ea2b6 popup--data-v-839ea2b6"]')
+                                                      '//*[contains(@class,"right-span popup--right-span _span popup--_span")]')
                             self.search(contexts_list, size)
                         else:
                             self.search(contexts_list, size)
@@ -52,7 +56,19 @@ class Charge_user_login(object):
                 print("--------------------小程序所需服务未启动,无法驱动小程序！----------------------")
         except EOFError:
             pass
-
+        except RemoteDisconnected:
+            print("出现了'Remote end closed connection without response'情况,正在重新连接remote")
+            Charge_user_login(self.appnium).test_chargeUserLogin()
+            print("重新启动完成")
+        except ConnectionAbortedError:
+            print("出现了'ConnectionAbortedError: [WinError 10053] 你的主机中的软件中止了一个已建立的连接。")
+            Charge_user_login(self.appnium).test_chargeUserLogin()
+            print("重新启动完成")
+        except WebDriverException:
+            ConnectSimulator()
+            print("出现了' Could not find a connected Android device.")
+            Charge_user_login(self.appnium).test_chargeUserLogin()
+            print("重新启动完成")
     #
     # def tearDown(self) -> None:
     #     self.appnium.quit()
