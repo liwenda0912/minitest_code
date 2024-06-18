@@ -1,8 +1,0 @@
-test_taobao (s搜索.Taobao) ... ok
-test_1 (unittest单元测试用例.TestCase1) ... ok
-test_case (unittest单元测试用例.TestCase1) ... ok
-
-----------------------------------------------------------------------
-Ran 3 tests in 10.578s
-
-OK
