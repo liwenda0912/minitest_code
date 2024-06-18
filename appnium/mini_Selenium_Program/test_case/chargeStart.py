@@ -52,6 +52,8 @@ class chargeStart(unittest.TestCase):
                     # 切换到枪详情界面
                 print(self.appnium.current_window_handle, self.appnium.window_handles)
                 self.driver.Appnium_Switch_Window(1)
+                time.sleep(5)
+                print(self.appnium.page_source)
                 chose_pay = 0
                 if chose_pay == "1":
                     # 选择启动充电方式
