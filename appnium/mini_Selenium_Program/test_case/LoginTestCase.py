@@ -43,7 +43,7 @@ from ddt import ddt, data
 
 from appnium.mini_Selenium_Program.Public.Utils.key_code import ke_code
 from appnium.mini_Selenium_Program.test_case.Charge_user_login import Charge_user_login
-from appnium.mini_Selenium_Program.test_case.chargeStartStationSearch import chargeStart
+from appnium.mini_Selenium_Program.test_case.chargeStart import chargeStart
 
 
 

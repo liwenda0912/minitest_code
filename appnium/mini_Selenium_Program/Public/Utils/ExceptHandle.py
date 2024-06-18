@@ -1,0 +1,2 @@
+class ExceptHandle:
+    pass
