@@ -1,4 +1,6 @@
 from appium import webdriver
+
+from appnium.mini_Selenium_Program.Public.Utils.Simulator_Start import ConnectSimulator
 from appnium.mini_Selenium_Program.Public.conf.StartAppiumConf import StartAppium
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -9,6 +11,7 @@ from selenium.webdriver.common.action_chains import ActionChains
 class Init:
     def __init__(self):
         try:
+            ConnectSimulator()
             self.desired_caps = StartAppium().option
             self.Appnium = webdriver.Remote(command_executor='http://127.0.0.1:4723/wd/hub', options=self.desired_caps)
         except EOFError:
@@ -68,11 +71,13 @@ class Driver(object):
 
     # 查找element元素
     def Find_element(self, *loc):
-        self.Appnium.find_element(*loc)
+        data = self.Appnium.find_element(*loc)
+        return data
 
     # 查找多个某属性的element元素
     def Find_elements(self, *loc):
-        self.Appnium.find_elements(*loc)
+        data_lists = self.Appnium.find_elements(*loc)
+        return data_lists
 
     # 点击事件
     def Appnium_click(self, *loc):
@@ -96,7 +101,7 @@ class Driver(object):
 
     # 获取element的文案信息
     def Appnium_Text(self, *loc):
-        text = self.Appnium.find_element(*loc).get_attribute('text')
+        text = self.Appnium.find_element(*loc).get_attribute('value')
         return text
 
     # 滚动
@@ -115,6 +120,15 @@ class Driver(object):
     def Appnium_Switch_Frame(self, loc):
         self.Appnium.switch_to.frame(loc)
 
+    # 切换到含有某个元素的地方
+    def Switch_Win(self, *loc):
+        for handle in self.Appnium.window_handles:
+            self.Appnium.switch_to.window(handle)
+            Waiting(self.Appnium).Appnium_wait(3)
+            el = self.Find_elements(*loc)
+            if el is not None:
+                break
+
     # 切换多个页面
     def Appnium_Switch_Window(self, num):
         wins = self.Appnium.window_handles
@@ -124,6 +138,8 @@ class Driver(object):
             self.Appnium.switch_to.window(wins[0])
         elif num == 2:
             self.Appnium.switch_to.window(wins[2])
+        elif num == 3:
+            self.Appnium.switch_to.window(wins[3])
         else:
             self.Appnium.switch_to.window(wins[-1])
 

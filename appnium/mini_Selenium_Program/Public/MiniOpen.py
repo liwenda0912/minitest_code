@@ -15,7 +15,6 @@ from appnium.mini_Selenium_Program.Public.Utils.uilts import utils_Option
 
 class openMini(object):
     def __init__(self, appnium):
-        ConnectSimulator()
         self.appnium = appnium
         self.driver = Driver(self.appnium)
         self.wait = Waiting(self.appnium)
@@ -35,9 +34,7 @@ class openMini(object):
                     self.wait.WaitElement(2, (AppiumBy.XPATH, '//*[@text="请填写微信密码"]'), "无法找到该元素")
                     wx_passwd = str(input("请" + wx_username_new + "的输入wx密码："))
                     self.driver.Appnium_SendKey((AppiumBy.XPATH, '//*[@text="请填写微信密码"]'), "无法找到该元素", "da123456")
-                    time.sleep(2)
                     self.driver.Appnium_click(AppiumBy.XPATH, '//*[@text="登录"]')
-                    time.sleep(5)
                     el_login_msg = self.appnium.find_elements(AppiumBy.XPATH, '//*[@text="确定"]')
                     if el_login_msg is not None and len(el_login_msg) != 0:
                         self.wait.WaitElement(2, (AppiumBy.XPATH, '//*[@text="确定"]'), "元素找不到")
@@ -53,7 +50,6 @@ class openMini(object):
                     #                                   '//*[@class="android.widget.EditText" and @resource-id="com.tencent.mm:id/cd7"]')
                     else:
                         break
-                time.sleep(5)
                 print("----------------------------登录成功！-------------------------------")
                 self.driver.Appnium_swipe(500)
                 self.driver.Appnium_click(AppiumBy.XPATH, '//*[@text="驾驶乐"]')
@@ -70,8 +66,8 @@ class openMini(object):
                 else:
                     self.driver.Appnium_swipe(500)
                     self.wait.WaitElement(2, (AppiumBy.XPATH, '//*[@text="驾驶乐"]'), "小程序不存在该页面")
+                    time.sleep(10)
         except NoSuchElementException:
-            time.sleep(5)
             print("---------------------NoSuchElement-------------------------------")
         # except EOFError:
         #     print(EOFError)

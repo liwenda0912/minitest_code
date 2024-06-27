@@ -37,6 +37,9 @@ class Charge_user_login(object):
         try:
             if cmdProcess(r'K\r\nAppium.exe') == '服务已经启动' and cmdProcess(r'K\r\nMuMuPlayer.exe') == '服务已经启动':
                 # 遍历上下文，找到小程序上下文
+                print("执行到这里了")
+                self.wait.Appnium_wait(2)
+                print(self.appnium.contexts)
                 self.appnium.wait_activity("WEBVIEW_com.tencent.mm:appbrand0", 50, 1)
                 contexts_list = self.appnium.contexts
                 size = self.appnium.get_window_size()
@@ -45,8 +48,8 @@ class Charge_user_login(object):
                         # 切换到小程序上下文
                         print("即将切换到webview名为" + context + "的界面！")
                         self.appnium.switch_to.context(contexts_list[1])
+                        print("已经切换到小程序界面")
                         if "您当前已到达：" in self.appnium.page_source:
-
                             self.driver.Appnium_click(AppiumBy.XPATH,
                                                       '//*[contains(@class,"right-span popup--right-span _span popup--_span")]')
                             self.search(contexts_list, size)
@@ -78,7 +81,7 @@ class Charge_user_login(object):
     def search(self, contexts_list, size):
         # 存在两个界面，一个是小程序界面，一个是开发者调试器界面
         # 切换页面为1
-        time.sleep(5)
+        self.wait.Appnium_wait(2)
         # 在首页查找登录字段（定点查找）
         login_text = self.appnium.find_elements(AppiumBy.XPATH,
                                                 '//*[@class="_span benefits--_span data-v-f7b9a482 benefits--data-v-f7b9a482 login-css benefits--login-css"]')
