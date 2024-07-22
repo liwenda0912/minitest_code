@@ -1,7 +1,8 @@
 from appnium.mini_Selenium_Program.Public.Utils.uilts import Driver, Waiting, Init
+from appium.webdriver.common.appiumby import AppiumBy
 
 
-class Coupon_Select:
+class Coupon_Select(object):
     def __init__(self, appium):
         self.appnium = appium
         self.driver = Driver(appium)
@@ -23,7 +24,7 @@ class Coupon_Select:
         # 不使用优惠券
         elif chose_coupon == "4":
             # 进入优惠券界面
-            self.driver.Appnium_click()
+            self.driver.Appnium_click(AppiumBy.XPATH, '//*[contains(@class,"d-flex d-flex align-items-center align-items-center")]')
             button_text = self.appnium.find_elements()
             for button in button_text:
                 if button.text == "取消":
@@ -46,7 +47,7 @@ class Coupon_Select:
         chose_discount = 0
         if chose_discount == "1":
             # 进入优惠方案弹窗
-            self.driver.Appnium_click()
+            self.driver.Appnium_click(AppiumBy.XPATH, '//*[contains(@class,"d-flex d-flex align-items-center align-items-center")]')
             # 所有获取优惠方案
             chose_discount_text = self.appnium.find_elements()
             for discount_text in chose_discount_text:

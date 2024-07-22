@@ -11,6 +11,7 @@ from appnium.mini_Selenium_Program.Public.Utils.Simulator_Start import ConnectSi
 from appnium.mini_Selenium_Program.Public.Utils.uilts import Driver, Waiting, Init
 from appium.webdriver.common.appiumby import AppiumBy
 from appnium.mini_Selenium_Program.test_case.Charge_user_login import Charge_user_login
+from appnium.mini_Selenium_Program.test_case.Coupon_Select import Coupon_Select
 from appnium.mini_Selenium_Program.test_case.Search_Station import Search_Station
 
 
@@ -76,30 +77,22 @@ class chargeStart(unittest.TestCase):
                     if pay_options.text == chose_pay:
                         pay_options.click()
                 # 查看是否存在优惠卡券可选择
-                # self.driver.Find_elements(AppiumBy.XPATH,
-                #                           '//*[contains(@class,"agreement-body agreement-body d-flex d-flex align-items-center align-items-center")')
-                # # 选择优惠卡券
-
+                #
+                with open("source.txt", "w") as t:
+                    t.write(self.appnium.page_source)
+                    t.close()
+                if self.driver.Find_elements(AppiumBy.XPATH,
+                                             '//*[contains(@class,"agreement-body agreement-body d-flex d-flex align-items-center align-items-center")') is not None:
+                    Coupon_Select(self.appnium).coupon_select()
                 # # 启动充电
+                if self.driver.Find_element(AppiumBy.XPATH,
+                                            '//*[contains(@class,"car-detail main--car-detail")]').text == "添加车辆信息，享限时免费停车权益":
+                    self.driver.Appnium_click(AppiumBy.XPATH, '//*[contians(@class,"add-button main--add-button")]')
+
                 self.driver.Appnium_click(AppiumBy.XPATH,
                                           '//*[contains(@class,"charge-button charge-button d-flex d-flex align-items-center align-items-center justify-content-center justify-content-center")]')
-                # # 等待充电时长到达3分钟
-                # self.wait.WaitElement()
-                # # 点击结束充电
-                # self.driver.Appnium_click(AppiumBy.XPATH, '//*[contains(@class,"charge-button charge-button d-flex d-flex align-items-center align-items-center justify-content-center justify-content-center")]')
-                # # 切换到服务详情界面
-                # self.driver.Appnium_Switch_Window()
-                # # 对比价格
-                # self.assertEqual()
-                # self.assertEqual()
-                # self.assertEqual()
                 print("运行到这里了，枪详情-111")
-                time.sleep(50)
-                list_win = self.appnium.window_handles
-                # for i in list_win:
-                #     if "结束充电" in i.page_source:
-                #         self.appnium.switch_to.window(i)
-                #         print(self.appnium.page_source)
+
         except EOFError:
             print(EOFError)
         except RemoteDisconnected as e:
