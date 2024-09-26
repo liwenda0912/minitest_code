@@ -10,6 +10,8 @@ from selenium.webdriver import ActionChains
 from appnium.mini_Selenium_Program.Public.Utils.Simulator_Start import ConnectSimulator
 from appnium.mini_Selenium_Program.Public.Utils.uilts import Driver, Waiting, Init
 from appium.webdriver.common.appiumby import AppiumBy
+
+from appnium.mini_Selenium_Program.Public.common.AppiumStart.AppiumStart import AppiumStart
 from appnium.mini_Selenium_Program.test_case.Charge_user_login import Charge_user_login
 from appnium.mini_Selenium_Program.test_case.Coupon_Select import Coupon_Select
 from appnium.mini_Selenium_Program.test_case.Search_Station import Search_Station
@@ -18,7 +20,7 @@ from appnium.mini_Selenium_Program.test_case.Search_Station import Search_Statio
 class chargeStart(unittest.TestCase):
     def setUp(self) -> None:
         # try:
-        self.appnium = Init().Appnium
+        self.appnium = AppiumStart().Appnium
         self.driver = Driver(self.appnium)
         self.wait = Waiting(self.appnium)
         self.action = ActionChains(self.appnium)

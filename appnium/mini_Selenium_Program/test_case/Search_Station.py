@@ -30,8 +30,10 @@ class Search_Station(object):
             self.appnium.switch_to.window(win[0])
             self.wait.Appnium_wait(5)
             el = self.driver.Find_element(AppiumBy.XPATH, '//*[@class="uni-input uni-input"]')
+            # 唤起模拟器的手机键盘
             os.system("adb shell ime list -s")
             os.system("adb shell settings put secure default_input_method com.sohu.inputmethod.sogou/.SogouIME")
+            # 回车点击
             self.action.click(el).perform()
             os.system("adb shell input text  2.0")
             # 切回app界面点击回车键

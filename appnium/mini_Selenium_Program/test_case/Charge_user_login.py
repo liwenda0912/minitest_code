@@ -21,8 +21,6 @@ class Charge_user_login(object):
     #     openMini(self.appnium).test_startMiniApp()
 
     def __init__(self, appnium):
-        # Simulator_Start()
-        # AppiumApp_start()
         Simulator_Start()
         AppiumApp_start()
         self.appnium = appnium

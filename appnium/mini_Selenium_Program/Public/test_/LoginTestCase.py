@@ -106,6 +106,6 @@
 #         print(d)
 #
 if __name__ == '__main__':
-    with open("source.txt", "w") as t:
+    with open("../../test_case/source.txt", "w") as t:
         t.write("55555")
         t.close()
