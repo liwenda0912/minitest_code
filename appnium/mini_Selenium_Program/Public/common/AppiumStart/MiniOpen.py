@@ -1,6 +1,5 @@
-import logging
 import time
-from appnium.mini_Selenium_Program.Public.Utils.uilts import Driver, Waiting, Init
+from appnium.mini_Selenium_Program.Public.Utils.uilts import Driver, Waiting
 from appium.webdriver.common.appiumby import AppiumBy
 from selenium.common import NoSuchElementException
 from appnium.mini_Selenium_Program.Public.Utils.uilts import utils_Option

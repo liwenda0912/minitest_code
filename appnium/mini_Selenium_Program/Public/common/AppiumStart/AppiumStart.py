@@ -9,7 +9,7 @@ from appnium.mini_Selenium_Program.Public.conf.StartAppiumConf import StartAppiu
 @Retry(sleep=3, count=3)
 class AppiumStart:
     def __init__(self):
-            ConnectSimulator()
-            self.desired_caps = StartAppium().option
-            self.Appnium = webdriver.Remote(command_executor='http://127.0.0.1:4723/wd/hub', options=self.desired_caps)
-
+        ConnectSimulator()
+        self.url_ = 'http://127.0.0.1:4723/wd/hub'
+        self.desired_caps = StartAppium().option
+        self.Appnium = webdriver.Remote(command_executor=self.url_ , options=self.desired_caps)

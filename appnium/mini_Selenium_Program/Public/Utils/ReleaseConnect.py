@@ -1,18 +1,15 @@
-from appnium.mini_Selenium_Program.Public.Utils.uilts import Init
-from appnium.mini_Selenium_Program.Public.Utils.SqlConnect import Connect
+from appnium.mini_Selenium_Program.Public.common.AppiumStart.AppiumStart import AppiumStart
 
 
 def Release_conf():
-    appnium = Init().Appnium
+    appnium = AppiumStart.Appnium
     appnium.quit()
 
     
-def Quiit_conf():
-    appnium = Init().Appnium
+def Quit_conf():
+    appnium = AppiumStart.Appnium
     appnium.close()
 
 
-def sql_release_conf():
-    Connect.Cursor.close()
 
 

@@ -1,6 +1,4 @@
 import subprocess
-import time
-
 from exceptionx import Retry
 
 

@@ -12,21 +12,23 @@ class StartAppium:
         'platformVersion': '12',
         'setCompressedLayoutHierarchy': True,
         'noReset': True,
-        # "enableMultiWindows": True,
         'newCommandTimeout': "100000",
         'appPackage': 'com.tencent.mm',
-        # 'autoGrantPermissions': True,
         'setWebContentsDebuggingEnabled': True,
         'appActivity': '.ui.LauncherUI',
         'recreateChromeDriverSessions': True,
         'automationName': "UiAutomator2",
         'unicodeKeyboard': True,
         'resetKeyboard': True
-
     }
     option = UiAutomator2Options().load_capabilities(desired_caps)
+
+
+
+
+
+
     # option = AppiumOptions()
-    #
     # option.set_capability('platformName', 'Android')
     # option.set_capability('platformVersion', '12')
     # option.set_capability('deviceName', '127.0.0.1:7555')

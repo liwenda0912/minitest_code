@@ -1,14 +1,13 @@
 import os
 
 from selenium.webdriver import ActionChains
-
-from appnium.mini_Selenium_Program.Public.Utils.uilts import Driver, Waiting, Init
+from appnium.mini_Selenium_Program.Public.Utils.uilts import Driver, Waiting
 from appium.webdriver.common.appiumby import AppiumBy
 from appnium.mini_Selenium_Program.test_case.Charge_user_login import Charge_user_login
 
 
 class Search_Station(object):
-    def __init__(self, appium,ss):
+    def __init__(self, appium, ss):
         self.appnium = appium
         self.driver = Driver(appium)
         self.wait = Waiting(self.appnium)

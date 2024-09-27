@@ -1,21 +1,16 @@
-from appium import webdriver
-
-from appnium.mini_Selenium_Program.Public.Utils.Simulator_Start import ConnectSimulator
-from appnium.mini_Selenium_Program.Public.conf.StartAppiumConf import StartAppium
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.common.action_chains import ActionChains
 
-
-# 启动模拟器配置并换唤醒测试微信（唤醒测试app）
-class Init:
-    def __init__(self):
-        try:
-            ConnectSimulator()
-            self.desired_caps = StartAppium().option
-            self.Appnium = webdriver.Remote(command_executor='http://127.0.0.1:4723/wd/hub', options=self.desired_caps)
-        except EOFError:
-            print(EOFError)
+# # 启动模拟器配置并换唤醒测试微信（唤醒测试app）
+# class Init:
+#     def __init__(self):
+#         try:
+#             self.url_ = 'http://127.0.0.1:4723/wd/hub'
+#             ConnectSimulator()
+#             self.desired_caps = StartAppium().option
+#             self.Appnium = webdriver.Remote(command_executor=self.url_, options=self.desired_caps)
+#         except EOFError:
+#             print(EOFError)
 
 
 # # 定义appium驱动
@@ -64,7 +59,9 @@ class Waiting(object):
             print(element)
 
 
-# 元素element操作类
+"""元素element操作方法"""
+
+
 class Driver(object):
     def __init__(self, appnium):
         self.Appnium = appnium

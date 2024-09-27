@@ -1,14 +1,12 @@
 # <---定点进入对应充电站--->
 from http.client import RemoteDisconnected
-import os
-import time
 import urllib3
-from ddt import ddt, data
+# from ddt import ddt, data
 import unittest
 from selenium.common.exceptions import WebDriverException
 from selenium.webdriver import ActionChains
 from appnium.mini_Selenium_Program.Public.Utils.Simulator_Start import ConnectSimulator
-from appnium.mini_Selenium_Program.Public.Utils.uilts import Driver, Waiting, Init
+from appnium.mini_Selenium_Program.Public.Utils.uilts import Driver, Waiting
 from appium.webdriver.common.appiumby import AppiumBy
 
 from appnium.mini_Selenium_Program.Public.common.AppiumStart.AppiumStart import AppiumStart

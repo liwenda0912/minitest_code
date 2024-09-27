@@ -11,12 +11,15 @@ Base = declarative_base()
 
 
 class TestResultBase(Base):
-    # 表的名字:
+    """
+    # 表的名字
+    """
     __tablename__ = 'user'
-    # 表的结构:
-    id = Column(Integer, primary_key=True, autoincrement=True)
 
-    # id = Column(int, primary_key=True, blank=False)
+    """   
+       # 表的结构:
+    """
+    id = Column(Integer, primary_key=True, autoincrement=True)
     username = Column(String(50), nullable=False)
     password = Column(String(50))
     address = Column(String(255))
@@ -27,7 +30,10 @@ class TestResultBase(Base):
     zip = Column(Integer)
     date_ = Column(Date)
 
-    def __init__(self, username, password, address, phone, alias, city, province, zip, date_):
+    """
+      数据模型的初始值
+    """
+    def __init__(self, id, username, password, address, phone, alias, city, province, zip, date_):
         self.username = username
         self.zip = zip
         self.password = password
@@ -37,9 +43,12 @@ class TestResultBase(Base):
         self.alias = alias
         self.address = address
         self.phone = phone
-
+        self.id = id
+    """
+       数据库查询请求返回模型
+    """
     def __repr__(self) -> str:
-        return f"TestResultBase(username={self.username!r}, password={self.password!r}, address={self.address!r}," \
+        return f"TestResultBase(id={self.id!r},username={self.username!r}, password={self.password!r}, address={self.address!r}," \
                f" phone={self.phone!r}, city={self.city!r}, zip={self.zip!r}, province={self.province!r}" \
                f", alias={self.alias!r}, date_={self.date_!r})"
 

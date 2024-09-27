@@ -1,6 +1,7 @@
 import logging
 
 
+"""
 #
 # %(name)
 # s：Logger的名字
@@ -26,6 +27,8 @@ import logging
 # d：打印进程ID
 # %(message)
 # s：打印日志信息
+"""
+
 
 class Logger(object):
 

@@ -1,4 +1,4 @@
-from appnium.mini_Selenium_Program.Public.Utils.uilts import Driver, Waiting, Init
+from appnium.mini_Selenium_Program.Public.Utils.uilts import Driver, Waiting
 from appium.webdriver.common.appiumby import AppiumBy
 
 

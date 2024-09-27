@@ -1,12 +1,9 @@
-import time
-import unittest
 from http.client import RemoteDisconnected
-
 from selenium.common.exceptions import WebDriverException
-from appnium.mini_Selenium_Program.Public.MiniOpen import openMini
+from appnium.mini_Selenium_Program.Public.common.AppiumStart.MiniOpen import openMini
 from appnium.mini_Selenium_Program.Public.Utils.Simulator_Start import AppiumApp_start, Simulator_Start, cmdProcess, \
     ConnectSimulator
-from appnium.mini_Selenium_Program.Public.Utils.uilts import Driver, Waiting, Init
+from appnium.mini_Selenium_Program.Public.Utils.uilts import Driver, Waiting
 from appium.webdriver.common.appiumby import AppiumBy
 
 
@@ -27,9 +24,6 @@ class Charge_user_login(object):
         self.driver = Driver(self.appnium)
         self.wait = Waiting(self.appnium)
         openMini(self.appnium).test_startMiniApp()
-
-        # self.driver = Driver(self.appnium)
-        # self.wait = Waiting(self.appnium)
 
     def test_chargeUserLogin(self):
         try:
@@ -72,6 +66,7 @@ class Charge_user_login(object):
             print("出现了' Could not find a connected Android device.")
             Charge_user_login(self.appnium).test_chargeUserLogin()
             print("重新启动完成")
+
     #
     # def tearDown(self) -> None:
     #     self.appnium.quit()
@@ -109,4 +104,3 @@ class Charge_user_login(object):
         #     self.driver.Appnium_Switch_Window(win[1])
         #     break
         print("____this part done_____")
-
