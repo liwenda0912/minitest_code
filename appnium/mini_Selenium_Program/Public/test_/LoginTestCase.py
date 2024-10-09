@@ -38,74 +38,77 @@
 # # #
 # # #
 # # #
-# import unittest
-# from ddt import ddt, data
-#
-# from appnium.mini_Selenium_Program.Public.Utils.key_code import ke_code
-# from appnium.mini_Selenium_Program.test_case.Charge_user_login import Charge_user_login
-# from appnium.mini_Selenium_Program.test_case.chargeStart import chargeStart
-#
-#
-#
-# # 测试用例
-# cases = [
-#     {'title': '登录成功', 'expected': {'code': 200, 'msg': '登录成功'}, 'data': ('kobe', '666')},
-#     {'title': '登录失败', 'expected': {'code': 201, 'msg': '用户名或者密码不正确'}, 'data': ('kobe', '888')},
-#     {'title': '用户名不能为空', 'expected': {'code': 201, 'msg': '用户名不能为空'}, 'data': ('', '666')},
-#     {'title': '密码不能为空', 'expected': {'code': 201, 'msg': '密码不能为空'}, 'data': ('kobe', '')},
-#     {'title': '用户名和密码不能为空', 'expected': {'code': 201, 'msg': '用户名和密码不能为空'}, 'data': ('', '')},
-# ]
+import unittest
+from ddt import ddt, data
+
+from appnium.mini_Selenium_Program.Public.Utils.key_code import ke_code
+from appnium.mini_Selenium_Program.test_case.Charge_user_login import Charge_user_login
+from appnium.mini_Selenium_Program.test_case.chargeStartCase import chargeStart
+
+# 测试用例
+cases = [
+    {'title': '登录成功', 'expected': {'code': 200, 'msg': '登录成功'}, 'data': ('kobe', '666')},
+    {'title': '登录失败', 'expected': {'code': 201, 'msg': '用户名或者密码不正确'}, 'data': ('kobe', '888')},
+    {'title': '用户名不能为空', 'expected': {'code': 201, 'msg': '用户名不能为空'}, 'data': ('', '666')},
+    {'title': '密码不能为空', 'expected': {'code': 201, 'msg': '密码不能为空'}, 'data': ('kobe', '')},
+    {'title': '用户名和密码不能为空', 'expected': {'code': 201, 'msg': '用户名和密码不能为空'}, 'data': ('', '')},
+]
+
+
 #
 # #
 # # # 数据驱动测试用例
-# # @ddt
-# # class LoginTestCase(unittest.TestCase):
-# #     @classmethod
-# #     def setUpClass(cls) -> None:
-# #         print('开始')
-# #
-# #     def setUp(self) -> None:
-# #         print('开始执行用例')
-# #
-# #     @data(*cases)
-# #     def test_login(self, case):
-# #         print(case)
-# #         self.assertEqual(case['expected'], self.login(case['data'][0], case['data'][1]))
-# #
-# #     def login(self, username, password):
-# #         print(username,password)
-# #         if username == 'kobe' and password == '666':
-# #             return {'code': 200, 'msg': '登录成功'}
-# #
-# #         if username == 'kobe' and username != '' and password != '666' and password != '':
-# #             return {'code': 201, 'msg': '用户名或者密码不正确'}
-# #
-# #         if username == 'kobe' and password == '':
-# #             return {'code': 201, 'msg': '密码不能为空'}
-# #
-# #         if username == '' and password == '666':
-# #             return {'code': 201, 'msg': '用户名不能为空'}
-# #
-# #         if username == '' and password == '':
-# #             return {'code': 201, 'msg': '用户名和密码不能为空'}
-# #
-# #     def tearDown(self) -> None:
-# #             print('用例执行完毕')
-# #
-# #     @classmethod
-# #     def tearDownClass(cls) -> None:
-# #             print('结束')
+@ddt
+class LoginTestCase_(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls) -> None:
+        print('开始')
+
+    # def setUp(self) -> None:
+    #     print('开始执行用例')
+
+    @data(*cases)
+    def test_login(self, case):
+        print(case)
+        self.assertEqual(case['expected'], self.login(case['data'][0], case['data'][1]), "不相等")
+
+    def login(self, username, password):
+        # print(username, password)
+        if username == 'kobe' and password == '666':
+            return {'code': 200, 'msg': '登录成功'}
+
+        if username == 'kobe' and username != '' and password != '666' and password != '':
+            return {'code': 201, 'msg': '用户名或者密码不正确'}
+
+        if username == 'kobe' and password == '':
+            return {'code': 201, 'msg': '密码不能为空'}
+
+        if username == '' and password == '666':
+            return {'code': 201, 'msg': '用户名不能为空'}
+
+        if username == '' and password == '':
+            return {'code': 201, 'msg': '用户名和密码不能为空'}
+
+    # def tearDown(self) -> None:
+    #     print('用例执行完毕')
+
+    @classmethod
+    def tearDownClass(cls) -> None:
+        print('结束')
+
+
 #
-#
-# if __name__ == '__main__':
-#     # Charge_user_login()
-#     # chargeStart()
-#     key = ke_code.get_keys()
-#     for i in "2.0":
-#         d = key.get(i)
-#         print(d)
 #
 if __name__ == '__main__':
-    with open("../../test_case/source.txt", "w") as t:
-        t.write("55555")
-        t.close()
+    # Charge_user_login()
+    # chargeStart()
+    # key = ke_code.get_keys()
+    # for i in "2.0":
+    #     d = key.get(i)
+    #     print(d)
+    LoginTestCase_()
+#
+# if __name__ == '__main__':
+#     with open("../../test_case/source.txt", "w") as t:
+#         t.write("55555")
+#         t.close()

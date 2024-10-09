@@ -6,6 +6,7 @@ from appium.options.android import UiAutomator2Options
 
 class StartAppium:
     desired_caps = {
+        'enable_bidi': True,
         'platformName': 'Android',
         'deviceName': '127.0.0.1:7555',
         'chromeOptions': {'androidProcess': 'com.tencent.mm:appbrand0'},

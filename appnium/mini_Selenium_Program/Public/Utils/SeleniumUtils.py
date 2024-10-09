@@ -37,24 +37,29 @@ class Waiting(object):
     # 元素显性等待
     # ---------arg是变量，*args是元组，**kwargs是字典-------
     def WaitElement(self, type_name, *args):
+        driver = Driver(self.Appnium)
         element = WebDriverWait(self.Appnium, timeout=50, poll_frequency=0.5, ignored_exceptions=None).until(
             EC.presence_of_element_located((args[0])), args[1])
         if element:
             # input输入框传参
             if type_name == 1:
-                Driver(self.Appnium).Appnium_SendKey(args[0], args[2])
+                driver.Appnium_SendKey(args[0], args[2])
             # 点击事件
             elif type_name == 2:
-                Driver(self.Appnium).Appnium_click(*args[0])
+                driver.Appnium_click(*args[0])
             # 获取文案
             elif type_name == 3:
-                text = Driver(self.Appnium).Appnium_Text(*args[0])
+                text = driver.Appnium_Text(*args[0])
                 return text
             elif type_name == 4:
-                Driver(self.Appnium).Appnium_Switch_Frame(Driver(self.Appnium).Find_element(args[0]))
+                driver.Appnium_Switch_Frame(driver.Find_element(args[0]))
             elif type_name == 5:
                 text = self.Appnium.find_element(*args).get_attribute('innerText')
                 return text
+            # 清空输入框
+            elif type_name == 6:
+                driver.Appnium_Clear(args[0])
+
         else:
             print(element)
 
@@ -82,6 +87,7 @@ class Driver(object):
 
     # 传参
     def Appnium_SendKey(self, *loc):
+        print(loc[1])
         self.Appnium.find_element(*loc[0]).send_keys(loc[1])
 
     # 清除输入框参数
@@ -141,8 +147,11 @@ class Driver(object):
             self.Appnium.switch_to.window(wins[-1])
 
     # 切换到h5的小程序界面
-    def Appnium_Switch_Context(self, loc):
-        self.Appnium.switch_to.context(loc)
+    def Appnium_Switch_Context(self, **kwargs):
+        if kwargs.get("type") == 1:
+            self.Appnium.switch_to.context(kwargs.get("context_"))
+        elif kwargs.get("type") == 0:
+            self.Appnium.switch_to.context(kwargs.get("context_"))
 
     # def Appnium_Close(self):
     #     self.Appnium.close()
