@@ -16,6 +16,5 @@ def getHtml(appnium):
 
 def enterKey(**kwargs):
     size = kwargs.get("appnium").get_window_size()
-    print(size)
     kwargs.get("wait").Appnium_wait(2)
     kwargs.get("driver").actionPress([1000, 1732], [1062, 1920], window_size=[size["width"], size["height"]])

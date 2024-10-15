@@ -1,6 +1,7 @@
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
+
 # # 启动模拟器配置并换唤醒测试微信（唤醒测试app）
 # class Init:
 #     def __init__(self):
@@ -52,13 +53,15 @@ class Waiting(object):
                 text = driver.Appnium_Text(*args[0])
                 return text
             elif type_name == 4:
-                driver.Appnium_Switch_Frame(driver.Find_element(args[0]))
+                driver.Appnium_Switch_Frame(driver.Find_element(*args[0]))
             elif type_name == 5:
                 text = self.Appnium.find_element(*args).get_attribute('innerText')
                 return text
             # 清空输入框
             elif type_name == 6:
-                driver.Appnium_Clear(args[0])
+                driver.Appnium_Clear(*args[0])
+            elif type_name == 7:
+                return driver.Find_elements(*args[0])
 
         else:
             print(element)
@@ -131,6 +134,8 @@ class Driver(object):
             el = self.Find_elements(*loc)
             if el is not None:
                 break
+            else:
+                raise Exception("该元素不存在任何页面！")
 
     # 切换多个页面
     def Appnium_Switch_Window(self, num):
