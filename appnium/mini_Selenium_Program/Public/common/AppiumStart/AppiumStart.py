@@ -11,7 +11,7 @@ from appnium.mini_Selenium_Program.Public.conf.StartAppiumConf import StartAppiu
 class AppiumStart:
     def __init__(self):
         self.url_ = 'http://127.0.0.1:4723/wd/hub'
-        self.desired_caps = StartAppium().option
+        self.desired_caps = StartAppium().options()
         Simulator_Start()
         AppiumApp_start()
         ConnectSimulator("adb devices", "adb connect 127.0.0.1:7555")

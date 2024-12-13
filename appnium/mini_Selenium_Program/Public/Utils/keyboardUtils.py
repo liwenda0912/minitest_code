@@ -1,10 +1,11 @@
 import os
+import time
 
 
 def keyboard(*loc):
     print("执行搜狗键盘")
-    os.system("adb shell ime list -s")
-    os.system("adb shell settings put secure default_input_method com.sohu.inputmethod.sogou/.SogouIME")
+    os.system("adb -s 127.0.0.1:7555 shell ime list -s")
+    os.system("adb -s 127.0.0.1:7555 shell settings put secure default_input_method com.sohu.inputmethod.sogou/.SogouIME")
     loc[0].click(loc[1]).perform()
 
 
@@ -15,6 +16,7 @@ def getHtml(appnium):
 
 
 def enterKey(**kwargs):
+    time.sleep(2)
     size = kwargs.get("appnium").get_window_size()
     kwargs.get("wait").Appnium_wait(2)
     kwargs.get("driver").actionPress([1000, 1732], [1062, 1920], window_size=[size["width"], size["height"]])

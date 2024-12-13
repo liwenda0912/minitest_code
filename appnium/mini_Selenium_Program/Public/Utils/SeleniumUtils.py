@@ -1,3 +1,6 @@
+import time
+
+from selenium.webdriver import ActionChains
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
@@ -52,17 +55,24 @@ class Waiting(object):
             elif type_name == 3:
                 text = driver.Appnium_Text(*args[0])
                 return text
+            # 切换到iframe界面
             elif type_name == 4:
                 driver.Appnium_Switch_Frame(driver.Find_element(*args[0]))
+            # 获取元素里面的某个值
             elif type_name == 5:
-                text = self.Appnium.find_element(*args).get_attribute('innerText')
+                text = self.Appnium.find_element(*args).get_attribute('text')
                 return text
             # 清空输入框
             elif type_name == 6:
                 driver.Appnium_Clear(*args[0])
+            # 查找所有该元素
             elif type_name == 7:
                 return driver.Find_elements(*args[0])
 
+            elif type_name == 8:
+                return driver.Find_element(*args[0])
+            elif type_name == 9:
+                return ActionChains(self.Appnium).click(element).perform()
         else:
             print(element)
 
@@ -126,16 +136,29 @@ class Driver(object):
     def Appnium_Switch_Frame(self, loc):
         self.Appnium.switch_to.frame(loc)
 
-    # 切换到含有某个元素的地方
-    def Switch_Win(self, *loc):
+    # 切换到含有某个元素的地方，参数text_是切换到含有该文本的页，参数except_不做报错处理并执行下一步，*loc是xpath语句其作用是切换到有这个元素的页面
+    def Switch_Win(self, *loc, **kwargs):
+        time.sleep(5)
         for handle in self.Appnium.window_handles:
             self.Appnium.switch_to.window(handle)
-            Waiting(self.Appnium).Appnium_wait(3)
-            el = self.Find_elements(*loc)
-            if el is not None:
-                break
+            if kwargs.get("text_") is not None and len(kwargs.get("text_")) != 0:
+                print("开始查询", kwargs.get("text_"))
+                if kwargs.get("text_") in self.Appnium.page_source:
+                    print("找到")
+                    break
+                else:
+                    print("找不到元素")
             else:
-                raise Exception("该元素不存在任何页面！")
+                el = self.Find_elements(*loc)
+                print(len(el))
+                if 0 != len(el) and el is not None:
+                    break
+            # kwargs.get("except_") != 1 不做报错处理并执行下一步动作
+            if self.Appnium.window_handles[len(self.Appnium.window_handles) - 1] == handle and kwargs.get(
+                    "except_") != 1:
+                raise Exception("该元素不存在！")
+            else:
+                return 1
 
     # 切换多个页面
     def Appnium_Switch_Window(self, num):
@@ -176,6 +199,20 @@ class Driver(object):
         y = size["height"] * (bounds_y / window_size[1])
         self.Appnium.tap([(x, y)], 2000)
 
+    # 返回中心坐标
+    def getLocation(self, *loc):
+        ele_coordinate = self.Appnium.find_element(*loc).location
+        # 元素左上角横坐标
+        x = ele_coordinate['x']
+        # 元素左上角纵坐标
+        y = ele_coordinate['y']
+        ele_size = self.Appnium.find_element(*loc).size
+        # 元素的宽
+        width = ele_size['width']
+        # 元素的高
+        height = ele_size['height']
+        return [x + width / 2, y + height / 2]
+
 
 class utils_Option:
     # 去掉空格符
@@ -185,13 +222,13 @@ class utils_Option:
         new_string = utils_Option.join(string)
         return new_string
 
-    # 组建字符
+    # 组建字符重组列表中的元素
     @staticmethod
     def join(old_string):
         new_string = ''.join(old_string)
         return new_string
 
-    # 增加元素
-    def append(*args):
+    # 给列表增加元素
+    def append_(*args):
         new_string = args[0].append(args[1])
         return new_string

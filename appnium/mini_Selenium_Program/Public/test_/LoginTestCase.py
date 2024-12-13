@@ -41,10 +41,6 @@
 import unittest
 from ddt import ddt, data
 
-from appnium.mini_Selenium_Program.Public.Utils.key_code import ke_code
-from appnium.mini_Selenium_Program.test_case.Charge_user_login import Charge_user_login
-from appnium.mini_Selenium_Program.test_case.chargeStartCase import chargeStart
-
 # 测试用例
 cases = [
     {'title': '登录成功', 'expected': {'code': 200, 'msg': '登录成功'}, 'data': ('kobe', '666')},

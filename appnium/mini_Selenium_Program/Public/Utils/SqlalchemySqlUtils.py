@@ -33,6 +33,7 @@ from exceptionx import TryExcept
 from sqlalchemy import select
 from sqlalchemy.orm import declarative_base, DeclarativeMeta
 
+from appnium.mini_Selenium_Program.Public.conf.SqlConnectConf import Connect
 from appnium.mini_Selenium_Program.Public.model.TestResultBase import TestResultBase
 
 
@@ -43,6 +44,7 @@ class SqlServer(object):
     """
     def __init__(self, session):
         self.session = session
+
 
     """
     <-------------------查询-------------------->
@@ -88,7 +90,7 @@ class SqlServer(object):
     <-------------------插入或者增加-------------------->
     # 插入数据例子:
     # TestResultBase.TestResultBase是model对象
-    # SqlServer(session).add_(TestResultBase.TestResultBase("lw0", "888888888", "广州", "51545555", "", "广州", "广东", 55555, current_time))
+    # #SqlServer(session).add_(model=TestResultBase.TestResultBase("lw8888", "888888888", "广州", "51545555", "", "广州", "广东", 55555, current_time), values=a)
     '''
     def add_(self, **kwargs):
         add_ = kwargs.get("model")

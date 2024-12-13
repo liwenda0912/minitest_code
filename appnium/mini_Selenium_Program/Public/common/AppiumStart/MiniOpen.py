@@ -1,8 +1,11 @@
+import logging
+import sys
 import time
 from appnium.mini_Selenium_Program.Public.Utils.SeleniumUtils import Driver, Waiting
 from appium.webdriver.common.appiumby import AppiumBy
 from selenium.common import NoSuchElementException
 from appnium.mini_Selenium_Program.Public.Utils.SeleniumUtils import utils_Option
+from appnium.mini_Selenium_Program.Public.common.Logger.Logger import Logger
 from appnium.mini_Selenium_Program.Public.common.page.WeChatLoginIndex import WeChatLoginIndex
 
 
@@ -12,16 +15,13 @@ class openMini(object):
         self.driver = Driver(self.appnium)
         self.wait = Waiting(self.appnium)
         self.utils = utils_Option
+        self.logging = Logger(stream=sys.stdout)
 
-    def test_startMiniApp(self):
+    def test_startMiniApp(self, **kwargs):
         WeChatLoginIndex(self.appnium).LoginIndex()
         el_login = self.appnium.find_elements(AppiumBy.XPATH, '//*[@text="密码"]')
         try:
             if el_login is not None and len(el_login) != 0:
-                # wx_username = self.driver.Appnium_Text(AppiumBy.XPATH,
-                #                                        '//*[@resource-id="com.tencent.mm:id/iod"]')
-                # # 获取用户名。去除空格
-                # wx_username_new = self.utils.spilt(wx_username, " ")
                 while True:
                     # 1是传参，2是点击事件，3是获取text元素
                     self.wait.WaitElement(1, (AppiumBy.XPATH, '//*[@text="请填写微信号/QQ号/邮箱"]'), "无法找到该元素", 18027190670)
@@ -35,11 +35,11 @@ class openMini(object):
                         self.driver.Appnium_Clear(AppiumBy.XPATH, '//*[@class="android.widget.EditText"]')
                     else:
                         break
-                print("----------------------------登录成功！-------------------------------")
+                self.logging.info('----------------------------登录成功！-------------------------------')
                 self.driver.Appnium_swipe(500)
                 self.driver.Appnium_click(AppiumBy.XPATH, '//*[@text="驾驶乐"]')
             else:
-                print("-----------------------------已经登录了！---------------------------------")
+                self.logging.info('----------------------------已经登录了！-------------------------------')
                 toast_lists = self.driver.Find_elements(AppiumBy.XPATH, '//*[@class="android.widget.Button"]')
                 if toast_lists is not None and len(toast_lists) != 0:
                     for toast_text in toast_lists:
@@ -49,9 +49,9 @@ class openMini(object):
                         else:
                             self.wait.WaitElement(2, (AppiumBy.XPATH, '//*[@text="确定"]'))
                 else:
+                    time.sleep(2)
                     self.driver.Appnium_swipe(500)
                     self.wait.WaitElement(2, (AppiumBy.XPATH, '//*[@text="驾驶乐"]'), "小程序不存在该页面")
-                    time.sleep(10)
         except NoSuchElementException as e:
-            print("---------------------NoSuchElement-------------------------------")
+            self.logging.info("---------------------NoSuchElement-------------------------------")
             raise print(e)

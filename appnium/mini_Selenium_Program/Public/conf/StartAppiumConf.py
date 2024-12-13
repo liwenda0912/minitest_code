@@ -1,33 +1,42 @@
 import json
+import logging
 
 from appium.options.common import AppiumOptions
 from appium.options.android import UiAutomator2Options
 
 
-class StartAppium:
-    desired_caps = {
-        'enable_bidi': True,
-        'platformName': 'Android',
-        'deviceName': '127.0.0.1:7555',
-        'chromeOptions': {'androidProcess': 'com.tencent.mm:appbrand0'},
-        'platformVersion': '12',
-        'setCompressedLayoutHierarchy': True,
-        'noReset': True,
-        'newCommandTimeout': "100000",
-        'appPackage': 'com.tencent.mm',
-        'setWebContentsDebuggingEnabled': True,
-        'appActivity': '.ui.LauncherUI',
-        'recreateChromeDriverSessions': True,
-        'automationName': "UiAutomator2",
-        'unicodeKeyboard': True,
-        'resetKeyboard': True
-    }
-    option = UiAutomator2Options().load_capabilities(desired_caps)
+class StartAppium(object):
+    def __init__(self, **kwargs):
+        self.process = 'com.tencent.mm:appbrand0'
+        self.deviceName = '127.0.0.1:7555'
+        self.platformName = 'Android'
+        self.appPackage = 'com.tencent.mm'
+        self.appActivity = '.ui.LauncherUI'
+        self.platformVersion = '12'
+        self.newCommandTimeout = 1200
+        self.automationName = "UiAutomator2"
+        self.desired_caps = {
+            'enable_bidi': True,
+            'platformName': self.platformName,
+            'deviceName': self.deviceName,
+            'chromeOptions': {'androidProcess': self.process},
+            'platformVersion': self.platformVersion,
+            'setCompressedLayoutHierarchy': True,
+            'noReset': True,
+            'newCommandTimeout': self.newCommandTimeout,
+            'appPackage': self.appPackage,
+            'setWebContentsDebuggingEnabled': True,
+            'appActivity': self.appActivity,
+            'recreateChromeDriverSessions': True,
+            'automationName': self.automationName,
+            'unicodeKeyboard': True,
+            'resetKeyboard': True
+        }
 
-
-
-
-
+    def options(self):
+        option = UiAutomator2Options().load_capabilities(self.desired_caps)
+        logging.info("启动配置："+str(self.desired_caps))
+        return option
 
     # option = AppiumOptions()
     # option.set_capability('platformName', 'Android')

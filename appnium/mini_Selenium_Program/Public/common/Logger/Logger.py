@@ -1,5 +1,5 @@
 import logging
-
+import sys
 
 """
 #
@@ -31,14 +31,18 @@ import logging
 
 
 class Logger(object):
-
-    def __init__(self):
+    def __init__(self, **kwargs):
         self.logger = logging.getLogger('LOGGER')
-        stream_handler = logging.StreamHandler()
-        formatter = logging.Formatter('%(asctime)s - %(filename)s[line:%(lineno)d] - %(levelname)s: %(message)s')
-        stream_handler.setFormatter(formatter)
-        stream_handler.setLevel(logging.DEBUG)
-        self.logger.addHandler(stream_handler)
+        if kwargs.get("stream") is not None:
+            self.stream_handler = logging.StreamHandler(stream=sys.stdout)
+        else:
+            self.stream_handler = logging.StreamHandler()
+        if not self.logger.handlers:
+            self.formatter = logging.Formatter(
+                '%(asctime)s - %(filename)s[line:%(lineno)d] - %(levelname)s: %(message)s')
+            self.stream_handler.setFormatter(self.formatter)
+            self.stream_handler.setLevel(logging.DEBUG)
+            self.logger.addHandler(self.stream_handler)
 
     # 由于严重的问题，程序的某些功能已经不能正常执行
     def logger_Error(self, e):
@@ -46,9 +50,9 @@ class Logger(object):
         self.logger.error(e)
 
     # 确认程序按预期运行。
-    def logger_Info(self, *loc):
+    def info(self, loc):
         self.logger.setLevel(level=logging.INFO)
-        self.logger.info(*loc)
+        self.logger.info(loc)
 
     # 详细的信息，通常只有试图诊断问题的开发人员才会感兴趣。
     def logger_Debug(self, **loc):
@@ -70,3 +74,12 @@ class Logger(object):
     def logger_BasicConfig():
         logging.basicConfig(format='%(asctime)s - %(filename)s[line:%(lineno)d] - %(levelname)s: %(message)s',
                             level=logging.DEBUG)
+
+    def __del__(self):
+        self.logger.removeHandler(self.stream_handler)
+
+
+if __name__ == "__main__":
+    Logger().logger_Error("sss")
+    Logger(stream=sys.stdout).info("sss")
+    Logger(stream=sys.stdout).info("sss5555")

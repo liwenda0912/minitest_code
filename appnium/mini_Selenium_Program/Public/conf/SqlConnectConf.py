@@ -25,7 +25,6 @@ class Connect:
         # 创建连接引擎
         """
         engine = create_engine(f''+sql_+'://'+user+':'+password+'@'+host+':'+port+'/'+database+'?charset=utf8', echo=True)
-        print(engine)
         Base.metadata.create_all(engine)
         DBSession = sessionmaker(bind=engine)
         session_ = DBSession()

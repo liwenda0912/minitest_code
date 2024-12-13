@@ -16,7 +16,7 @@ class TestResultBase(Base):
     """
     __tablename__ = 'user'
 
-    """   
+    """
        # 表的结构:
     """
     id = Column(Integer, primary_key=True, autoincrement=True)
@@ -33,7 +33,7 @@ class TestResultBase(Base):
     """
       数据模型的初始值
     """
-    def __init__(self, id, username, password, address, phone, alias, city, province, zip, date_):
+    def __init__(self, username, password, address, phone, alias, city, province, zip, date_):
         self.username = username
         self.zip = zip
         self.password = password
@@ -43,7 +43,7 @@ class TestResultBase(Base):
         self.alias = alias
         self.address = address
         self.phone = phone
-        self.id = id
+        # self.id = id
     """
        数据库查询请求返回模型
     """
@@ -85,7 +85,7 @@ if __name__ == '__main__':
     #     session = Connect.session_
     #     SqlServer(session).select_(id=1,base="44")
 
-    #     current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     #
     #     host = "localhost",
     #     user = "root",
@@ -102,7 +102,7 @@ if __name__ == '__main__':
     DBSession = sessionmaker(bind=engine)
     session = DBSession()
     # #     # 添加
-    # #     add_user = TestResultBase("lw", "888888888", "广州", "51545555", "", "广州", "广东", 55555, current_time)
+    add_user = TestResultBase("lw", "888888888", "广州", "51545555", "", "广州", "广东", 55555, current_time)
     # #     print(session.add(add_user))
     #     # 查询
     #     ssss = {"s":"id=2"}
