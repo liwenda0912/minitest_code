@@ -10,7 +10,7 @@ from appnium.mini_Selenium_Program.Public.conf.StartAppiumConf import StartAppiu
 @Retry(sleep=3, count=3)
 class AppiumStart:
     def __init__(self):
-        self.url_ = 'http://127.0.0.1:4723/wd/hub'
+        self.url_ = 'http://127.0.0.1:8089/wd/hub'
         self.desired_caps = StartAppium().options()
         Simulator_Start()
         AppiumApp_start()
@@ -19,7 +19,7 @@ class AppiumStart:
 
     def appnium_onload(self):
         while True:
-            if cmdProcessServer("4723") == "服务已经启动":
+            if cmdProcessServer("8089") == "服务已经启动":
                 Appnium = webdriver.Remote(command_executor=self.url_, options=self.desired_caps)
                 break
         return Appnium

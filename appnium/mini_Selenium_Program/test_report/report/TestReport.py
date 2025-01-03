@@ -27,7 +27,6 @@ def report(*loc):
         Logger(stream=sys.stdout).info("-------------------自动化测试结束，并测试报告已生成-------------------------")
         Logger(stream=sys.stdout).info("报告位置目录路径：" + filename)
     endTime = time.strftime("%Y-%m-%d %H:%M:%S")
-    Logger(stream=sys.stdout).info(startTime, time_)
     resultServer(file=filename, startTime=Transform.encode_time(startTime), endTime=Transform.encode_time(endTime)).insert_()
 
 

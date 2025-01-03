@@ -30,12 +30,14 @@ class StartAppium(object):
             'recreateChromeDriverSessions': True,
             'automationName': self.automationName,
             'unicodeKeyboard': True,
-            'resetKeyboard': True
+            'resetKeyboard': True,
+            'uiautomator2ServerInstallTimeout': 20000,
+            'settings': {"enableMultiWindows": True}
         }
 
     def options(self):
         option = UiAutomator2Options().load_capabilities(self.desired_caps)
-        logging.info("启动配置："+str(self.desired_caps))
+        logging.info("启动配置：" + str(self.desired_caps))
         return option
 
     # option = AppiumOptions()

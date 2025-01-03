@@ -10,7 +10,78 @@ from appnium.mini_Selenium_Program.Public.model import TestResultBase
 from appnium.mini_Selenium_Program.test_report.report.TestReport import report
 
 
-# if __name__ == '__main__':
+def carKeyBoardSelect(carName):
+    # keyboard_list = "555888"
+    # for n in carName:
+    #     if n =
+    #     print(n)
+    print("粤".lower() == "粤".lower())
+    # if carName.index(n) == 0:
+    #     print(carName.index(n))
+    # elif carName.index(n) == 1:
+    #     print(carName.index(n))
+    # # 判断获取的车辆号码是否超过8位
+    # elif carName.index(n) == 8:
+    #     print("第9位")
+    #     break
+    # else:
+    #     continue
+    # for i in keyboard_list:
+    #     if i == n:
+    #         break
+    #     else:
+    #         continue
+
+
+def logger(func):
+    def wrapper(*args, **kwargs):
+        print("Logging before function execution")
+        result = func(*args, **kwargs)
+        print("Logging after function execution")
+        print(result)
+        return result
+
+    return wrapper
+
+
+@logger
+def add(a, b):
+    return a + b
+
+
+from functools import wraps
+
+
+def my_decorator(func):
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        print("Something is happening before the function is called.")
+        result = func(*args, **kwargs)
+        print("Something is happening after the function is called.")
+        return result
+
+    return wrapper
+
+@my_decorator
+def example():
+    """This is an example function."""
+    print("Hello from a function.")
+
+if __name__ == '__main__':
+    print(example.__doc__)  # 输出: This is an example function.
+    # print(img_text("../picture/timingChargeResult.png"))
+
+    # def d(**kwargs):
+    #
+    #     print(kwargs.get("y").get("hour"))
+    #     print(kwargs.get("y") is None)
+    #
+    # d(y={"hour":"10","min":"50"})
+
+    # text = "10\n时"
+    # print(text.replace("\n",''))
+
+
 # session = Connect().sqlalchemy_()
 #
 #     """ <------------getattr--->定义查询过滤器的字典"""
@@ -145,58 +216,57 @@ from appnium.mini_Selenium_Program.test_report.report.TestReport import report
 #             if list_[j] > list_[j+1]:
 #                 list_[j],list_[j+1] = list_[j+1],list_[j]
 #         print(list_)
-# 倒叙排序
-def sort():
-    list_list = [1, 5, 8, 6, 7]
-    for i in range(len(list_list)):
-        for j in range(len(list_list)):
-            if list_list[i] > list_list[j]:
-                list_list[i], list_list[j] = list_list[j], list_list[i]
-        print(list_list)
+# # 倒叙排序
+# def sort():
+#     list_list = [1, 5, 8, 6, 7]
+#     for i in range(len(list_list)):
+#         for j in range(len(list_list)):
+#             if list_list[i] > list_list[j]:
+#                 list_list[i], list_list[j] = list_list[j], list_list[i]
+#         print(list_list)
 
+# if __name__ == '__main__':
+#     url = "http://a.openapi.evking.com.cn/api/chargeStation/page"
+#     data = {"pageNo": 1,
+#             "pageSize": 10}
+#     params = {}
+#     headers = {
+#         "accept": "application/json, text/plain, */*",
+#         "Utoken": "23FBC13E3B12894BF371539C0FD13326",
+#         "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0"
+#     }
+#     s = requests.request(url=url, headers=headers, json=data, method="post", params=params)
+#     j = s.json()
+#     print(j)
+#     print(j.get("data").get("total"))
 
-if __name__ == '__main__':
-    url = "http://a.openapi.evking.com.cn/api/chargeStation/page"
-    data = {"pageNo": 1,
-            "pageSize": 10}
-    params= {}
-    headers = {
-        "accept": "application/json, text/plain, */*",
-        "Utoken": "23FBC13E3B12894BF371539C0FD13326",
-        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0"
-    }
-    s = requests.request(url=url, headers=headers, json=data, method="post",params=params)
-    j = s.json()
-    print(j)
-    print(j.get("data").get("total"))
+# text = ['', '    ',  '          ', "\n"]
+# for i in text:
+#         if len(i) == 0:
+#            print(i+"98955")
+#            print(text.index(i))
 
-    # text = ['', '    ',  '          ', "\n"]
-    # for i in text:
-    #         if len(i) == 0:
-    #            print(i+"98955")
-    #            print(text.index(i))
-
-    #     with open(
-    #             r"C:\Users\10260\PycharmProjects\soft-test-main\appnium\mini_Selenium_Program\test_report\ui自动化-2024-10-22 17-10-40-report.html",
-    #             "r", encoding="utf-8") as f:
-    #         a = f.readlines()
-    #         print(getTestResult_detail(a))
-    #         print()
-    #         print(getTestResult(a))
-    #         print(totalTestData(a))
-    #
-    # s = report(r"C:\Users\10260\PycharmProjects\soft-test-main\appnium\mini_Selenium_Program\public\test_",
-    #            "test_ddt_json_excle", "liwenda")
-    # print(logging.WARNING)
-    # pay_options_lists = ["11", "2", "4", "10"]
-    # for pay_options in pay_options_lists:
-    #     if pay_options == "10":
-    #         print(10)
-    #         break
-    #     else:
-    #         print(pay_options)
-    #         if len(pay_options_lists)-1 == pay_options_lists.index(pay_options):
-    #
-    #             raise Exception("20" + "不存在任何页面！")
-    #         else:
-    #             pass
+#     with open(
+#             r"C:\Users\10260\PycharmProjects\soft-test-main\appnium\mini_Selenium_Program\test_report\ui自动化-2024-10-22 17-10-40-report.html",
+#             "r", encoding="utf-8") as f:
+#         a = f.readlines()
+#         print(getTestResult_detail(a))
+#         print()
+#         print(getTestResult(a))
+#         print(totalTestData(a))
+#
+# s = report(r"C:\Users\10260\PycharmProjects\soft-test-main\appnium\mini_Selenium_Program\public\test_",
+# "test_ddt_json_excle", "liwenda")
+# print(logging.WARNING)
+# pay_options_lists = ["11", "2", "4", "10"]
+# for pay_options in pay_options_lists:
+#     if pay_options == "10":
+#         print(10)
+#         break
+#     else:
+#         print(pay_options)
+#         if len(pay_options_lists)-1 == pay_options_lists.index(pay_options):
+#
+#             raise Exception("20" + "不存在任何页面！")
+#         else:
+#             pass

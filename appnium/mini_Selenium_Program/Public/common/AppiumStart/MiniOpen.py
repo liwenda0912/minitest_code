@@ -5,6 +5,7 @@ from appnium.mini_Selenium_Program.Public.Utils.SeleniumUtils import Driver, Wai
 from appium.webdriver.common.appiumby import AppiumBy
 from selenium.common import NoSuchElementException
 from appnium.mini_Selenium_Program.Public.Utils.SeleniumUtils import utils_Option
+from appnium.mini_Selenium_Program.Public.Utils.keyboardUtils import getHtml
 from appnium.mini_Selenium_Program.Public.common.Logger.Logger import Logger
 from appnium.mini_Selenium_Program.Public.common.page.WeChatLoginIndex import WeChatLoginIndex
 
@@ -52,6 +53,7 @@ class openMini(object):
                     time.sleep(2)
                     self.driver.Appnium_swipe(500)
                     self.wait.WaitElement(2, (AppiumBy.XPATH, '//*[@text="驾驶乐"]'), "小程序不存在该页面")
+                    print(self.appnium.current_activity)
         except NoSuchElementException as e:
             self.logging.info("---------------------NoSuchElement-------------------------------")
             raise print(e)

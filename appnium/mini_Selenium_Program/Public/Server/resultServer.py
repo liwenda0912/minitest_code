@@ -34,9 +34,11 @@ class resultServer(object):
                                                                           totalDetail[3],
                                                                           totalDetail[4], state_, self.time,
                                                                           self.endTime))
-                    TestCaseId = SqlServer(self.session).select_(dict_={"testCaseName": totalDetail[0]},
-                                                                 model=CommonTestCaseTotal.CommonTestCaseTotalBase)
+                    TestCaseId = SqlServer(self.session).select_(
+                        dict_={"testCaseName": totalDetail[0], "startTime": self.time},
+                        model=CommonTestCaseTotal.CommonTestCaseTotalBase)
                     # 测试用例详情信息入库
+                    print(TestCaseId[0].id)
                     for i in range(0, len(result)):
                         SqlServer(self.session).add_(
                             model=CommonTestCaseTotal.CommonResultBase(testName[i], detail[i], self.time, data,

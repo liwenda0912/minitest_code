@@ -33,14 +33,13 @@ class chargeStartCase(unittest.TestCase):
             self.contexts_list = self.appnium.contexts
             self.chargeStation = chargeStation(appium=self.appnium, contexts_list=self.contexts_list)
             self.Search_Station = Search_Station(appium=self.appnium, contexts_list=self.contexts_list)
-            self.Search_Station.searchStation()
+            self.Search_Station.searchStation(StationName="蔚景云协议站")
             # 判断站点类型
             self.chargeStation.stationType(pileNum="240020210730200102")
             # 访问启动界面
-            self.ChargeStartPage.startChargeStep(coupon_option="", PreferentialPlans=1, SelectCarNum="", coupon_name="",
+            self.ChargeStartPage.startChargeStep(coupon_option="", PreferentialPlans=1, SelectCarNum="津D8sd55", coupon_name="",
                                                  chose_discount_name='超级会员', choice_pay="集团储值卡", choice_pay_count=1,
-                                                 carName="power", companyName="power")
-            # self.ChargeStartPage.startChargeStep(coupon_option="优惠券", PreferentialPlans=0, SelectCarNum="", coupon_name="测试667")
+                                                 carName="power", companyName="power", StationName="蔚景云协议站")
             time.sleep(20)
 
     def tearDown(self) -> None:

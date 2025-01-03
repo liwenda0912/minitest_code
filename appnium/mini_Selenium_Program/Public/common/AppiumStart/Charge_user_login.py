@@ -17,10 +17,8 @@ class Charge_user_login(object):
 
     def test_chargeUserLogin(self):
         # 遍历上下文，找到小程序上下文
-        print("执行到这里了")
         Logger(stream=sys.stdout).info("访问小程序中。。。")
         self.appnium.wait_activity("WEBVIEW_com.tencent.mm:appbrand0", 50, 1)
-        print(self.appnium.contexts)
         contexts_list = self.appnium.contexts
         size = self.appnium.get_window_size()
         for context in contexts_list:
@@ -29,7 +27,6 @@ class Charge_user_login(object):
                 Logger(stream=sys.stdout).info("即将切换到webview名为" + context + "的界面！")
                 self.appnium.switch_to.context(contexts_list[1])
                 Logger(stream=sys.stdout).info("已经切换到小程序界面")
-                print("已经切换到小程序界面")
                 if "您当前已到达：" in self.appnium.page_source:
                     self.driver.Appnium_click(AppiumBy.XPATH,
                                               '//*[contains(@class,"right-span popup--right-span")]')

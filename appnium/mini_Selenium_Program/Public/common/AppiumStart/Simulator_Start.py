@@ -33,7 +33,7 @@ def cmdProcess(processName):
 @Retry(sleep=3, count=3)
 def cmdProcessServer(processName):
     # 使用tasklist命令获取系统进程信息
-    cmd = 'netstat -ano | findstr :4723'
+    cmd = 'netstat -ano | findstr :8089'
     output = subprocess.check_output(cmd, shell=True)
     # 将命令输出转换为字符
     output_str = str(output)

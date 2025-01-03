@@ -1,9 +1,10 @@
+import sys
 import time
 
+from appium.webdriver.common.appiumby import AppiumBy
 from selenium.webdriver import ActionChains
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-
 
 # # 启动模拟器配置并换唤醒测试微信（唤醒测试app）
 # class Init:
@@ -26,6 +27,11 @@ from selenium.webdriver.support import expected_conditions as EC
 
 
 # 等待类
+from appnium.mini_Selenium_Program.Public.Utils.IsSpaceUtils import isNotSpace, isNotNone, isNotEmpty
+from appnium.mini_Selenium_Program.Public.Utils.keyboardUtils import getHtml
+from appnium.mini_Selenium_Program.Public.common.Logger.Logger import Logger
+
+
 class Waiting(object):
     def __init__(self, appnium):
         self.Appnium = appnium
@@ -68,7 +74,6 @@ class Waiting(object):
             # 查找所有该元素
             elif type_name == 7:
                 return driver.Find_elements(*args[0])
-
             elif type_name == 8:
                 return driver.Find_element(*args[0])
             elif type_name == 9:
@@ -120,6 +125,19 @@ class Driver(object):
         text = self.Appnium.find_element(*loc).get_attribute('value')
         return text
 
+    def Find_TagName_click(self, text, *loc, **kwargs):
+        Driver(self.Appnium).Switch_Win(text_=kwargs.get("switch_text"))
+        TagName_text_list = self.Find_elements(*loc[0])
+        for i in TagName_text_list:
+            if text in i.text:
+                ActionChains(self.Appnium).click(i).perform()
+                break
+            else:
+                if TagName_text_list.index(i) == len(TagName_text_list) - 1:
+                    raise Exception("元素不存在")
+                else:
+                    continue
+
     # 滚动
     def Appnium_Scroll(self, *loc):
         self.Appnium.scroll(loc[0], loc[1], loc[2])
@@ -138,27 +156,29 @@ class Driver(object):
 
     # 切换到含有某个元素的地方，参数text_是切换到含有该文本的页，参数except_不做报错处理并执行下一步，*loc是xpath语句其作用是切换到有这个元素的页面
     def Switch_Win(self, *loc, **kwargs):
-        time.sleep(5)
-        for handle in self.Appnium.window_handles:
+        time.sleep(2)
+        list_ = self.Appnium.window_handles
+        for handle in list_:
             self.Appnium.switch_to.window(handle)
-            if kwargs.get("text_") is not None and len(kwargs.get("text_")) != 0:
-                print("开始查询", kwargs.get("text_"))
+            if isNotNone(kwargs.get("text_")) and isNotEmpty(kwargs.get("text_")):
+                getHtml(self.Appnium)
                 if kwargs.get("text_") in self.Appnium.page_source:
-                    print("找到")
+                    Logger(stream=sys.stdout).info("找到含有:" + kwargs.get("text_") + ":的页面")
                     break
                 else:
                     print("找不到元素")
             else:
                 el = self.Find_elements(*loc)
-                print(len(el))
-                if 0 != len(el) and el is not None:
+                if isNotEmpty(el) and isNotNone(el):
                     break
             # kwargs.get("except_") != 1 不做报错处理并执行下一步动作
-            if self.Appnium.window_handles[len(self.Appnium.window_handles) - 1] == handle and kwargs.get(
-                    "except_") != 1:
-                raise Exception("该元素不存在！")
+            if list_[len(list_) - 1] == handle:
+                if kwargs.get("except_") != 1:
+                    raise Exception("该元素不存在！")
+                else:
+                    return 1
             else:
-                return 1
+                continue
 
     # 切换多个页面
     def Appnium_Switch_Window(self, num):
@@ -199,6 +219,18 @@ class Driver(object):
         y = size["height"] * (bounds_y / window_size[1])
         self.Appnium.tap([(x, y)], 2000)
 
+    # 模拟点击手机屏幕某处
+    def ScreenActionPress(self, **kwargs):
+        contexts_list = self.Appnium.contexts
+        self.contexts_switch(0)
+        self.Appnium.wait_activity(contexts_list[0], 50, 1)
+        size = self.Appnium.get_window_size()
+        x = size["width"] * kwargs.get("PointSize").get("x")
+        y = size["height"] * kwargs.get("PointSize").get("y")
+        self.Appnium.tap([(x, y)], 2000)
+        self.contexts_switch(1)
+        # self.Appnium.wait_activity(contexts_list[0], 50, 1)
+
     # 返回中心坐标
     def getLocation(self, *loc):
         ele_coordinate = self.Appnium.find_element(*loc).location
@@ -212,6 +244,65 @@ class Driver(object):
         # 元素的高
         height = ele_size['height']
         return [x + width / 2, y + height / 2]
+
+    def ActionsClick(self, list_, text):
+        for i in list_:
+            if i.text == text:
+                ActionChains(self.Appnium).click(i).perform()
+                break
+            else:
+                if list_.index(i) == len(list_) - 1:
+                    raise Exception("列表任意元素不存在该text")
+                else:
+                    continue
+
+    def circleList(self, **kwargs):
+        if kwargs.get("type") == "card" and isNotNone(kwargs.get("type")):
+            list_ = kwargs.get("list_")
+        elif kwargs.get("type") == "time" and isNotNone(kwargs.get("type")):
+            if kwargs.get("TimeType") == "hour":
+                getHtml(self.Appnium)
+                list_ = self.Appnium.find_elements(AppiumBy.TAG_NAME, 'wx-picker-view-column')[1].find_elements(
+                    AppiumBy.XPATH, '//*[starts-with(@class , "u-column-item time--u-column-item")]')
+            else:
+                list_ = self.Appnium.find_elements(AppiumBy.TAG_NAME, 'wx-picker-view-column')[2].find_elements(
+                    AppiumBy.XPATH, '//*[starts-with(@class , "u-column-item time--u-column-item")]')
+        else:
+            Logger(stream=sys.stdout).info("没有填写type参数")
+            return 0
+        for i in list_:
+            if kwargs.get("text") in i.text.replace("\n", '') and isNotNone(kwargs.get("text")):
+                if kwargs.get("action") == "click" and isNotNone(kwargs.get("action")):
+                    kwargs.get("list_card")[list_.index(i)].click()
+                    Logger(stream=sys.stdout).info("点击" + kwargs.get("text") + "成功")
+                    break
+                elif kwargs.get("action") == "actionClick" and isNotNone(kwargs.get("action")):
+                    ActionChains(self.Appnium).click(i).preform()
+                    Logger(stream=sys.stdout).info("点击" + kwargs.get("text") + "成功")
+                    break
+                elif isNotNone(kwargs.get("action")):
+                    ActionChains(self.Appnium).scroll_to_element(i).perform()
+                    Logger(stream=sys.stdout).info("选择" + kwargs.get("text") + "分成功")
+                    break
+                else:
+                    Logger(stream=sys.stdout).info("没有填action参数")
+                    break
+            elif isNotNone(kwargs.get("text")):
+                if len(list_) - 1 == list_.index(i):
+                    Logger(stream=sys.stdout).info("页面无" + kwargs.get("text") + "元素")
+                    break
+                else:
+                    continue
+            else:
+                Logger(stream=sys.stdout).info("没有填text参数")
+                break
+
+    def contexts_switch(self, loc):
+        contexts_list = self.Appnium.contexts
+        if loc == 0:
+            self.Appnium.switch_to.context(contexts_list[0])
+        else:
+            self.Appnium.switch_to.context(contexts_list[1])
 
 
 class utils_Option:
