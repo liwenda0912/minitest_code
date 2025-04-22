@@ -1,3 +1,4 @@
+import logging
 import sys
 import time
 
@@ -29,7 +30,6 @@ from selenium.webdriver.support import expected_conditions as EC
 # 等待类
 from appnium.mini_Selenium_Program.Public.Utils.IsSpaceUtils import isNotSpace, isNotNone, isNotEmpty
 from appnium.mini_Selenium_Program.Public.Utils.keyboardUtils import getHtml
-from appnium.mini_Selenium_Program.Public.common.Logger.Logger import Logger
 
 
 class Waiting(object):
@@ -163,7 +163,7 @@ class Driver(object):
             if isNotNone(kwargs.get("text_")) and isNotEmpty(kwargs.get("text_")):
                 getHtml(self.Appnium)
                 if kwargs.get("text_") in self.Appnium.page_source:
-                    Logger(stream=sys.stdout).info("找到含有:" + kwargs.get("text_") + ":的页面")
+                    logging.info("找到含有:" + kwargs.get("text_") + ":的页面")
                     break
                 else:
                     print("找不到元素")
@@ -262,39 +262,39 @@ class Driver(object):
         elif kwargs.get("type") == "time" and isNotNone(kwargs.get("type")):
             if kwargs.get("TimeType") == "hour":
                 getHtml(self.Appnium)
-                list_ = self.Appnium.find_elements(AppiumBy.TAG_NAME, 'wx-picker-view-column')[1].find_elements(
+                list_ = self.Appnium.find_elements(AppiumBy.TAG_NAME, 'wx-picker-view-column')[3].find_elements(
                     AppiumBy.XPATH, '//*[starts-with(@class , "u-column-item time--u-column-item")]')
             else:
-                list_ = self.Appnium.find_elements(AppiumBy.TAG_NAME, 'wx-picker-view-column')[2].find_elements(
+                list_ = self.Appnium.find_elements(AppiumBy.TAG_NAME, 'wx-picker-view-column')[4].find_elements(
                     AppiumBy.XPATH, '//*[starts-with(@class , "u-column-item time--u-column-item")]')
         else:
-            Logger(stream=sys.stdout).info("没有填写type参数")
+            logging.info("没有填写type参数")
             return 0
         for i in list_:
             if kwargs.get("text") in i.text.replace("\n", '') and isNotNone(kwargs.get("text")):
                 if kwargs.get("action") == "click" and isNotNone(kwargs.get("action")):
                     kwargs.get("list_card")[list_.index(i)].click()
-                    Logger(stream=sys.stdout).info("点击" + kwargs.get("text") + "成功")
+                    logging.info("点击" + kwargs.get("text") + "成功")
                     break
                 elif kwargs.get("action") == "actionClick" and isNotNone(kwargs.get("action")):
                     ActionChains(self.Appnium).click(i).preform()
-                    Logger(stream=sys.stdout).info("点击" + kwargs.get("text") + "成功")
+                    logging.info("点击" + kwargs.get("text") + "成功")
                     break
                 elif isNotNone(kwargs.get("action")):
                     ActionChains(self.Appnium).scroll_to_element(i).perform()
-                    Logger(stream=sys.stdout).info("选择" + kwargs.get("text") + "分成功")
+                    logging.info("选择" + kwargs.get("text") + "分成功")
                     break
                 else:
-                    Logger(stream=sys.stdout).info("没有填action参数")
+                    logging.info("没有填action参数")
                     break
             elif isNotNone(kwargs.get("text")):
                 if len(list_) - 1 == list_.index(i):
-                    Logger(stream=sys.stdout).info("页面无" + kwargs.get("text") + "元素")
+                    logging.info("页面无" + kwargs.get("text") + "元素")
                     break
                 else:
                     continue
             else:
-                Logger(stream=sys.stdout).info("没有填text参数")
+                logging.info("没有填text参数")
                 break
 
     def contexts_switch(self, loc):

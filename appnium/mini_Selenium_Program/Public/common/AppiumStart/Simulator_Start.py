@@ -1,17 +1,20 @@
 import subprocess
 from exceptionx import Retry
+from selenium.common import NoSuchElementException
 
 
 @Retry(sleep=3, count=3)
 def ConnectSimulator(cmd, order):
-    print(cmd, order)
     output = subprocess.check_output(cmd, shell=True)
     # 将命令输出转换为字符
     output_str = str(output)
     lines = output_str.strip().split(" ")
     for line in lines:
-        if r"127.0.0.1:7555\tdevice" not in line:
-            subprocess.check_output(order, shell=True)
+        if r"127.0.0.1:7555\tdevice"  in line:
+            print("模拟器已成功connect！")
+            break
+        if len(lines) == line.index(line):
+            print("模拟器connect失败！")
 
 
 @Retry(sleep=3, count=3)
@@ -28,23 +31,27 @@ def cmdProcess(processName):
     for line in lines:
         if processName in line:
             return "程序已经启动"
+        if len(lines) == line.index(line):
+            return "服务未启动"
 
 
 @Retry(sleep=3, count=3)
 def cmdProcessServer(processName):
     # 使用tasklist命令获取系统进程信息
-    cmd = 'netstat -ano | findstr :8089'
+    cmd = 'netstat -ano | findstr :4723'
     output = subprocess.check_output(cmd, shell=True)
     # 将命令输出转换为字符
     output_str = str(output)
     lines = output_str.strip().split(" ")
-    print("<-------------请手动运行appium--------------------->")
     # 分割字符串获取每一行
     # print(output_str)
     # 查找指定进程名称的状态
     for line in lines:
         if processName in line:
+            print("<-------------请手动运行appium--------------------->")
             return "服务已经启动"
+        if len(lines) == line.index(line):
+            return "服务未启动"
 
 
 @Retry(sleep=3, count=3)
@@ -61,12 +68,12 @@ def AppiumApp_start():
                 print(">>>>>>启动Appium服务器完成<<<<<<")
                 break
     else:
+        print(">>>>>>Appium服务器程序已经启动<<<<<<")
         return text
 
 
 @Retry(sleep=3, count=3)
 def Simulator_Start():
-    print(">>>>>>正在启动MuMu模拟器<<<<<<")
     name = r'K\r\nMuMuPlayer.exe'
     text = cmdProcess(name)
     if text != "程序已经启动":
@@ -76,10 +83,10 @@ def Simulator_Start():
         subprocess.Popen(app_name, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
         while True:
             if cmdProcess(name) == "程序已经启动":
-                print()
                 print(">>>>>>启动MuMu模拟器完成<<<<<<")
                 break
     else:
+        print(">>>>>>MuMu模拟器程序已经启动<<<<<<")
         return text
 
 

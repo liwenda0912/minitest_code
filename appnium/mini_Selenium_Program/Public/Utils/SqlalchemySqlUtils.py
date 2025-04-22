@@ -45,7 +45,6 @@ class SqlServer(object):
     def __init__(self, session):
         self.session = session
 
-
     """
     <-------------------查询-------------------->
     # 使用例子:

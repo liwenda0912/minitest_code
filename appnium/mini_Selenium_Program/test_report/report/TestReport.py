@@ -9,9 +9,9 @@ from appnium.mini_Selenium_Program.Public.common.Logger.Logger import Logger
 
 
 def report(*loc):
-    Logger(stream=sys.stdout).info("-------------------开始自动化测试，并生成测试报告----------------------------")
+    logging.info("-------------------开始自动化测试，并生成测试报告----------------------------")
     runs = unittest.defaultTestLoader.discover(loc[0], pattern=loc[1]+".py")
-    Logger(stream=sys.stdout).info("执行文件名为："+loc[1]+".py")
+    logging.info("执行文件名为："+loc[1]+".py")
     startTime = time.strftime("%Y-%m-%d %H:%M:%S")
     time_ = time.strftime("%Y-%m-%d %H-%M-%S")
     filename = "ui自动化-" +time_+ r"-report.html"
@@ -24,8 +24,8 @@ def report(*loc):
         runner = HTMLTestRunner(f, verbosity=2, title=loc[1]+'测试报告', description='执行人:'+loc[2])
         runner.run(runs)
 
-        Logger(stream=sys.stdout).info("-------------------自动化测试结束，并测试报告已生成-------------------------")
-        Logger(stream=sys.stdout).info("报告位置目录路径：" + filename)
+        logging.info("-------------------自动化测试结束，并测试报告已生成-------------------------")
+        logging.info("报告位置目录路径：" + filename)
     endTime = time.strftime("%Y-%m-%d %H:%M:%S")
     resultServer(file=filename, startTime=Transform.encode_time(startTime), endTime=Transform.encode_time(endTime)).insert_()
 

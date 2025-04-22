@@ -1,6 +1,7 @@
 import logging
 import re
-
+import cv2
+import numpy as np
 import requests
 
 from appnium.mini_Selenium_Program.Public.Utils.IsSpaceUtils import isSpace, isNotEmpty
@@ -67,9 +68,65 @@ def example():
     """This is an example function."""
     print("Hello from a function.")
 
+
+def test():
+
+    cap = cv2.VideoCapture(0)
+    if not cap.isOpened():
+        print("错误：无法打开摄像头！")
+        exit()
+
+    # 创建滑动条窗口
+    cv2.namedWindow("TrackBars")
+    cv2.resizeWindow("TrackBars", 640, 240)
+    cv2.createTrackbar("Hue Min", "TrackBars", 0, 179, lambda x: None)
+    cv2.createTrackbar("Hue Max", "TrackBars", 179, 179, lambda x: None)
+    cv2.createTrackbar("Sat Min", "TrackBars", 0, 255, lambda x: None)
+    cv2.createTrackbar("Sat Max", "TrackBars", 255, 255, lambda x: None)
+    cv2.createTrackbar("Val Min", "TrackBars", 0, 255, lambda x: None)
+    cv2.createTrackbar("Val Max", "TrackBars", 255, 255, lambda x: None)
+
+    while True:
+        success, img = cap.read()
+        if not success:
+            print("警告：未接收到画面，跳过本帧...")
+            continue
+
+        imgHSV = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
+
+        # 获取滑动条值
+        h_min = cv2.getTrackbarPos("Hue Min", "TrackBars")
+        h_max = cv2.getTrackbarPos("Hue Max", "TrackBars")
+        s_min = cv2.getTrackbarPos("Sat Min", "TrackBars")
+        s_max = cv2.getTrackbarPos("Sat Max", "TrackBars")
+        v_min = cv2.getTrackbarPos("Val Min", "TrackBars")
+        v_max = cv2.getTrackbarPos("Val Max", "TrackBars")
+
+        # 生成掩膜和结果
+        lower = np.array([h_min, s_min, v_min])
+        upper = np.array([h_max, s_max, v_max])
+        mask = cv2.inRange(imgHSV, lower, upper)
+        imgResult = cv2.bitwise_and(img, img, mask=mask)
+
+        # 修复：将单通道mask转为3通道
+        mask_3ch = cv2.cvtColor(mask, cv2.COLOR_GRAY2BGR)
+
+        # 堆叠显示
+        imgStack = np.vstack([
+            np.hstack([img, imgHSV]),
+            np.hstack([mask_3ch, imgResult])
+        ])
+        cv2.imshow("Stacked Images", imgStack)
+
+        if cv2.waitKey(1) & 0xFF == ord('q'):
+            break
+    cap.release()
+    cv2.destroyAllWindows()
 if __name__ == '__main__':
-    print(example.__doc__)  # 输出: This is an example function.
-    # print(img_text("../picture/timingChargeResult.png"))
+    test()
+    # i = "15\n是"
+    # print(i.replace("\n", '')) # print(img_text("../picture/timingChargeResult.png"))
+
 
     # def d(**kwargs):
     #

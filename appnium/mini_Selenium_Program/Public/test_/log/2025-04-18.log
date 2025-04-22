@@ -1,0 +1,52 @@
+2025-04-18 11:56:31,516 - test.py[line:50] - INFO: 程序开始运行
+2025-04-18 11:56:31,516 - test.py[line:53] - DEBUG: 这是一条 DEBUG 级别的日志
+2025-04-18 11:56:31,516 - test.py[line:54] - INFO: 这是一条 INFO 级别的日志
+2025-04-18 11:56:31,516 - test.py[line:55] - WARNING: 这是一条 WARNING 级别的日志
+2025-04-18 11:56:31,516 - test.py[line:56] - ERROR: 这是一条 ERROR 级别的日志
+2025-04-18 11:56:31,516 - test.py[line:57] - CRITICAL: 这是一条 CRITICAL 级别的日志
+2025-04-18 11:56:31,516 - test.py[line:62] - ERROR: 捕获到一个错误
+Traceback (most recent call last):
+  File "C:/Users/10260/PycharmProjects/soft-test-main/appnium/mini_Selenium_Program/Public/test_/test.py", line 60, in <module>
+    raise ValueError("这是一个捕获的异常")
+ValueError: 这是一个捕获的异常
+2025-04-18 11:56:31,552 - test.py[line:28] - ERROR: Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\10260\AppData\Local\Programs\Python\Python38\lib\code.py", line 90, in runcode
+    exec(code, self.locals)
+  File "<input>", line 1, in <module>
+  File "D:\PyCharm 2021.1.3\plugins\python\helpers\pydev\_pydev_bundle\pydev_umd.py", line 197, in runfile
+    pydev_imports.execfile(filename, global_vars, local_vars)  # execute the script
+  File "D:\PyCharm 2021.1.3\plugins\python\helpers\pydev\_pydev_imps\_pydev_execfile.py", line 18, in execfile
+    exec(compile(contents+"\n", file, 'exec'), glob, loc)
+  File "C:/Users/10260/PycharmProjects/soft-test-main/appnium/mini_Selenium_Program/Public/test_/test.py", line 65, in <module>
+    raise RuntimeError("这是一个未捕获的异常")
+RuntimeError: 这是一个未捕获的异常
+2025-04-18 11:57:33,708 - test.py[line:50] - INFO: 程序开始运行
+2025-04-18 11:57:33,708 - test.py[line:53] - DEBUG: 这是一条 DEBUG 级别的日志
+2025-04-18 11:57:33,709 - test.py[line:54] - INFO: 这是一条 INFO 级别的日志
+2025-04-18 11:57:33,709 - test.py[line:55] - WARNING: 这是一条 WARNING 级别的日志
+2025-04-18 11:57:33,709 - test.py[line:56] - ERROR: 这是一条 ERROR 级别的日志
+2025-04-18 11:57:33,709 - test.py[line:57] - CRITICAL: 这是一条 CRITICAL 级别的日志
+2025-04-18 11:57:33,709 - test.py[line:62] - ERROR: 捕获到一个错误
+Traceback (most recent call last):
+  File "C:/Users/10260/PycharmProjects/soft-test-main/appnium/mini_Selenium_Program/Public/test_/test.py", line 60, in <module>
+    raise ValueError("这是一个捕获的异常")
+ValueError: 这是一个捕获的异常
+2025-04-18 11:57:33,711 - test.py[line:40] - ERROR: Traceback (most recent call last):
+2025-04-18 11:57:33,711 - test.py[line:40] - ERROR: File "D:\PyCharm 2021.1.3\plugins\python\helpers\pydev\pydevd.py", line 1483, in _exec
+2025-04-18 11:57:33,714 - test.py[line:40] - ERROR: 
+2025-04-18 11:57:33,714 - test.py[line:40] - ERROR: pydev_imports.execfile(file, globals, locals)  # execute the script
+2025-04-18 11:57:33,714 - test.py[line:40] - ERROR: 
+2025-04-18 11:57:33,714 - test.py[line:40] - ERROR: File "D:\PyCharm 2021.1.3\plugins\python\helpers\pydev\_pydev_imps\_pydev_execfile.py", line 18, in execfile
+2025-04-18 11:57:33,715 - test.py[line:40] - ERROR: 
+2025-04-18 11:57:33,715 - test.py[line:40] - ERROR: exec(compile(contents+"\n", file, 'exec'), glob, loc)
+2025-04-18 11:57:33,715 - test.py[line:40] - ERROR: 
+2025-04-18 11:57:33,715 - test.py[line:40] - ERROR: File "C:/Users/10260/PycharmProjects/soft-test-main/appnium/mini_Selenium_Program/Public/test_/test.py", line 65, in <module>
+2025-04-18 11:57:33,715 - test.py[line:40] - ERROR: 
+2025-04-18 11:57:33,716 - test.py[line:40] - ERROR: raise RuntimeError("这是一个未捕获的异常")
+2025-04-18 11:57:33,716 - test.py[line:40] - ERROR: 
+2025-04-18 11:57:33,716 - test.py[line:40] - ERROR: RuntimeError
+2025-04-18 11:57:33,716 - test.py[line:40] - ERROR: :
+2025-04-18 11:57:33,716 - test.py[line:40] - ERROR: 这是一个未捕获的异常
+2025-04-18 11:57:33,716 - test.py[line:40] - ERROR: 
+2025-04-18 13:50:42,880 - test.py[line:50] - INFO: 程序开始运行

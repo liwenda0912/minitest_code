@@ -1,4 +1,5 @@
 # 图片处理函数
+import logging
 import sys
 
 from PIL import Image
@@ -7,7 +8,12 @@ import cv2
 from pytesseract import pytesseract
 
 from appnium.mini_Selenium_Program.Public.Utils.IsSpaceUtils import isNotSpace
-from appnium.mini_Selenium_Program.Public.common.Logger.Logger import Logger
+
+"""
+
+  处理图片
+
+"""
 
 
 def handle_img(img_):
@@ -36,6 +42,13 @@ def handle_img(img_):
     cv2.imwrite(img_, c)
 
 
+"""
+
+   获取按钮具体定位点比例
+
+"""
+
+
 def img_text_PointSize(img, **kwargs):
     handle_img(img)
     img = Image.open(img)
@@ -48,7 +61,7 @@ def img_text_PointSize(img, **kwargs):
     # text = text.strip()
     text_ = join(text)
     if "提示定时提交成功" in text_:
-        Logger(stream=sys.stdout).info("提示定时提交成功")
+        logging.info("定时提交成功")
         # 裁剪图片，回显按钮的图片
         crop = img.crop([0, img.size[1] / 2, img.size[0] / 2, (img.size[1] * 3 / 4) * (6 / 7)])
         # 识别图片获取文字
@@ -59,8 +72,15 @@ def img_text_PointSize(img, **kwargs):
             # 传递按钮在整个页面的位置
             return {"x": 3 / 4, "y": 5 / 8}
     else:
-        Logger(stream=sys.stdout).info(text_)
+        logging.info("定时提交必须大于当前时间5分钟")
         return {"x": 1 / 2, "y": 5 / 8}
+
+
+"""
+
+   合并字符
+   
+"""
 
 
 def join(text):

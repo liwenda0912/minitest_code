@@ -7,8 +7,6 @@ from appnium.mini_Selenium_Program.Public.Utils.IsSpaceUtils import isSpace, isE
     splitPrice, isNotNone
 from appnium.mini_Selenium_Program.Public.Utils.SeleniumUtils import Driver, Waiting
 from appium.webdriver.common.appiumby import AppiumBy
-
-from appnium.mini_Selenium_Program.Public.Utils.distUtils import dict_
 from appnium.mini_Selenium_Program.Public.Utils.imgHandleUtils import img_text_PointSize
 from appnium.mini_Selenium_Program.Public.Utils.keyboardUtils import getHtml, adbKeyboard
 from appnium.mini_Selenium_Program.Public.common.Logger.Logger import Logger
@@ -33,6 +31,7 @@ class ChargeStartPage(object):
         # 选择充电类型-定时，立即，并充等
         time_ = {"hour": {"TimeType": "hour", "text": "15时"}, "min": {"TimeType": "min", "text": "05分"}, "type": "time",
                  "action": "scroll"}
+        self.parkingLotMode()
         self.TimingCharge(data=time_)
         # # 选中启动充电方式
         # self.ChoiceCharge(choice_pay=kwargs.get("choice_pay"), choice_pay_count=kwargs.get("choice_pay_count"),
@@ -48,11 +47,58 @@ class ChargeStartPage(object):
         # logging.info("运行到这里了，枪详情界面")
         self.wait.WaitElement(9, (AppiumBy.XPATH, "//*[starts-with(@class,'charge-button charge-button')]"), "元素找不到")
         # self.driver.Switch_Win(text_="跳转详情")
-
+        self.OccupyPileRemark(choose='', option_="继续启动")
         self.appnium.save_screenshot("../picture/timingChargeResult.png")
         # 通过图片获取按钮点定位值并点击按钮，text为按钮文本
         self.driver.ScreenActionPress(PointSize=img_text_PointSize("../picture/timingChargeResult.png", text_="返回首页"))
-        print(self.appnium)
+
+    """
+       占桩提醒弹窗
+    """
+
+    def OccupyPileRemark(self, **kwargs):
+        if self.driver.Switch_Win(text_="占桩收费提醒", except_=1) != 1:
+            logging.info("占桩收费提醒弹窗展示")
+            # 是否点击不再展示提示占桩提示弹窗
+            if kwargs.get("choose") is not None and len(kwargs.get("choose")) > 0:
+                self.driver.Appnium_click()
+            close_list = self.driver.Find_element(AppiumBy.XPATH,
+                                                  '//*[contains(@class, "fee-btn fee-btn")]').find_elements(
+                AppiumBy.TAG_NAME, 'wx-view')
+            if len(close_list) > 0:
+                for close_ in close_list:
+                    if close_.text == kwargs.get("option_"):
+                        close_.click()
+                        logging.info("占桩收费提醒操作为：" + kwargs.get("option_"))
+                        break
+                    if len(close_list) == close_list.index(close_):
+                        raise Exception("不存在弹窗按钮")
+
+            else:
+                pass
+
+        else:
+            logging.info("占位模式为车位占位计时")
+
+    def parkingLotMode(self, **kwargs):
+        if self.driver.Switch_Win(text_="选择对应车位降锁", except_=1) != 1:
+            logging.info("占位模式为充电桩占桩计时")
+            if kwargs.get("ParkingNum") is not None and len(kwargs.get("ParkingNum")) > 0:
+                print()
+            else:
+                close_list = self.driver.Find_elements(AppiumBy.XPATH,
+                                                       '//*[contains(@class, "right-span popup--right-span")]')
+                if len(close_list) != 0:
+                    for close_ in close_list:
+                        close_.click()
+                        logging.info("地锁弹窗已关闭！")
+                        break
+                else:
+                    pass
+
+        else:
+            logging.info("占位模式为车位占位计时")
+
     """
        选择优惠卡券
     """
@@ -93,7 +139,7 @@ class ChargeStartPage(object):
                                                               '//*[contains(@class,"container two--container")]')
                             if list_ is not None:
                                 for i in list_:
-                                    # 判断元素是否被选中
+                                    # 判断是否被选中
                                     if len(i.find_elements(AppiumBy.XPATH,
                                                            '//*[contains(@class, "is-selected")]')) != 0:
                                         time.sleep(1)
@@ -107,7 +153,7 @@ class ChargeStartPage(object):
                                         else:
                                             pass
                         else:
-                            Logger(stream=sys.stdout).info("不使用任何优惠券")
+                            logging.info("不使用任何优惠券")
                             break
             else:
                 pass
@@ -124,7 +170,7 @@ class ChargeStartPage(object):
         # 选择优惠卡券
         def coupon_select_item(couponType):
             print("开始选择卡券")
-            Logger(stream=sys.stdout).info("开始选择卡券")
+            logging.info("开始选择卡券")
             # 获取所有优惠卡券里的element
             list_ = self.driver.Find_elements(AppiumBy.XPATH, '//*[contains(@class,"container two--container")]')
             for i in list_:
@@ -138,16 +184,16 @@ class ChargeStartPage(object):
                         if kwargs.get("coupon_name") in i.text:
                             # 点击优惠卡券的radio选择框
                             i.find_element(AppiumBy.XPATH, '//*[contains(@class, "radio two--radio")]').click()
-                            Logger(stream=sys.stdout).info("已经选中 " + couponType + ":" + kwargs.get("coupon_name"))
+                            logging.info("已经选中 " + couponType + ":" + kwargs.get("coupon_name"))
                             break
                         else:
                             if list_.index(i) == len(list_ - 1):
-                                Logger(stream=sys.stdout).info("用户无" + kwargs.get("coupon_name") + "优惠券")
+                                logging.info("用户无" + kwargs.get("coupon_name") + "优惠券")
                             else:
                                 pass
                     # 未指定选择优惠券时，默认选中第一张
                     else:
-                        Logger(stream=sys.stdout).info("默认选择第一张")
+                        logging.info("默认选择第一张")
                         # 该优惠卡券是否被默认选中
                         if len(i.find_element(AppiumBy.XPATH,
                                               '//*[contains(@class, "radio two--radio")]').find_elements(AppiumBy.XPATH,
@@ -189,21 +235,21 @@ class ChargeStartPage(object):
                                 self.action.click(discount_text).perform()
                                 discount_text.find_element(AppiumBy.XPATH,
                                                            '//*[contains(@class,"checked")]')
-                                Logger(stream=sys.stdout).info("已选选中" + kwargs.get("chose_discount_name"))
+                                logging.info("已选选中" + kwargs.get("chose_discount_name"))
                                 self.DataMineDiscount()
                                 break
                             else:
                                 if discountSelect[len(discountSelect) - 1] == discount_text:
-                                    Logger(stream=sys.stdout).info("该优惠方案" + kwargs.get("chose_discount_name") + "不存在！")
+                                    logging.info("该优惠方案" + kwargs.get("chose_discount_name") + "不存在！")
                                     # 退出选中优惠弹窗
                                     self.DataMineDiscount()
                         else:
                             # 默认选择第一个
-                            Logger(stream=sys.stdout).info("默认选中第一个")
+                            logging.info("默认选中第一个")
                             self.DataMineDiscount()
                             break
                 else:
-                    Logger(stream=sys.stdout).info("用户在该站点无任何优惠方案")
+                    logging.info("用户在该站点无任何优惠方案")
                     logging.info("用户在该站点无任何优惠方案")
             # 不使用优惠方案
             else:
@@ -220,7 +266,7 @@ class ChargeStartPage(object):
                             break
                         # 退出最外层循环
                         if check:
-                            Logger(stream=sys.stdout).info("不使用优惠方案")
+                            logging.info("不使用优惠方案")
                             break
                         else:
                             continue
@@ -258,7 +304,7 @@ class ChargeStartPage(object):
         def ChoiceChargingMethod():
             self.driver.Switch_Win(text_="启动充电")
             pay_options_text_list = []
-            Logger(stream=sys.stdout).info("开始选择启动方式")
+            logging.info("开始选择启动方式")
             choice_pay = kwargs.get("choice_pay")
 
             choice_pay_count = kwargs.get("choice_pay_count")
@@ -274,12 +320,12 @@ class ChargeStartPage(object):
                     pass
                 # 判断是否为用户选中的支付方式
                 if pay_options.text == choice_pay:
-                    Logger(stream=sys.stdout).info("已选中" + pay_options.text + "tab")
+                    logging.info("已选中" + pay_options.text + "tab")
                     break
                 else:
                     # 判断是否为列表最后一个
                     if len(pay_options_lists) - 1 == pay_options_lists.index(pay_options):
-                        Logger(stream=sys.stdout).info("不存在" + choice_pay + "支付方式！")
+                        logging.info("不存在" + choice_pay + "支付方式！")
                         raise Exception("不存在" + choice_pay + "支付方式！")
                     else:
                         continue
@@ -309,11 +355,11 @@ class ChargeStartPage(object):
                                 # 判断当前数据是否为指定数据的值（companyName）
                                 if i.text == companyName:
                                     self.action.click(i).perform()
-                                    Logger(stream=sys.stdout).info("已选中集团:" + companyName)
+                                    logging.info("已选中集团:" + companyName)
                                 else:
                                     # 判断是否为列表最后一个数据
                                     if companyName_list.index(i) == len(companyName_list) - 1:
-                                        Logger(stream=sys.stdout).info("用户无" + companyName + "集团")
+                                        logging.info("用户无" + companyName + "集团")
                                     else:
                                         continue
                         else:
@@ -334,12 +380,12 @@ class ChargeStartPage(object):
                             if float(splitPrice(
                                     cardPrice.find_element(AppiumBy.TAG_NAME, 'wx-view').text)) > 10 and check:
                                 check = False
-                                Logger(stream=sys.stdout).info(
+                                logging.info(
                                     "选中" + choice_pay + ":" + cardNameItem.text)
                                 pass
                             else:
                                 self.action.click(i).perform()
-                                Logger(stream=sys.stdout).info(
+                                logging.info(
                                     "取消选择" + choice_pay + ":" + cardNameItem.text)
                     # 点击弹窗确认按钮
                     self.DataMineDiscount()
@@ -361,20 +407,20 @@ class ChargeStartPage(object):
                         # 判断卡名是否存在卡包里
                         if carName in cardItem.text:
                             self.action.click(cardItem).perform()
-                            Logger(stream=sys.stdout).info("以选中集团钱包：" + carName)
+                            logging.info("以选中集团钱包：" + carName)
                             break
                         else:
                             if carNameItemList.index(cardItem) == len(carNameItemList) - 1:
-                                Logger(stream=sys.stdout).info("用户无" + choice_pay + ":" + carName)
+                                logging.info("用户无" + choice_pay + ":" + carName)
                                 break
                             else:
                                 continue
                 else:
-                    Logger(stream=sys.stdout).info("默认选" + choice_pay + "中第一个作为启动方式")
+                    logging.info("默认选" + choice_pay + "中第一个作为启动方式")
                 # 点击弹窗确认按钮
                 self.DataMineDiscount()
             else:
-                Logger(stream=sys.stdout).info("用户使用的启动方式为：" + choice_pay)
+                logging.info("用户使用的启动方式为：" + choice_pay)
                 pass
 
         # 点击选卡按钮
@@ -384,17 +430,7 @@ class ChargeStartPage(object):
             # 循序获取的列表并点击
             self.driver.circleList(list_=list_, list_card=list_card, type="card", text=text, action="click")
 
-            # for i in list_:
-            #     if text in i:
-            #         list_card[list_.index(i)].click()
-            #         break
-            #     else:
-            #         if len(list_) - 1 == list_.index(i):
-            #             Logger(stream=sys.stdout).info("页面无该元素")
-            #             break
-            #         else:
-            #             continue
-
+        # 返回choiceChargingMethod方法
         return ChoiceChargingMethod()
 
     #  关闭更换枪口弹窗
@@ -402,14 +438,14 @@ class ChargeStartPage(object):
         # 判断是否存在更换充电位弹窗
         if self.driver.Switch_Win(text_="更换充电位", except_=1) == 1:
             logging.info("启动界面无更换充电位弹窗！")
-            Logger(stream=sys.stdout).info("启动界面无更换充电位弹窗！")
+            logging.info("启动界面无更换充电位弹窗！")
             pass
         else:
             close_list = self.driver.Find_elements(AppiumBy.XPATH, '//*[contains(@class, "popup-close popup-close")]')
             if len(close_list) != 0:
                 for close_ in close_list:
                     close_.click()
-                    Logger(stream=sys.stdout).info("更换充电弹窗已经关闭成功！")
+                    logging.info("更换充电弹窗已经关闭成功！")
                     break
             else:
                 pass
@@ -422,7 +458,7 @@ class ChargeStartPage(object):
             default_car = self.wait.WaitElement(8, (AppiumBy.XPATH,
                                                     '//*[starts-with(@class,"car-detail main--car-detail")]'), "元素不存在")
             if default_car.text == "添加车辆信息，便于识别部分站场停车费计算或减免出场":
-                Logger(stream=sys.stdout).info("用户未设置存在默认车辆！")
+                logging.info("用户未设置存在默认车辆！")
                 # 模拟点击
                 time.sleep(1)
                 self.action.scroll_to_element(default_car).perform()
@@ -453,12 +489,12 @@ class ChargeStartPage(object):
                 # 点击车牌
                 self.driver.ActionsClick(carList, kwargs.get("carNum"))
                 self.driver.ActionsClick(buttonList, "确认选择")
-                Logger(stream=sys.stdout).info("已选择车牌" + kwargs.get("carNum") + "启动充电")
+                logging.info("已选择车牌" + kwargs.get("carNum") + "启动充电")
             else:
-                Logger(stream=sys.stdout).info("用户存在默认车辆！，并使用默认车辆启动充电")
+                logging.info("用户存在默认车辆！，并使用默认车辆启动充电")
                 pass
         else:
-            Logger(stream=sys.stdout).info("不使用车牌启动充电！")
+            logging.info("不使用车牌启动充电！")
             pass
 
     def cancelPupop(self):
@@ -479,7 +515,7 @@ class ChargeStartPage(object):
                     if agreement_list.index(i) == len(agreement_list) - 1:
                         raise Exception("元素不存在")
         else:
-            Logger(stream=sys.stdout).info("该支付方式下无" + text + "使用")
+            logging.info("该支付方式下无" + text + "使用")
             return False
 
     # 勾选安心协议
@@ -491,25 +527,25 @@ class ChargeStartPage(object):
         if kwargs.get("boolean") and isNotEmpty(insurance):
             insureObject = insurance[0].find_elements(AppiumBy.XPATH, '//*[starts-with(@class, "circle circle")]')
             if isNotEmpty(insureObject):
-                Logger(stream=sys.stdout).info(kwargs.get("station") + "已默认勾选安心充服务！")
+                logging.info(kwargs.get("station") + "已默认勾选安心充服务！")
                 pass
 
             else:
                 self.action.click(insurance[0]).perform()
-                Logger(stream=sys.stdout).info(kwargs.get("station") + "已勾选安心充服务！")
+                logging.info(kwargs.get("station") + "已勾选安心充服务！")
         # 不勾选安心协议并且站点已开启安心充
         elif kwargs.get("boolean") is not True and isNotEmpty(insurance):
             insureObject = insurance[0].find_elements(AppiumBy.XPATH, '//*[starts-with(@class, "circle circle")]')
             if isNotEmpty(insureObject):
                 self.action.click(insurance[0]).perform()
-                Logger(stream=sys.stdout).info(kwargs.get("station") + "已取消勾选安心充服务！")
+                logging.info(kwargs.get("station") + "已取消勾选安心充服务！")
 
             else:
-                Logger(stream=sys.stdout).info(kwargs.get("station") + "已默认不勾选安心充服务！")
+                logging.info(kwargs.get("station") + "已默认不勾选安心充服务！")
                 pass
         # 站点无安心充服务
         else:
-            Logger(stream=sys.stdout).info(kwargs.get("station") + "无安心充服务！")
+            logging.info(kwargs.get("station") + "无安心充服务！")
             pass
 
     def TimingCharge(self, **kwargs):
@@ -521,17 +557,15 @@ class ChargeStartPage(object):
             self.driver.Find_TagName_click("定时充电", (AppiumBy.TAG_NAME, "wx-label"), switch_text="立即充电")
             self.driver.Find_TagName_click("请选择定时充电时间", (AppiumBy.TAG_NAME, "wx-label"), switch_text="请选择定时充电时间")
             self.driver.Switch_Win(text_="确认")
-            getHtml(self.appnium)
             # 修改dom信息
-            element = self.driver.Find_element(AppiumBy.XPATH, "//*[starts-with(@class,'u-picker-view time--u-picker-view')]")
-            self.appnium.execute_script("arguments[0].value='[0,1,2]';", element)
-            time.sleep(2)
-
-            getHtml(self.appnium)
+            # element = self.driver.Find_element(AppiumBy.XPATH, "//*[starts-with(@class,'u-picker-view time--u-picker-view')]")
+            # self.appnium.execute_script("arguments[0].value='[0,1,2]';", element)
+            # time.sleep(2)
             # # 选择时
-            # self.driver.circleList(type=kwargs.get("data").get("type"), TimeType=kwargs.get("data").get("hour").get("TimeType"),
-            #                        text=kwargs.get("data").get("hour").get("text"),
-            #                        action=kwargs.get("data").get("action"))
+            self.driver.circleList(type=kwargs.get("data").get("type"),
+                                   TimeType=kwargs.get("data").get("hour").get("TimeType"),
+                                   text=kwargs.get("data").get("hour").get("text"),
+                                   action=kwargs.get("data").get("action"))
             # # 选择分
             # self.driver.circleList(type=kwargs.get("data").get("type"), TimeType=kwargs.get("data").get("min").get("TimeType"),
             #                        text=kwargs.get("data").get("min").get("text"),
@@ -539,8 +573,18 @@ class ChargeStartPage(object):
             buttonList = self.driver.Find_elements(AppiumBy.XPATH,
                                                    "//*[starts-with(@class,'u-btn-picker time--u-btn-picker')]")
             self.driver.ActionsClick(buttonList, "确认")
+            # if self.driver.Switch_Win(text_="请设置定时充电的时间为5分钟后", except_=1) != 1:
+            #     buttonList = self.driver.Find_elements(AppiumBy.XPATH,
+            #                                            "//*[starts-with(@class,'u-btn-picker time--u-btn-picker')]")
+            #     for i in buttonList:
+            #         i.click()
+            #         logging.info("定时时间没有大于当前5分钟")
+            #     self.TimingCharge()
 
         return selectChargeTime()
+
+    def selectSoc(self):
+        self
 
     # def timeSelect(self, **kwargs):
     #     if kwargs.get("type") == "card":
@@ -556,19 +600,19 @@ class ChargeStartPage(object):
     #         if kwargs.get("text") in i:
     #             if kwargs.get("action") == "click":
     #                 kwargs.get("list_card")[list_.index(i)].click()
-    #                 Logger(stream=sys.stdout).info("点击"+kwargs.get("text")+"成功")
+    #                 logging.info("点击"+kwargs.get("text")+"成功")
     #                 break
     #             elif kwargs.get("action") == "actionClick":
     #                 self.action.click(i).preform()
-    #                 Logger(stream=sys.stdout).info("点击"+kwargs.get("text")+"成功")
+    #                 logging.info("点击"+kwargs.get("text")+"成功")
     #                 break
     #             else:
     #                 self.action.scroll_to_element(i).perform()
-    #                 Logger(stream=sys.stdout).info("选择"+kwargs.get("text")+"成功")
+    #                 logging.info("选择"+kwargs.get("text")+"成功")
     #                 break
     #         else:
     #             if len(list_) - 1 == list_.index(i):
-    #                 Logger(stream=sys.stdout).info("页面无"+kwargs.get("text") + "元素")
+    #                 logging.info("页面无"+kwargs.get("text") + "元素")
     #                 break
     #             else:
     #                 continue

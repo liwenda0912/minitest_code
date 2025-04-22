@@ -7,7 +7,6 @@ from appnium.mini_Selenium_Program.Public.Utils.SeleniumUtils import Driver, Wai
 from appium.webdriver.common.appiumby import AppiumBy
 from appnium.mini_Selenium_Program.Public.Utils.keyboardUtils import keyboard, enterKey, getHtml, adbKeyboard
 from appnium.mini_Selenium_Program.Public.common.AppiumStart.Charge_user_login import Charge_user_login
-from appnium.mini_Selenium_Program.Public.common.Logger.Logger import Logger
 
 
 class Search_Station(object):
@@ -24,7 +23,7 @@ class Search_Station(object):
         if login_text is not None and len(login_text) != 0:
             Charge_user_login(self.appnium).test_chargeUserLogin()
         else:
-            Logger(stream=sys.stdout).info("<-----------开始站点搜索-------------->")
+            logging.info("<-----------开始站点搜索-------------->")
             self.ActionKeyBoard(searchStationName=kwargs.get("StationName"))
 
     def ActionKeyBoard(self, **kwargs):
@@ -56,7 +55,7 @@ class Search_Station(object):
             for i in dates_message:
                 if searchStationName in i.text:
                     i.click()
-                    Logger(stream=sys.stdout).info("进入搜索站点详情页中")
+                    logging.info("进入搜索站点详情页中")
                     break
                 else:
                     raise Exception("列表没有找到要搜索的站点信息！")

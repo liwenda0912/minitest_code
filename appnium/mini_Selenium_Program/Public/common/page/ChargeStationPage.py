@@ -7,7 +7,6 @@ from selenium.webdriver import ActionChains
 
 from appnium.mini_Selenium_Program.Public.Utils.SeleniumUtils import Driver, Waiting
 from appnium.mini_Selenium_Program.Public.Utils.keyboardUtils import getHtml
-from appnium.mini_Selenium_Program.Public.common.Logger.Logger import Logger
 
 
 class chargeStation(object):
@@ -28,10 +27,10 @@ class chargeStation(object):
             pass
         else:
             if "站桩概况" in self.appnium.page_source:
-                Logger(stream=sys.stdout).info("新界面")
+                logging.info("新界面")
                 return self.NewStationDetail(pileNum=kwargs.get("pileNum"))
             else:
-                Logger(stream=sys.stdout).info("站场页面为旧ui")
+                logging.info("站场页面为旧ui")
                 return self.OlderStationDetail(type="old", pileNum=kwargs.get("pileNum"))
 
     # 使用OlderStationDetail方法时要填写pileNum和type参数
