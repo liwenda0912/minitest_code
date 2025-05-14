@@ -61,5 +61,4 @@ class Search_Station(object):
                     raise Exception("列表没有找到要搜索的站点信息！")
         else:
             raise Exception("按照站点名称搜索不到对应的站点！，键盘输入过快导致输入款无法输入并进行检索。")
-        # else:
-        #     self.ActionKeyBoard(searchStationName=searchStationName)
+

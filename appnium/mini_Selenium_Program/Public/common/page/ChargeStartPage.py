@@ -29,8 +29,7 @@ class ChargeStartPage(object):
         # 关闭更换枪口弹窗
         self.CloseChoicePileWay()
         # 选择充电类型-定时，立即，并充等
-        time_ = {"hour": {"TimeType": "hour", "text": "15时"}, "min": {"TimeType": "min", "text": "05分"}, "type": "time",
-                 "action": "scroll"}
+        time_ = {"time": {"date": {"TimeType": "date", "text": "2025-06-06"}, "datetime": {"TimeType": "hour", "text": "10:20"}}, "type": "time"}
         self.parkingLotMode()
         self.TimingCharge(data=time_)
         # # 选中启动充电方式
@@ -48,7 +47,7 @@ class ChargeStartPage(object):
         self.wait.WaitElement(9, (AppiumBy.XPATH, "//*[starts-with(@class,'charge-button charge-button')]"), "元素找不到")
         # self.driver.Switch_Win(text_="跳转详情")
         self.OccupyPileRemark(choose='', option_="继续启动")
-        self.appnium.save_screenshot("../picture/timingChargeResult.png")
+        self.getScreenshot()
         # 通过图片获取按钮点定位值并点击按钮，text为按钮文本
         self.driver.ScreenActionPress(PointSize=img_text_PointSize("../picture/timingChargeResult.png", text_="返回首页"))
 
@@ -556,16 +555,13 @@ class ChargeStartPage(object):
                                   "元素不存在！")
             self.driver.Find_TagName_click("定时充电", (AppiumBy.TAG_NAME, "wx-label"), switch_text="立即充电")
             self.driver.Find_TagName_click("请选择定时充电时间", (AppiumBy.TAG_NAME, "wx-label"), switch_text="请选择定时充电时间")
-            self.driver.Switch_Win(text_="确认")
             # 修改dom信息
             # element = self.driver.Find_element(AppiumBy.XPATH, "//*[starts-with(@class,'u-picker-view time--u-picker-view')]")
             # self.appnium.execute_script("arguments[0].value='[0,1,2]';", element)
             # time.sleep(2)
             # # 选择时
             self.driver.circleList(type=kwargs.get("data").get("type"),
-                                   TimeType=kwargs.get("data").get("hour").get("TimeType"),
-                                   text=kwargs.get("data").get("hour").get("text"),
-                                   action=kwargs.get("data").get("action"))
+                                   time=kwargs.get("data").get("time"))
             # # 选择分
             # self.driver.circleList(type=kwargs.get("data").get("type"), TimeType=kwargs.get("data").get("min").get("TimeType"),
             #                        text=kwargs.get("data").get("min").get("text"),
@@ -584,7 +580,11 @@ class ChargeStartPage(object):
         return selectChargeTime()
 
     def selectSoc(self):
-        self
+        pass
+
+    def getScreenshot(self):
+        self.driver.contexts_switch(0)
+        self.appnium.save_screenshot("../picture/timingChargeResult.png")
 
     # def timeSelect(self, **kwargs):
     #     if kwargs.get("type") == "card":

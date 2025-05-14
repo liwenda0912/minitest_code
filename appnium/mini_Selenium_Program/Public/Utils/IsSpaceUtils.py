@@ -70,3 +70,19 @@ def isNone(loc):
         return True
     else:
         return False
+
+
+def Split(s, type_):
+    list_ = []
+    totalDetail = []
+    if type_ == "space":
+        for text in s.split('\n'):
+            if text != "" and text.isspace() is not True:
+                list_.append(text)
+        totalDetail.append("".join(list_))
+        return totalDetail
+    else:
+        for text in s.split(type_):
+            if text != "" and text.isspace() is not True:
+                list_.append(text)
+        return list_

@@ -3,6 +3,7 @@ import sys
 import time
 
 from appium.webdriver.common.appiumby import AppiumBy
+from appium.webdriver.common.touch_action import TouchAction
 from selenium.webdriver import ActionChains
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -28,7 +29,7 @@ from selenium.webdriver.support import expected_conditions as EC
 
 
 # 等待类
-from appnium.mini_Selenium_Program.Public.Utils.IsSpaceUtils import isNotSpace, isNotNone, isNotEmpty
+from appnium.mini_Selenium_Program.Public.Utils.IsSpaceUtils import isNotSpace, isNotNone, isNotEmpty, Split
 from appnium.mini_Selenium_Program.Public.Utils.keyboardUtils import getHtml
 
 
@@ -88,6 +89,8 @@ class Waiting(object):
 class Driver(object):
     def __init__(self, appnium):
         self.Appnium = appnium
+        self.action = ActionChains(self.Appnium)
+        self.actions = TouchAction(self.Appnium)
 
     # 查找element元素
     def Find_element(self, *loc):
@@ -161,7 +164,6 @@ class Driver(object):
         for handle in list_:
             self.Appnium.switch_to.window(handle)
             if isNotNone(kwargs.get("text_")) and isNotEmpty(kwargs.get("text_")):
-                getHtml(self.Appnium)
                 if kwargs.get("text_") in self.Appnium.page_source:
                     logging.info("找到含有:" + kwargs.get("text_") + ":的页面")
                     break
@@ -257,45 +259,64 @@ class Driver(object):
                     continue
 
     def circleList(self, **kwargs):
-        if kwargs.get("type") == "card" and isNotNone(kwargs.get("type")):
-            list_ = kwargs.get("list_")
-        elif kwargs.get("type") == "time" and isNotNone(kwargs.get("type")):
-            if kwargs.get("TimeType") == "hour":
-                getHtml(self.Appnium)
-                list_ = self.Appnium.find_elements(AppiumBy.TAG_NAME, 'wx-picker-view-column')[3].find_elements(
-                    AppiumBy.XPATH, '//*[starts-with(@class , "u-column-item time--u-column-item")]')
+        def getList():
+            # 支付卡片
+            if kwargs.get("type") == "card" and isNotNone(kwargs.get("type")):
+                list_ = kwargs.get("list_")
+            # 定时循环
+            elif kwargs.get("type") == "time" and isNotNone(kwargs.get("type")):
+                Driver(self.Appnium).Switch_Win(text_="确认")
+                # 获取日期列表信息
+                timeList = Split(kwargs.get("time").get("date").get('text'), '-')
+                dateTime = Split(kwargs.get("time").get("datetime").get('text'), ":")
+                # 获取定时器的元素
+                list_ = self.Appnium.find_elements(AppiumBy.TAG_NAME, 'wx-picker-view-column')
+                for i in list_:
+                    # 获取每个列的所有值(ps:例如时的所有值)
+                    list_child = i.find_elements(AppiumBy.TAG_NAME, 'wx-view')
+                    resetTime(list_.index(i))
+                    if 2 >= list_.index(i):
+                        # 年月日的选择
+                        for j in list_child:
+                            self.action.move_to_element(j).click().perform()
+                            if timeList[list_.index(i)] in Split(j.text, 'space')[0]:
+                                break
+                            elif len(Split(j.text, 'space')[0]) == 0:
+                                if len(list_child) > 10:
+                                    if int(timeList[list_.index(i)]) - 1 == list_child.index(j):
+                                        break
+                                if len(list_child) - 1 == list_child.index(j):
+                                    logging.info("无" + kwargs.get("text") + "可以选择")
+                    else:
+                        # 时和分的选择
+                        for j in list_child:
+                            self.action.move_to_element(j).click().perform()
+                            if dateTime[list_.index(i) - 3] in Split(j.text, 'space')[0]:
+                                break
+                            else:
+                                if int(dateTime[list_.index(i) - 3]) == list_child.index(j):
+                                    break
+                                if len(list_child) - 1 == list_child.index(j):
+                                    logging.info("无" + kwargs.get("text") + "可以选择")
             else:
-                list_ = self.Appnium.find_elements(AppiumBy.TAG_NAME, 'wx-picker-view-column')[4].find_elements(
-                    AppiumBy.XPATH, '//*[starts-with(@class , "u-column-item time--u-column-item")]')
-        else:
-            logging.info("没有填写type参数")
-            return 0
-        for i in list_:
-            if kwargs.get("text") in i.text.replace("\n", '') and isNotNone(kwargs.get("text")):
-                if kwargs.get("action") == "click" and isNotNone(kwargs.get("action")):
-                    kwargs.get("list_card")[list_.index(i)].click()
-                    logging.info("点击" + kwargs.get("text") + "成功")
-                    break
-                elif kwargs.get("action") == "actionClick" and isNotNone(kwargs.get("action")):
-                    ActionChains(self.Appnium).click(i).preform()
-                    logging.info("点击" + kwargs.get("text") + "成功")
-                    break
-                elif isNotNone(kwargs.get("action")):
-                    ActionChains(self.Appnium).scroll_to_element(i).perform()
-                    logging.info("选择" + kwargs.get("text") + "分成功")
-                    break
-                else:
-                    logging.info("没有填action参数")
-                    break
-            elif isNotNone(kwargs.get("text")):
-                if len(list_) - 1 == list_.index(i):
-                    logging.info("页面无" + kwargs.get("text") + "元素")
-                    break
-                else:
-                    continue
-            else:
-                logging.info("没有填text参数")
-                break
+                logging.info("没有填写type参数")
+                return 0
+
+        def resetTime(num):
+            self.contexts_switch(0)
+            local = self.Appnium.get_window_size()
+            x = (1 + num * 2) * local["width"] / 10
+            y = local["height"] * 4 / 5
+            self.Appnium.swipe(x, y - 100, x, y + 200, 50)
+            if num >= 2:
+                for i in range(num - 1):
+                    time.sleep(2)
+                    self.Appnium.swipe(x, y - 100, x, y + 200, 30)
+                    if num == 4:
+                        self.Appnium.swipe(x - 50, y - 100, x - 50, y + 200, 20)
+            self.contexts_switch(1)
+            self.Switch_Win(text_="确认")
+        return getList()
 
     def contexts_switch(self, loc):
         contexts_list = self.Appnium.contexts
@@ -303,6 +324,10 @@ class Driver(object):
             self.Appnium.switch_to.context(contexts_list[0])
         else:
             self.Appnium.switch_to.context(contexts_list[1])
+
+    def getScreenshot(self, path):
+        self.Appnium.contexts_switch(0)
+        self.Appnium.save_screenshot(path)
 
 
 class utils_Option:

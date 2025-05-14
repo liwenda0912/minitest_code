@@ -72,8 +72,19 @@ def img_text_PointSize(img, **kwargs):
             # 传递按钮在整个页面的位置
             return {"x": 3 / 4, "y": 5 / 8}
     else:
-        logging.info("定时提交必须大于当前时间5分钟")
-        return {"x": 1 / 2, "y": 5 / 8}
+        if '是否取消定时充电' in text_:
+            # 裁剪图片，回显按钮的图片
+            crop = img.crop([0, img.size[1] / 2, img.size[0] / 2, (img.size[1] * 3 / 4) * (6 / 7)])
+            # 识别图片获取文字
+            text = pytesseract.image_to_string(crop, lang)
+            if kwargs.get("text_") in join(text):
+                return {"x": 1 / 4, "y": 5 / 8}
+            else:
+                # 传递按钮在整个页面的位置
+                return {"x": 3 / 4, "y": 5 / 8}
+        else:
+          logging.info("定时提交必须大于当前时间5分钟")
+          return {"x": 1 / 2, "y": 5 / 8}
 
 
 """
