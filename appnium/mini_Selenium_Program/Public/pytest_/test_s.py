@@ -11,12 +11,13 @@ def test_num():
 
 
 def test_nums():
-    lists = [4, 86, 5, 9, 8, 210, 1, 97, 0.21]
+    lists = [5, 9, 8, 210, 1, 86]
     for i in range(len(lists)):
         for j in range(len(lists) - 1):
             if lists[j] > lists[j + 1]:
                 lists[j + 1], lists[j] = lists[j], lists[j + 1]
     print(lists)
+
 
 
 # 倒叙排序

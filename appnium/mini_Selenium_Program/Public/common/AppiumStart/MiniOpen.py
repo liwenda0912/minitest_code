@@ -27,7 +27,6 @@ class openMini(object):
                     # 1是传参，2是点击事件，3是获取text元素
                     self.wait.WaitElement(1, (AppiumBy.XPATH, '//*[@text="请填写微信号/QQ号/邮箱"]'), "无法找到该元素", 18027190670)
                     self.wait.WaitElement(1, (AppiumBy.XPATH, '//*[@text="请填写密码"]'), "无法找到该元素", 'wj123456')
-                    # self.driver.Appnium_SendKey((AppiumBy.XPATH, '//*[@text="请填写密码"]'), "无法找到该元素", 'wj123456')
                     self.wait.WaitElement(2, (AppiumBy.XPATH, '//*[@text="同意并登录"]'), "元素找不到")
                     el_login_msg = self.appnium.find_elements(AppiumBy.XPATH, '//*[@text="确定"]')
                     # 判断页面是否存在确认按钮
@@ -38,7 +37,6 @@ class openMini(object):
                         break
                 logging.info('----------------------------登录成功！-------------------------------')
                 self.driver.Appnium_swipe(200)
-
                 self.driver.Appnium_click(AppiumBy.XPATH, '//*[@text="驾驶乐"]')
             else:
                 logging.info('----------------------------已经登录了！-------------------------------')

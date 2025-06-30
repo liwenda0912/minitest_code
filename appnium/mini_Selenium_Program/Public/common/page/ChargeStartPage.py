@@ -28,9 +28,11 @@ class ChargeStartPage(object):
                                '//*[starts-with(@class,"charge-button charge-button")]')
         # 关闭更换枪口弹窗
         self.CloseChoicePileWay()
+        # 占位与占桩模式判断
+        self.parkingLotMode()
+
         # 选择充电类型-定时，立即，并充等
         time_ = {"time": {"date": {"TimeType": "date", "text": "2025-06-06"}, "datetime": {"TimeType": "hour", "text": "10:20"}}, "type": "time"}
-        self.parkingLotMode()
         self.TimingCharge(data=time_)
         # # 选中启动充电方式
         # self.ChoiceCharge(choice_pay=kwargs.get("choice_pay"), choice_pay_count=kwargs.get("choice_pay_count"),

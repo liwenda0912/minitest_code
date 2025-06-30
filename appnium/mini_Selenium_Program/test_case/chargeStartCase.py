@@ -1,10 +1,7 @@
 """
    # <---定点进入对应充电站--->
 """
-import atexit
 import logging
-import sys
-import time
 import traceback
 import unittest
 from selenium.webdriver import ActionChains

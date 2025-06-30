@@ -1,11 +1,10 @@
+import logging
 import sys
 import unittest
 from HTMLTestRunner import HTMLTestRunner
 import time
-from BeautifulReport import BeautifulReport as bf
 from appnium.mini_Selenium_Program.Public.Server.resultServer import  resultServer
 from appnium.mini_Selenium_Program.Public.Utils.timeUtils.timeTransform import Transform
-from appnium.mini_Selenium_Program.Public.common.Logger.Logger import Logger
 
 
 def report(*loc):

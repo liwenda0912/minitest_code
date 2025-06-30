@@ -108,7 +108,6 @@ class Driver(object):
 
     # 传参
     def Appnium_SendKey(self, *loc):
-        print(loc[1])
         self.Appnium.find_element(*loc[0]).send_keys(loc[1])
 
     # 清除输入框参数
@@ -167,8 +166,6 @@ class Driver(object):
                 if kwargs.get("text_") in self.Appnium.page_source:
                     logging.info("找到含有:" + kwargs.get("text_") + ":的页面")
                     break
-                else:
-                    print("找不到元素")
             else:
                 el = self.Find_elements(*loc)
                 if isNotEmpty(el) and isNotNone(el):
